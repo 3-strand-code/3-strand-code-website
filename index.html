@@ -7,17 +7,20 @@
     <meta name="author" content="Levi Thomason"/>
     <meta name="description" content="Registration for 3 Strand Code organization"/>
     <meta name="keywords" content="learn, teach, web development"/>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="start-to-finish.css"/>
 
-    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css"/>
+    <script src="app.js"></script>
 
     <title>3 Strand Code</title>
 </head>
-<body>
+<body ng-app="App" ng-controller="Controller">
 
 <div class="jumbotron">
     <div class="container">
         <h1>3 Strand Code</h1>
 
+        
         <p class="lead">Learn. Teach. Repeat.</p>
 
         <p>A hands on social approach to learning front end web development.</p>
@@ -25,18 +28,26 @@
 </div>
 
 <div class="container">
-    <div class="row text-center">
-        <div class="col-sm-4">
-            <h2>Learn</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci explicabo hic incidunt ipsa laborum mollitia neque .</p>
-        </div>
-        <div class="col-sm-4">
-            <h2>Teach</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis dolore earum et excepturi facere facilis .</p>
-        </div>
-        <div class="col-sm-4">
-            <h2>Repeat</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur distinctio dolorem dolorum eligendi enim et.</p>
+    <div class="bullets">
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <h2>Learn</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci explicabo hic incidunt ipsa
+                    laborum mollitia neque .</p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Teach</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis dolore earum et
+                    excepturi facere facilis .</p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Repeat</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur
+                    distinctio dolorem dolorum eligendi enim et.</p>
+            </div>
         </div>
     </div>
 
@@ -69,6 +80,7 @@
                 
             </form>
             <p>
+                change
             </p>
         </div>
     </div>
