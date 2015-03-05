@@ -2,21 +2,24 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta name="author" content="Levi Thomason"/>
     <meta name="description" content="Registration for 3 Strand Code organization"/>
     <meta name="keywords" content="learn, teach, web development"/>
-    <script src="bower_components/angular/angular.min.js"></script>
+    <title>3 Strand Code</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Khula:400,300,700|Open+Sans:400,300,700|Roboto:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="start-to-finish.css"/>
 
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
 
-    <title>3 Strand Code</title>
 </head>
 <body ng-app="App" ng-controller="Controller">
 
 <div class="jumbotron">
+    <!--<img src="http://education.byu.edu/sites/default/departments/teclab/images/ECS.jpg"/>-->
+    <div class="picture"></div>
     <div class="container">
         <h1>3 Strand Code</h1>
 
@@ -50,47 +53,53 @@
             </div>
         </div>
     </div>
+</div>
 
-    <hr/>
+<hr/>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <form name="registrationForm">
-                <legend>Register Now</legend>
-                <div class="form-group">
-                    <input ng-model="user.firstName" name="firstName" class="form-control" type="text"
-                           placeholder="First name" required="required"/>
-                </div>
-
-                <div class="form-group">
-                    <input ng-model="user.lastName" name="lastName" class="form-control" type="text"
-                           placeholder="Last name" required="required"/>
-                </div>
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            @
-                        </div>
-                        <input ng-model="user.email" name="email" class="form-control" type="email"
-                               placeholder="Email foo" required="required"/>
+<div class="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <form name="registrationForm">
+                    <legend>Register Now</legend>
+                    <div class="form-group">
+                        <input ng-model="user.firstName" name="firstName" class="form-control" type="text"
+                               placeholder="First name" required="required"/>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <a class="btn btn-primary" ng-disabled="!registrationForm.$valid">Register</a>
-                </div>
+                    <div class="form-group">
+                        <input ng-model="user.lastName" name="lastName" class="form-control" type="text"
+                               placeholder="Last name" required="required"/>
+                    </div>
 
-            </form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                @
+                            </div>
+                            <input ng-model="user.email" name="email" class="form-control" type="email"
+                                   placeholder="Email foo" required="required"/>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <a class="btn btn-primary" ng-disabled="!registrationForm.$valid">Register</a>
+                    </div>
+
+                </form>
+
+            </div>
         </div>
     </div>
 
-    <hr/>
+</div>
 
+<hr/>
 
+<div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-lg-8 col-lg-offset-2">
             <h2>
                 Front End Web Development
                 <br/>
@@ -186,22 +195,26 @@
 
 
             <h2>Is this course for me?</h2>
-            A few questions for you. Do you love solving problems? Are you constantly learning new things?
-            Others say you’re detailed oriented and meticulous?
-            Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into reality?
-            Yes?
-            Read on.
+            <p>
+                A few questions for you.
+                Do you love solving problems?
+                Are you constantly learning new things?
+                Others say you’re detailed oriented and meticulous?
+                Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into reality?
+                Yes?
+                Read on.
+            </p>
 
-            If you’re driven when challenged and prone to press on when others tend to give up, you might have the
-            aptitude of a developer.
-            Not taking this course could mean missing an opportunity to live the life you were perfectly designed for.
+            <p>
+                If you’re driven when challenged and prone to press on when others tend to give up, you might have the aptitude of a developer.
+                Not taking this course could mean missing an opportunity to live the life you were perfectly designed for.
+            </p>
 
             <p>
                 Front-end web developers have a blast.
                 We love solving problems and making cool things that make users really happy.
                 We also get paid quite well to do this.
-                A skilled front-end developer salary is 64% higher than the average nationwide salary according to
-                indeed.com.
+                A skilled front-end developer salary is 64% higher than the average nationwide salary according to indeed.com.
                 While a senior frontend developer earns 77% more.
                 That comes to $95k - $102k annual salary respectively.
             </p>
@@ -210,12 +223,10 @@
 
             <p>
                 Levi Thomason is a second generation software developer.
-                Having started scripting at an early age, he is now the Lead Web Developer at Gravity Jack in Liberty
-                Lake, WA.
+                Having started scripting at an early age, he is now the Lead Web Developer at Gravity Jack in Liberty Lake, WA.
                 His passion is in front end development though he has experience with the full stack.
                 In the local community, Levi is founder of the CDA Web App Workshop, driving peer-to-peer up-skilling.
-                In the web development community at large, he contributes to well known open source projects like LESS
-                (lesscss.org) and TinyColor (the engine behind the Chrome Dev Tools color picker).
+                In the web development community at large, he contributes to well known open source projects like LESS (lesscss.org) and TinyColor (the engine behind the Chrome Dev Tools color picker).
             </p>
 
             <p>You can get in touch with him here:</p>

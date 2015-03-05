@@ -1,10 +1,74 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 
+////////////////////////////
+@font-size-base: 16px;
+
+//@font-family-base: 'Lato', sans-serif;
+@font-family-base: 'Khula', sans-serif;
+//@font-family-base: 'Open Sans', sans-serif;
+//@font-family-base: 'Roboto', sans-serif;
+
+@headings-font-family: 'Montserrat', sans-serif;
+@headings-font-weight: bold;
+
+////////////////////////////
+
+@tsc-brand-primary: rgb(149, 187, 215);
+@tsc-jumbo-lightness: 30%;
+@tsc-jumbo-saturation: 0.3;
+@tsc-jumbo-spin: -60;
+@tsc-jumbo-img-opacity: 0.1;
+
+@tsc-jumbo-primary: hsl(hue(@tsc-brand-primary), @tsc-jumbo-saturation, @tsc-jumbo-lightness);
+@tsc-jumbo-accent: spin(@tsc-jumbo-primary, @tsc-jumbo-spin);
+
+////////////////////////////
+// sticky footer
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+}
+
+footer {
+  position: absolute;
+  padding: 40px 0;
+  width: 100%;
+  bottom: 0;
+  background: lightblue;
+}
+
+////////////////////////////
+
 .jumbotron {
   text-align: center;
-  h1 {
-    font-weight: 100;
+  position: relative;
+  overflow: hidden;
+  padding: 10% 0;
+  background-image: linear-gradient(160deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
+  background-size: cover;
+  color: white;
+  
+  .picture {
+    position: absolute;
+    margin: 0 -10% -5% 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: @tsc-jumbo-img-opacity;
+    background-image: url(http://education.byu.edu/sites/default/departments/teclab/images/ECS.jpg);
+    background-size: cover;
   }
+  
+  h1, p {
+    position: relative;
+  }
+  
   p {
     font-size: 1em;
     &.lead {
@@ -15,7 +79,10 @@
 }
 
 .bullets {
-  h2 {
-    font-weight: 100;
-  }
+
+}
+
+.register {
+  padding: 1em 0;
+  background: rgb(149, 187, 215);
 }
