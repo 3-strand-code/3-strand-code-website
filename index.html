@@ -9,6 +9,7 @@
     <title>3 Strand Code</title>
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|Khula:400,300,700|Open+Sans:400,300,700|Roboto:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="start-to-finish.css"/>
 
     <script src="bower_components/angular/angular.min.js"></script>
@@ -18,7 +19,6 @@
 <body ng-app="App" ng-controller="Controller">
 
 <div class="jumbotron">
-    <!--<img src="http://education.byu.edu/sites/default/departments/teclab/images/ECS.jpg"/>-->
     <div class="picture"></div>
     <div class="container">
         <h1>3 Strand Code</h1>
@@ -34,58 +34,69 @@
     <div class="bullets">
         <div class="row text-center">
             <div class="col-sm-4">
-                <h2>Learn</h2>
+                <div class="icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+                <div class="header">
+                    Learn
+                </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci explicabo hic incidunt ipsa
-                    laborum mollitia neque .</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci explicabo hic incidunt ipsa
+                    laborum mollitia neque .
+                </p>
             </div>
             <div class="col-sm-4">
-                <h2>Teach</h2>
+                <div class="icon">
+                    <i class="fa fa-comments-o"></i>
+                </div>
+                <div class="header">
+                    Teach
+                </div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis dolore earum et
-                    excepturi facere facilis .</p>
+                    excepturi facere facilis .
+                </p>
             </div>
             <div class="col-sm-4">
-                <h2>Repeat</h2>
+                <div class="icon">
+                    <i class="fa fa-repeat"></i>
+                </div>
+                <div class="header">
+                    Repeat
+                </div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur
-                    distinctio dolorem dolorum eligendi enim et.</p>
+                    distinctio dolorem dolorum eligendi enim et.
+                </p>
             </div>
         </div>
     </div>
 </div>
-
-<hr/>
 
 <div class="register">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <form name="registrationForm">
-                    <legend>Register Now</legend>
+                    <div class="register-header">Register</div>
                     <div class="form-group">
-                        <input ng-model="user.firstName" name="firstName" class="form-control" type="text"
-                               placeholder="First name" required="required"/>
+                        <input ng-model="user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <input ng-model="user.lastName" name="lastName" class="form-control" type="text"
-                               placeholder="Last name" required="required"/>
+                        <input ng-model="user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                @
-                            </div>
-                            <input ng-model="user.email" name="email" class="form-control" type="email"
-                                   placeholder="Email foo" required="required"/>
-                        </div>
+                        <input ng-model="user.email" name="email" type="email" placeholder="Email foo" required="required"/>
+                    </div>
+                    
+                    <div class="form-group">
+                        
                     </div>
 
-                    <div class="form-group">
-                        <a class="btn btn-primary" ng-disabled="!registrationForm.$valid">Register</a>
-                    </div>
+                    <button type="submit" ng-disabled="!registrationForm.$valid">Register</button>
 
                 </form>
 
@@ -195,6 +206,7 @@
 
 
             <h2>Is this course for me?</h2>
+
             <p>
                 A few questions for you.
                 Do you love solving problems?

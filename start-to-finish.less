@@ -13,14 +13,12 @@
 
 ////////////////////////////
 
-@tsc-brand-primary: rgb(149, 187, 215);
-@tsc-jumbo-lightness: 30%;
-@tsc-jumbo-saturation: 0.3;
-@tsc-jumbo-spin: -60;
+@tsc-brand-primary: #365063;
+@tsc-brand-accent: spin(@tsc-jumbo-primary, -60);
 @tsc-jumbo-img-opacity: 0.1;
 
-@tsc-jumbo-primary: hsl(hue(@tsc-brand-primary), @tsc-jumbo-saturation, @tsc-jumbo-lightness);
-@tsc-jumbo-accent: spin(@tsc-jumbo-primary, @tsc-jumbo-spin);
+@tsc-jumbo-primary: @tsc-brand-primary;
+@tsc-jumbo-accent: @tsc-brand-accent;
 
 ////////////////////////////
 // sticky footer
@@ -52,23 +50,25 @@ footer {
   background-image: linear-gradient(160deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   background-size: cover;
   color: white;
-  
+
   .picture {
     position: absolute;
-    margin: 0 -10% -5% 0;
+    margin: 0;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     opacity: @tsc-jumbo-img-opacity;
     background-image: url(http://education.byu.edu/sites/default/departments/teclab/images/ECS.jpg);
+    background-image: url('http://continuingeducation.unlv.edu/sites/online.unlv.edu.cedrupal/files/PAR_125%20(1).JPG');
     background-size: cover;
+    background-position: top center;
   }
-  
+
   h1, p {
     position: relative;
   }
-  
+
   p {
     font-size: 1em;
     &.lead {
@@ -79,10 +79,51 @@ footer {
 }
 
 .bullets {
+  padding: 30px 0 40px 0;
+  color: @tsc-brand-primary;
 
+  .icon {
+    border: 1px dotted @tsc-brand-accent;
+    border-radius: 999px;
+    margin: 0 auto 15px auto;
+    padding-top: 5px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 2em;
+  }
+
+  .header {
+    margin: 0 0 1em 0;
+    text-transform: lowercase;
+    font-weight: 100;
+    font-size: 1.5em;
+  }
 }
 
 .register {
-  padding: 1em 0;
-  background: rgb(149, 187, 215);
+  padding: 60px 0;
+  background-image: linear-gradient(-20deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
+  text-align: center;
+
+  .register-header {
+
+  }
+
+  input {
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+    margin: 0;
+    line-height: 36px;
+    height: 36px;
+    background: fade(#fff, 20);
+    &:focus {
+      outline: none;
+    }
+
+  }
+  ::placeholder {
+    color: fade(#fff, 20);
+  }
 }
