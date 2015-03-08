@@ -1,47 +1,3 @@
-@import "bower_components/bootstrap/less/bootstrap.less";
-
-////////////////////////////
-// TSC Variables
-
-@tsc-brand-primary: #365063;
-@tsc-brand-accent: spin(@tsc-jumbo-primary, -60);
-@tsc-jumbo-img-opacity: 0.1;
-
-@tsc-jumbo-primary: @tsc-brand-primary;
-@tsc-jumbo-accent: @tsc-brand-accent;
-
-////////////////////////////
-// Bootstrap Variables
-
-@font-size-base: 14px;
-
-@font-family-base: 'Open Sans', sans-serif;
-
-@headings-font-family: 'Montserrat', sans-serif;
-@headings-font-weight: bold;
-
-////////////////////////////
-// TSC Styles
-
-.tsc-btn {
-  text-transform: uppercase;
-  border: 2px solid;
-  color: @text-color;
-  padding: 10px 20px;
-  font-weight: 400;
-  cursor: pointer;
-  line-height: 1;
-  display: inline-block;
-  &:hover {
-    text-decoration: none;
-  }
-
-  &.tsc-btn-white {
-    border-color: #fff;
-    color: #fff;
-  }
-}
-
 // JUMBOTRON
 
 .jumbotron {
@@ -104,47 +60,6 @@
 }
 
 // REGISTER
-.discount-widget {
-  @tsc-meter-width: 40px;
-  color: #ffffff;
-
-  .bar {
-    height: 359px;
-    width: @tsc-meter-width;
-    //  transform: perspective(400px) rotateX(-20deg);
-    //  border-radius: 999px;
-    margin: auto;
-    position: relative;
-    line-height: 2em;
-    font-size: 3em;
-
-    background-image: linear-gradient(
-            180deg,
-            #8bcf69 20%,
-            #e6d450 40%,
-            #f28f68 60%,
-            #cf82bf 80%,
-            #719fd1 100%
-    );
-
-    .top,
-    .bottom {
-      text-align: center;
-      position: absolute;
-      width: @tsc-meter-width;
-      margin: 0 -25%;
-    }
-
-    .top {
-
-    }
-
-    .bottom {
-      bottom: 0;
-    }
-  }
-
-}
 
 .register {
   padding: 60px 0;

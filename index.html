@@ -9,15 +9,16 @@
     <meta name="keywords" content="learn, teach, web development"/>
     <title>3 Strand Code</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700' rel='stylesheet'
-          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="app.css"/>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="components/discount-meter/discount-meter.js"></script>
 
 </head>
+
 <body ng-app="App" ng-controller="Controller">
 
 <div class="jumbotron">
@@ -83,19 +84,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-6">
-                <div class="discount-widget">
-                    <div class="label-top">
-                        Discount
-                    </div>
-                    <div class="meter">
-                        <div class="bar"></div>
-                        <div class="top">40%</div>
-                        <div class="bottom">5%</div>
-                    </div>
-                    <div class="label-bottom">
-                        Full Price
-                    </div>
-                </div>
+                <discount-meter></discount-meter>
             </div>
 
             <div class="col-xs-6">
@@ -280,7 +269,6 @@
 <footer>
     <div class="container">&copy; 2015 3 Strand Code</div>
 </footer>
-
 
 </body>
 </html>

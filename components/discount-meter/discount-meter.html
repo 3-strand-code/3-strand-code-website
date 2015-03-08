@@ -1,0 +1,21 @@
+<div class="discount-widget">
+    <h3>Time is running out!</h3>
+    <div class="label-top">
+        {{ _startDate | date:'MMMM d' }}
+        <br/>
+        {{ _fullDiscount * 100 }}% Discount
+    </div>
+    <div class="meter">
+        <div class="bar">
+            <div class="marker" ng-style="{bottom: _markerBottom}">
+                <i class="fa fa-long-arrow-left"></i>
+                {{ remainingDiscount * 100 | number: 6 }}%
+            </div>
+        </div>
+    </div>
+    <div class="label-bottom">
+        Full Price
+        <br/>
+        {{ _endDate | date:'MMMM d' }}
+    </div>
+</div>

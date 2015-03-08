@@ -8,13 +8,14 @@
     var plumber = require('gulp-plumber');
 
     var paths = {
-        root: './'
+        root: './',
+        less: './less/',
     };
 
 
     gulp.task('less', function() {
         return gulp.src([
-            paths.root + '*.less'
+            paths.less + 'app.less'
         ])
             .pipe(plumber(function onError(err) {
                     console.log(err.message);
@@ -27,7 +28,7 @@
     });
 
     gulp.task('watch', function() {
-        gulp.watch(paths.root + '*.less', ['less']);
+        gulp.watch([paths.root + '**/*.less'], ['less']);
     });
 
     gulp.task('serve', function() {
@@ -41,7 +42,14 @@
                     enable: true,
                     filter: function(fileName) {
                         // exclude less files
-                        if (fileName.match(/.less$/)) {
+                        if (
+                            fileName.match(/package.json/) ||
+                            fileName.match(/bower.json/) ||
+                            fileName.match(/node_modules/) ||
+                            fileName.match(/bower_components/) ||
+                            fileName.match(/.less$/) ||
+                            fileName.match(/^gulpfile.js$/)                        
+                        ) {
                             return false;
                         } else {
                             return true;
