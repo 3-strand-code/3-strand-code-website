@@ -1,6 +1,18 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 
 ////////////////////////////
+// TSC Variables
+
+@tsc-brand-primary: #365063;
+@tsc-brand-accent: spin(@tsc-jumbo-primary, -60);
+@tsc-jumbo-img-opacity: 0.1;
+
+@tsc-jumbo-primary: @tsc-brand-primary;
+@tsc-jumbo-accent: @tsc-brand-accent;
+
+////////////////////////////
+// Bootstrap Variables
+
 @font-size-base: 16px;
 
 //@font-family-base: 'Lato', sans-serif;
@@ -11,25 +23,29 @@
 @headings-font-family: 'Montserrat', sans-serif;
 @headings-font-weight: bold;
 
-////////////////////////////
-
-@tsc-brand-primary: #365063;
-@tsc-brand-accent: spin(@tsc-jumbo-primary, -60);
-@tsc-jumbo-img-opacity: 0.1;
-
-@tsc-jumbo-primary: @tsc-brand-primary;
-@tsc-jumbo-accent: @tsc-brand-accent;
 
 ////////////////////////////
-// sticky footer
+// TSC Styles
 
-footer {
-  padding: 40px 0;
-  margin-top: 100px;
-  background: @tsc-brand-accent;
+.tsc-btn {
+  text-transform: uppercase;
+  border: 2px solid;
+  color: @text-color;
+  padding: 10px 20px;
+  font-weight: 900;
+  cursor: pointer;
+  line-height: 1;
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.tsc-btn-white {
+    border-color: #fff;
+    color: #fff;
+  }
 }
 
-////////////////////////////
 
 .jumbotron {
   text-align: center;
@@ -54,16 +70,15 @@ footer {
     background-position: top center;
   }
 
-  h1, p {
+  .container {
     position: relative;
+    z-index: 1;
   }
 
-  p {
-    font-size: 1em;
-    &.lead {
-      text-transform: uppercase;
-      font-size: 1.5em;
-    }
+  .lead {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 40px;
   }
 }
 
@@ -115,4 +130,11 @@ footer {
   ::placeholder {
     color: fade(#fff, 20);
   }
+}
+
+footer {
+  padding: 40px 0;
+  margin-top: 100px;
+  background: @tsc-brand-accent;
+  color: white;
 }

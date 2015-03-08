@@ -19,15 +19,18 @@
 <body ng-app="App" ng-controller="Controller">
 
 <div class="jumbotron">
-    <div class="picture"></div>
     <div class="container">
         <h1>3 Strand Code</h1>
 
+        <p class="lead">
+            Front end web development mentorship program.
+        </p>
 
-        <p class="lead">Learn. Teach. Repeat.</p>
-
-        <p>A hands on social approach to learning front end web development.</p>
+        <a href="#registerForm" class="tsc-btn tsc-btn-white">
+            Preregister
+        </a>
     </div>
+    <div class="picture"></div>
 </div>
 
 <div class="container">
@@ -74,10 +77,11 @@
     </div>
 </div>
 
-<div class="register">
+<div id="registerForm" class="register">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+                
                 <form name="registrationForm">
                     <div class="register-header">Register</div>
                     <div class="form-group">
@@ -89,7 +93,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input ng-model="user.email" name="email" type="email" placeholder="Email foo" required="required"/>
+                        <input ng-model="user.email" name="email" type="email" placeholder="Email" required="required"/>
                     </div>
                     
                     <div class="form-group">
@@ -105,8 +109,6 @@
     </div>
 
 </div>
-
-<hr/>
 
 <div class="container">
     <div class="row">
