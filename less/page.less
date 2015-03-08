@@ -1,46 +1,4 @@
-@import "bower_components/bootstrap/less/bootstrap.less";
-
-////////////////////////////
-@font-size-base: 16px;
-
-//@font-family-base: 'Lato', sans-serif;
-@font-family-base: 'Khula', sans-serif;
-//@font-family-base: 'Open Sans', sans-serif;
-//@font-family-base: 'Roboto', sans-serif;
-
-@headings-font-family: 'Montserrat', sans-serif;
-@headings-font-weight: bold;
-
-////////////////////////////
-
-@tsc-brand-primary: #365063;
-@tsc-brand-accent: spin(@tsc-jumbo-primary, -60);
-@tsc-jumbo-img-opacity: 0.1;
-
-@tsc-jumbo-primary: @tsc-brand-primary;
-@tsc-jumbo-accent: @tsc-brand-accent;
-
-////////////////////////////
-// sticky footer
-
-html {
-  min-height: 100%;
-  position: relative;
-}
-
-body {
-  height: 100%;
-}
-
-footer {
-  position: absolute;
-  padding: 40px 0;
-  width: 100%;
-  bottom: 0;
-  background: lightblue;
-}
-
-////////////////////////////
+// JUMBOTRON
 
 .jumbotron {
   text-align: center;
@@ -65,18 +23,19 @@ footer {
     background-position: top center;
   }
 
-  h1, p {
+  .container {
     position: relative;
+    z-index: 1;
   }
 
-  p {
-    font-size: 1em;
-    &.lead {
-      text-transform: uppercase;
-      font-size: 1.5em;
-    }
+  .lead {
+    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 40px;
   }
 }
+
+// BULLETS
 
 .bullets {
   padding: 30px 0 40px 0;
@@ -86,7 +45,6 @@ footer {
     border: 1px dotted @tsc-brand-accent;
     border-radius: 999px;
     margin: 0 auto 15px auto;
-    padding-top: 5px;
     width: 100px;
     height: 100px;
     line-height: 100px;
@@ -100,6 +58,8 @@ footer {
     font-size: 1.5em;
   }
 }
+
+// REGISTER
 
 .register {
   padding: 60px 0;
@@ -126,4 +86,12 @@ footer {
   ::placeholder {
     color: fade(#fff, 20);
   }
+}
+
+footer {
+  padding: 40px 0;
+  margin-top: 100px;
+  background: @tsc-brand-accent;
+  color: mix(@tsc-brand-accent, white);
+  font-size: 12px;
 }
