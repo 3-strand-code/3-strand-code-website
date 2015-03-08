@@ -2,13 +2,15 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta name="author" content="Levi Thomason"/>
     <meta name="description" content="Registration for 3 Strand Code organization"/>
     <meta name="keywords" content="learn, teach, web development"/>
     <title>3 Strand Code</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700' rel='stylesheet'
+          type='text/css'>
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="app.css"/>
 
@@ -23,7 +25,7 @@
         <h1>3 Strand Code</h1>
 
         <p class="lead">
-            Front end web development mentorship program.
+            Front end web development mentoring program
         </p>
 
         <a href="#registerForm" class="tsc-btn tsc-btn-white">
@@ -80,24 +82,41 @@
 <div id="registerForm" class="register">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                
+            <div class="col-xs-6">
+                <div class="discount-widget">
+                    <div class="label-top">
+                        Discount
+                    </div>
+                    <div class="meter">
+                        <div class="bar"></div>
+                        <div class="top">40%</div>
+                        <div class="bottom">5%</div>
+                    </div>
+                    <div class="label-bottom">
+                        Full Price
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
                 <form name="registrationForm">
                     <div class="register-header">Register</div>
                     <div class="form-group">
-                        <input ng-model="user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
+                        <input ng-model="user.firstName" name="firstName" type="text" placeholder="First name"
+                               required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <input ng-model="user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
+                        <input ng-model="user.lastName" name="lastName" type="text" placeholder="Last name"
+                               required="required"/>
                     </div>
 
                     <div class="form-group">
                         <input ng-model="user.email" name="email" type="email" placeholder="Email" required="required"/>
                     </div>
-                    
+
                     <div class="form-group">
-                        
+
                     </div>
 
                     <button type="submit" ng-disabled="!registrationForm.$valid">Register</button>
@@ -214,21 +233,25 @@
                 Do you love solving problems?
                 Are you constantly learning new things?
                 Others say you’re detailed oriented and meticulous?
-                Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into reality?
+                Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into
+                reality?
                 Yes?
                 Read on.
             </p>
 
             <p>
-                If you’re driven when challenged and prone to press on when others tend to give up, you might have the aptitude of a developer.
-                Not taking this course could mean missing an opportunity to live the life you were perfectly designed for.
+                If you’re driven when challenged and prone to press on when others tend to give up, you might have the
+                aptitude of a developer.
+                Not taking this course could mean missing an opportunity to live the life you were perfectly designed
+                for.
             </p>
 
             <p>
                 Front-end web developers have a blast.
                 We love solving problems and making cool things that make users really happy.
                 We also get paid quite well to do this.
-                A skilled front-end developer salary is 64% higher than the average nationwide salary according to indeed.com.
+                A skilled front-end developer salary is 64% higher than the average nationwide salary according to
+                indeed.com.
                 While a senior frontend developer earns 77% more.
                 That comes to $95k - $102k annual salary respectively.
             </p>
@@ -237,10 +260,12 @@
 
             <p>
                 Levi Thomason is a second generation software developer.
-                Having started scripting at an early age, he is now the Lead Web Developer at Gravity Jack in Liberty Lake, WA.
+                Having started scripting at an early age, he is now the Lead Web Developer at Gravity Jack in Liberty
+                Lake, WA.
                 His passion is in front end development though he has experience with the full stack.
                 In the local community, Levi is founder of the CDA Web App Workshop, driving peer-to-peer up-skilling.
-                In the web development community at large, he contributes to well known open source projects like LESS (lesscss.org) and TinyColor (the engine behind the Chrome Dev Tools color picker).
+                In the web development community at large, he contributes to well known open source projects like LESS
+                (lesscss.org) and TinyColor (the engine behind the Chrome Dev Tools color picker).
             </p>
 
             <p>You can get in touch with him here:</p>

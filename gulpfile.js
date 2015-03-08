@@ -37,7 +37,17 @@
                 host: 'localhost',
                 port: '8000',
                 fallback: 'index.html',
-                livereload: true,
+                livereload: {
+                    enable: true,
+                    filter: function(fileName) {
+                        // exclude less files
+                        if (fileName.match(/.less$/)) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                },
                 directoryListing: false,
                 open: false,
             }));
