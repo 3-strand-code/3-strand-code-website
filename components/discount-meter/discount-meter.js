@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('App')
+    angular.module('App.discount', [])
 
         .directive('discountMeter', [
             '$interval', '$filter',
