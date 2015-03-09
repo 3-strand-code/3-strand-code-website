@@ -2,6 +2,7 @@
     'use strict';
 
     var gulp = require('gulp');
+    var runSequence = require('run-sequence');
     var plumber = require('gulp-plumber');
 
     var paths = {
@@ -10,6 +11,10 @@
         env: './env.json',
         components: './components/',
     };
+
+    /**
+     * Build
+     */
 
     gulp.task('generate-env-module', function () {
         var ngConstant = require('gulp-ng-constant');
@@ -66,10 +71,18 @@
             .pipe(gulp.dest('.'));
     });
 
+
+    /**
+     * Watch
+     */
     gulp.task('watch', function() {
         gulp.watch([paths.root + '**/*.less'], ['less']);
     });
 
+
+    /**
+     * Serve
+     */
     gulp.task('serve', function() {
         var webserver = require('gulp-webserver');
 
@@ -103,6 +116,24 @@
 
     });
 
+
+    /**
+     * Build
+     */
+    gulp.task('build:production', function(cb) {
+        runSequence(
+            [
+                'generate-env-module',
+                'less',
+            ],
+            cb
+        )
+    });
+
+
+    /**
+     * Default
+     */
     gulp.task('default', [
         'less',
         'serve',

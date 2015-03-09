@@ -25,6 +25,7 @@
     "gulp-less": "^3.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-webserver": "^0.9.0",
-    "logfmt": "^1.2.0"
+    "logfmt": "^1.2.0",
+    "run-sequence": "^1.0.2"
   }
 }

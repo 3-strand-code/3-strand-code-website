@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-controller="Controller">
+<body ng-controller="Controller as ctrl">
 
 <div class="jumbotron">
     <div class="container">
@@ -38,7 +38,22 @@
 
 
     <div class="container">
-        <div class="registration">
+        <div class="logged-in" ng-show="$kinvey.getActiveUser()">
+            <h2>
+                Welcome aboard, {{ $kinvey.getActiveUser().firstName }}!
+            </h2>
+            <p>
+                {{ $kinvey.getActiveUser().firstName }} {{ $kinvey.getActiveUser().lastName }}
+                <br/>
+                {{ $kinvey.getActiveUser().email }}
+            </p>
+            <br/>
+            <br/>
+            <button class="tsc-btn tsc-btn-white" ng-click="$kinvey.User.logout()">
+                Sign Out
+            </button>
+        </div>
+        <div class="registration" ng-hide="$kinvey.getActiveUser()">
             <div class="row">
                 <div class="col-sm-6">
                     <discount-meter></discount-meter>
@@ -49,7 +64,7 @@
                 <br class="visible-xs"/>
 
                 <div class="col-sm-6">
-                    <form class="registration-form" name="registrationForm">
+                    <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
                         <h3>Preregister</h3>
 
                         <p class="help-block">
@@ -60,13 +75,13 @@
 
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
                                 </div>
                             </div>
 
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
                                 </div>
 
                             </div>
@@ -75,17 +90,27 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="user.email" name="email" type="email" placeholder="Email" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.email" name="email" type="email" placeholder="Email" required="required"/>
                                 </div>
                             </div>
                         </div>
 
                         <button type="submit"
                                 class="tsc-btn tsc-btn-white"
-                                ng-disabled="!registrationForm.$valid">
+                                ng-disabled="!ctrl.registrationForm.$valid">
                             Count me in
                         </button>
 
+                        <br/>
+                        <br/>
+                        
+                        <p>
+                            <span ng-repeat="error in ctrl.registrationErrors">
+                                {{ error }}
+                            </span>
+                        </p>
+
+                        <button class="btn btn-link" ng-click="ctrl.fillUser()">Fill</button>
                     </form>
 
                 </div>
