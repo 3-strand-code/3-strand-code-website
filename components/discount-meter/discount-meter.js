@@ -30,6 +30,7 @@
                             scope._remainingDiscount = scope._fullDiscount * scope._remainingRate;
 
                             // separate whole numbers and decimal values
+                            // todo: whole number is busted, 46.000 never rolled to 45.999 but stayed at 46.999
                             scope.discountWholeNumbers = Math.floor($filter('number')(scope._remainingDiscount, 2));
                             scope.discountDecimalNumbers = String(scope._remainingDiscount).split('.')[1].substr(0, 6);
 
