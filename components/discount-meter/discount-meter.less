@@ -1,50 +1,117 @@
 .discount-widget {
-  @tsc-meter-width: 60px;
+  @tsc-meter-width: 14%;
+  @tsc-meter-width-gap: (100% - @tsc-meter-width);
+  height: 300px;
   color: #ffffff;
 
-  .bar {
+  .label-container,
+  .meter-container,
+  .readout-container {
     position: relative;
-    width: @tsc-meter-width;
-    height: 359px;
-    margin: auto;
-    line-height: 2em;
-    background-image: linear-gradient(
-            180deg,
-            #8bcf69 20%,
-            #e6d450 40%,
-            #f28f68 60%,
-            #cf82bf 80%,
-            #719fd1 100%
-    );
-    
-    .marker {
+    float: left;
+    height: 100%;
+  }
+
+  .label-container {
+    width: floor(@tsc-meter-width-gap / 2);
+    top: 0;
+    bottom: 0;
+    line-height: 1;
+    text-align: right;
+    text-transform: uppercase;
+    opacity: 0.8;
+
+    .label-top,
+    .label-bottom {
       position: absolute;
-      width: @tsc-meter-width;
-      text-indent: (@tsc-meter-width / 3);
-      border: 1px solid fade(#000, 10);
-      border-left: none;
-      border-right: none;
-      height: 2px;
-      font-size: 2em;
-      line-height: 0;
-      white-space: nowrap;
-      vertical-align: top;
+      right: 10px;
+      color: fade(#fff, 50);
+      .label-date {
+//        font-weight: 700;
+      }
+      .label-value {
+        font-weight: 100;
+      }
     }
 
-    .top,
-    .bottom {
-      text-align: center;
-      position: absolute;
-      width: @tsc-meter-width;
-      margin: 0 -25%;
+    .label-top {
+      top: 0;
     }
 
-    .top {
-
-    }
-
-    .bottom {
+    .label-bottom {
       bottom: 0;
+    }
+  }
+
+  .meter-container {
+    width: @tsc-meter-width;
+
+    .meter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 2em;
+      background-image: linear-gradient(
+              180deg,
+              #8bcf69 20%,
+              fade(#e6d450, 20) 80%,
+              fade(#e6d450, 0) 100%
+      );
+      overflow: hidden;
+
+      .meter-marker {
+        position: absolute;
+        margin-top: -1px;
+        width: 100%;
+        height: 2px;
+        background: fade(#000, 25);
+      }
+    }
+  }
+
+  .readout-container {
+    width: floor(@tsc-meter-width-gap / 2);
+
+    .readout {
+      position: absolute;
+      font-size: @font-size-h3;
+      margin-top: -0.5em;
+      margin-left: 1em;
+      text-align: left;
+      line-height: 1;
+      vertical-align: top;
+      white-space: nowrap;
+
+      .readout-icon {
+        position: absolute;
+        right: 100%;
+        margin-right: 0.5em;
+      }
+
+      .readout-rate {
+        margin-bottom: 0.25em;
+        font-weight: 100;
+        border-bottom: 1px dotted fade(#fff, 50);
+
+        .whole {
+          font-size: 1.2em;
+        }
+
+        .decimal {
+          font-size: 0.75em;
+          vertical-align: 25%;
+        }
+      }
+
+      .readout-label {
+        font-size: 0.825em;
+        font-weight: 400;
+        text-transform: uppercase;
+        opacity: 0.9;
+        & > .readout-label {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

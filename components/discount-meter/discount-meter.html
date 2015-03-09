@@ -1,21 +1,36 @@
 <div class="discount-widget">
-    <h3>Time is running out!</h3>
-    <div class="label-top">
-        {{ _startDate | date:'MMMM d' }}
-        <br/>
-        {{ _fullDiscount * 100 }}% Discount
-    </div>
-    <div class="meter">
-        <div class="bar">
-            <div class="marker" ng-style="{bottom: _markerBottom}">
-                <i class="fa fa-long-arrow-left"></i>
-                {{ remainingDiscount * 100 | number: 6 }}%
-            </div>
+    <div class="label-container">
+        <div class="label-top">
+            <div class="label-date">{{ _startDate | date:'MMM d' }}</div>
+            <div class="label-value">{{ _fullDiscount }}%</div>
+        </div>
+        <div class="label-bottom">
+            <div class="label-date">{{ _endDate | date:'MMM d' }}</div>
+            <div class="label-value">0%</div>
         </div>
     </div>
-    <div class="label-bottom">
-        Full Price
-        <br/>
-        {{ _endDate | date:'MMMM d' }}
+    <div class="meter-container">
+        <div class="meter">
+            <div class="meter-marker" ng-style="{top: _markerTop}"></div>
+        </div>
+    </div>
+    <div class="readout-container">
+        <div class="readout" ng-style="{top: _markerTop}">
+            <div class="readout-icon">
+                <i class="fa fa-long-arrow-left"></i>
+            </div>
+            <div class="readout-rate">
+                <span class="whole">{{ discountWholeNumbers }}</span><span class="decimal"><span ng-show="discountDecimalNumbers">.</span>{{ discountDecimalNumbers }}%</span>
+            </div>
+            <div class="readout-label">
+                Savings
+                <div class="readout-label">
+                    Right
+                    <div class="readout-label">
+                        Now
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

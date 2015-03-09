@@ -9,7 +9,8 @@
     <meta name="keywords" content="learn, teach, web development"/>
     <title>3 Strand Code</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700|Montserrat:700' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Josefin+Sans:100,400,700|Exo:100,400,700|Alegreya+Sans:100,400,700|Exo+2:400,100,700|Raleway:400,100,700|Roboto:400,100,700' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="app.css"/>
 
@@ -26,14 +27,67 @@
         <h1>3 Strand Code</h1>
 
         <p class="lead">
-            Front end web development mentoring program
+            Learn fFront end web development immersion and mentoring.
         </p>
-
-        <a href="#registerForm" class="tsc-btn tsc-btn-white">
-            Preregister
-        </a>
     </div>
     <div class="picture"></div>
+
+
+    <div class="container">
+        <div class="registration">
+            <div class="row">
+                <div class="col-sm-6">
+                    <discount-meter></discount-meter>
+                </div>
+
+                <br class="visible-xs"/>
+                <br class="visible-xs"/>
+                <br class="visible-xs"/>
+
+                <div class="col-sm-6">
+                    <form class="registration-form" name="registrationForm">
+                        <h3>Preregister</h3>
+
+                        <p class="help-block">
+                            Lock in your discount.
+                        </p>
+
+                        <div class="row">
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="user.email" name="email" type="email" placeholder="Email" required="required"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="tsc-btn tsc-btn-white"
+                                ng-disabled="!registrationForm.$valid">
+                            Count me in
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -43,37 +97,40 @@
                 <div class="icon">
                     <i class="fa fa-graduation-cap"></i>
                 </div>
-                <div class="header">
+                <h2>
                     Learn
-                </div>
+                </h2>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci explicabo hic incidunt ipsa
-                    laborum mollitia neque .
+                    We believe you learn best by building cool stuff with super talented developers.
+                    At 3 Strand Code you'll spend most your class time making things with industry pros.
                 </p>
             </div>
             <div class="col-sm-4">
                 <div class="icon">
                     <i class="fa fa-comments-o"></i>
                 </div>
-                <div class="header">
+                <h2>
                     Teach
-                </div>
+                </h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis dolore earum et
-                    excepturi facere facilis .
+                <p>
+                    No one learns more than the teacher.
+                    3 Strand Code will give you plenty of opportunity to speak and teach your peers.
                 </p>
             </div>
+
             <div class="col-sm-4">
                 <div class="icon">
                     <i class="fa fa-repeat"></i>
                 </div>
-                <div class="header">
+                <h2>
                     Repeat
-                </div>
+                </h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, architecto consectetur
-                    distinctio dolorem dolorum eligendi enim et.
+                <p>
+                    Web development is a skill.
+                    A craftsman is improved by every project.
                 </p>
             </div>
         </div>
@@ -82,38 +139,6 @@
 
 <div id="registerForm" class="register">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-6">
-                <discount-meter></discount-meter>
-            </div>
-
-            <div class="col-xs-6">
-                <form name="registrationForm">
-                    <div class="register-header">Register</div>
-                    <div class="form-group">
-                        <input ng-model="user.firstName" name="firstName" type="text" placeholder="First name"
-                               required="required"/>
-                    </div>
-
-                    <div class="form-group">
-                        <input ng-model="user.lastName" name="lastName" type="text" placeholder="Last name"
-                               required="required"/>
-                    </div>
-
-                    <div class="form-group">
-                        <input ng-model="user.email" name="email" type="email" placeholder="Email" required="required"/>
-                    </div>
-
-                    <div class="form-group">
-
-                    </div>
-
-                    <button type="submit" ng-disabled="!registrationForm.$valid">Register</button>
-
-                </form>
-
-            </div>
-        </div>
     </div>
 
 </div>
@@ -122,9 +147,7 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <h2>
-                Front End Web Development
-                <br/>
-                <small>Job Market Preparation Course</small>
+                About Front End Web Development
             </h2>
 
 
@@ -222,45 +245,42 @@
                 Do you love solving problems?
                 Are you constantly learning new things?
                 Others say you’re detailed oriented and meticulous?
-                Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into
-                reality?
+                Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into reality?
                 Yes?
                 Read on.
             </p>
 
             <p>
-                If you’re driven when challenged and prone to press on when others tend to give up, you might have the
-                aptitude of a developer.
-                Not taking this course could mean missing an opportunity to live the life you were perfectly designed
-                for.
+                If you’re driven when challenged and prone to press on when others tend to give up, you might have the aptitude of a developer.
+                Not taking this course could mean missing an opportunity to live the life you were perfectly designed for.
             </p>
 
             <p>
                 Front-end web developers have a blast.
                 We love solving problems and making cool things that make users really happy.
                 We also get paid quite well to do this.
-                A skilled front-end developer salary is 64% higher than the average nationwide salary according to
-                indeed.com.
+                A skilled front-end developer salary is 64% higher than the average nationwide salary according toindeed.com.
                 While a senior frontend developer earns 77% more.
                 That comes to $95k - $102k annual salary respectively.
             </p>
 
-            <h2>About the Mentor</h2>
+            <h2>About the Founder</h2>
 
             <p>
                 Levi Thomason is a second generation software developer.
-                Having started scripting at an early age, he is now the Lead Web Developer at Gravity Jack in Liberty
-                Lake, WA.
+                Having started scripting at an early age, he is now the Lead Front End Developer at Gravity Jack in Liberty Lake, WA.
                 His passion is in front end development though he has experience with the full stack.
                 In the local community, Levi is founder of the CDA Web App Workshop, driving peer-to-peer up-skilling.
-                In the web development community at large, he contributes to well known open source projects like LESS
-                (lesscss.org) and TinyColor (the engine behind the Chrome Dev Tools color picker).
+                In the web development community at large, he contributes to open source projects like
+                <a href="http://lesscss.org">LESS</a>
+                and
+                <a href="https://github.com/bgrins/TinyColor">TinyColor</a>
+                (the engine behind the Chrome Dev Tools color picker).
             </p>
 
             <p>You can get in touch with him here:</p>
 
             <div>Levi Thomason</div>
-            <div>208-699-4042</div>
             <div>me@levithomason.com</div>
         </div>
     </div>

@@ -1,10 +1,10 @@
 // JUMBOTRON
 
 .jumbotron {
-  text-align: center;
   position: relative;
-  overflow: hidden;
   padding: 10% 0;
+  overflow: hidden;
+  text-align: center;
   background-image: linear-gradient(160deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   background-size: cover;
   color: white;
@@ -32,6 +32,48 @@
     font-size: 1.5em;
     font-weight: 100;
     margin-bottom: 40px;
+  }
+
+  .registration {
+    padding: 40px 0;
+  }
+}
+
+.registration-form {
+  text-align: left;
+  border-left: 2px solid fade(#fff, 10);
+  padding-left: 10%;
+  color: #fff;
+  
+  .help-block {
+    color: fade(#fff, 70);
+  }
+  .radio {
+    & label {
+      font-weight: 100;
+    }
+  }
+  .register-header {
+    text-transform: uppercase;
+  }
+  
+  .form-control {
+    transition: background 0.2s;
+    background: fade(#fff, 20);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    &:active,
+    &:focus {
+      background: fade(#fff, 30);
+      box-shadow: none;
+    }
+  }
+
+  ::placeholder {
+    color: fade(#fff, 50);
+    font-weight: 100;
   }
 }
 
@@ -66,26 +108,6 @@
   background-image: linear-gradient(-20deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   text-align: center;
 
-  .register-header {
-
-  }
-
-  input {
-    border: none;
-    border-radius: 0;
-    padding: 10px;
-    margin: 0;
-    line-height: 36px;
-    height: 36px;
-    background: fade(#fff, 20);
-    &:focus {
-      outline: none;
-    }
-
-  }
-  ::placeholder {
-    color: fade(#fff, 20);
-  }
 }
 
 footer {

@@ -1,20 +1,34 @@
 // Button
 
 .tsc-btn {
-  text-transform: uppercase;
-  border: 2px solid;
-  color: @text-color;
-  padding: 10px 20px;
-  font-weight: 400;
-  cursor: pointer;
-  line-height: 1;
   display: inline-block;
+  padding: 10px 20px;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: @text-color;
+  background: none;
+  border: 2px solid;
   &:hover {
+    cursor: pointer;
     text-decoration: none;
+  }
+  &.disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      background: none;
+    }
   }
 
   &.tsc-btn-white {
+    transition: background 0.1s, color 0.1s;
     border-color: #fff;
     color: #fff;
+    &:hover{
+      background: #fff;
+      color: @tsc-brand-primary;
+    }
   }
 }
