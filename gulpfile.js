@@ -120,7 +120,7 @@
     /**
      * Build
      */
-    gulp.task('build:production', function(cb) {
+    gulp.task('heroku:production', function(cb) {
         runSequence(
             [
                 'generate-env-module',
