@@ -1,4 +1,6 @@
 <div class="discount-widget">
+    <h3>Discounts are limited!</h3>
+
     <div class="label-container">
         <div class="label-top">
             <div class="label-date">{{ _startDate | date:'MMM d' }}</div>
@@ -20,6 +22,7 @@
                 <i class="fa fa-long-arrow-left"></i>
             </div>
             <div class="readout-rate">
+                <!--{{ discounts.remaining }}-->
                 <span class="whole">{{ discountWholeNumbers }}</span><span class="decimal"><span ng-show="discountDecimalNumbers">.</span>{{ discountDecimalNumbers }}%</span>
             </div>
             <div class="readout-label">

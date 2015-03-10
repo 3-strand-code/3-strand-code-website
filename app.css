@@ -6649,6 +6649,9 @@ button.close {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
 }
+.logged-in .my-info {
+  opacity: 0.5;
+}
 .bullets {
   padding: 30px 0 40px 0;
   color: #365063;

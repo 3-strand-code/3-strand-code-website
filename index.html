@@ -40,19 +40,28 @@
     <div class="container">
         <div class="logged-in" ng-show="$kinvey.getActiveUser()">
             <h2>
-                Welcome aboard, {{ $kinvey.getActiveUser().firstName }}!
+                Hello, {{ $kinvey.getActiveUser().firstName }}.
             </h2>
-            <p>
+
+            <div class="my-info">
                 {{ $kinvey.getActiveUser().firstName }} {{ $kinvey.getActiveUser().lastName }}
                 <br/>
                 {{ $kinvey.getActiveUser().email }}
-            </p>
+            </div>
             <br/>
+            <p>
+                You're registered!
+                Watch your email for updates.
+            </p>
             <br/>
             <button class="tsc-btn tsc-btn-white" ng-click="$kinvey.User.logout()">
                 Sign Out
             </button>
         </div>
+        
+        <div class="notice">
+        </div>
+        
         <div class="registration" ng-hide="$kinvey.getActiveUser()">
             <div class="row">
                 <div class="col-sm-6">
@@ -65,7 +74,8 @@
 
                 <div class="col-sm-6">
                     <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
-                        <h3>Preregister</h3>
+                        <h3 class="page-header"> Spokane / CDA Registration</h3>
+                        <!--<h3>Preregister</h3>-->
 
                         <p class="help-block">
                             Lock in your discount.
@@ -103,7 +113,7 @@
 
                         <br/>
                         <br/>
-                        
+
                         <p>
                             <span ng-repeat="error in ctrl.registrationErrors">
                                 {{ error }}

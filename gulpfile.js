@@ -8,7 +8,7 @@
     var paths = {
         root: './',
         less: './less/',
-        env: './env.json',
+        env: './components/env/env.json',
         components: './components/',
     };
 
@@ -32,7 +32,7 @@
             " */\n" +
             "(function ppEnvironmentConstantModule() {\n" +
             "    'use strict';\n\n" +
-            "    angular.module('ppApp.env')\n" +
+            "    angular.module('App.env', [])\n" +
             "        .constant('ENV', {\n" +
             "<% constants.forEach(function(constant) { %>" +
             "            '<%- constant.name %>': <%= constant.value %>,\n" +
