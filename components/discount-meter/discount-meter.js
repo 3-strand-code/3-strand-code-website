@@ -12,31 +12,32 @@
                     templateUrl: 'components/discount-meter/discount-meter.html',
                     scope: {},
                     link: function(scope, elem, attrs) {
+                        scope.initialized = false;
+
+                        scope._meterTop = '100%';
+
                         scope.discounts = {
-                            total: 20,
-                            remaining: 20,
-                        };
-                        
-                        scope.updateMeter = function() {
-                            scope._meterTop = (1 - scope.discounts.remaining / scope.discounts.total) * 100 + '%';
+                            total: 1,
+                            remaining: 0,
                         };
 
-                        $http.get('/kinvey/discounts/')
-                            .success(function(data, status, headers, config) {
-                                // this callback will be called asynchronously
-                                // when the response is available
-                                scope.discounts = data.discounts;
-                                scope.updateMeter();
-                                
-                                console.log(scope.discounts, scope._meterTop);
-                            })
-                            .error(function(data, status, headers, config) {
-                                // called asynchronously if an error occurs
-                                // or server returns response with an error status.
-                                console.error(data);
-                            });
+                        scope.updateMeter = function() {
+                            $http.get('/kinvey/discounts/')
+                                .success(function(data, status, headers, config) {
+                                    scope.initialized = true;
+                                    scope.discounts = data.discounts;
+                                    scope._meterTop = (1 - scope.discounts.remaining / scope.discounts.total) * 100 + '%';
+                                })
+                                .error(function(data, status, headers, config) {
+                                    console.error(data);
+                                });
+                        };
 
                         scope.updateMeter();
+                        
+                        $interval(function() {
+                            scope.updateMeter();
+                        }, 5000);
                         
                         // Time based discount, deprecated
 
