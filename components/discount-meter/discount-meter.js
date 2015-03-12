@@ -4,26 +4,42 @@
     angular.module('App.discount', [])
 
         .directive('discountMeter', [
-            '$interval', '$filter', '$kinvey',
-            function($interval, $filter, $kinvey) {
+            '$interval', '$filter', '$kinvey', '$http',
+            function($interval, $filter, $kinvey, $http) {
                 return {
                     restrict: 'E',
                     replace: true,
                     templateUrl: 'components/discount-meter/discount-meter.html',
                     scope: {},
                     link: function(scope, elem, attrs) {
+                        scope.discounts = {
+                            total: 20,
+                            remaining: 20,
+                        };
                         
-                        $kinvey.execute('discounts')
-                            .then(function(discounts) {
-                                scope.discounts = discounts;
-                                console.log(scope.discounts);
-                            }, function(error) {
-                               console.error(error); 
+                        scope.updateMeter = function() {
+                            scope._meterTop = (1 - scope.discounts.remaining / scope.discounts.total) * 100 + '%';
+                        };
+
+                        $http.get('/kinvey/discounts/')
+                            .success(function(data, status, headers, config) {
+                                // this callback will be called asynchronously
+                                // when the response is available
+                                scope.discounts = data.discounts;
+                                scope.updateMeter();
+                                
+                                console.log(scope.discounts, scope._meterTop);
+                            })
+                            .error(function(data, status, headers, config) {
+                                // called asynchronously if an error occurs
+                                // or server returns response with an error status.
+                                console.error(data);
                             });
 
-
-                        // Time based discount, deprecated
+                        scope.updateMeter();
                         
+                        // Time based discount, deprecated
+
                         //scope._fullDiscount = 50;
                         //
                         //scope._startDate = new Date(2015, 2, 7);

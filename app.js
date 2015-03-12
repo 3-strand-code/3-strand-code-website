@@ -10,7 +10,7 @@
         'App.discount',
 
     ])
-        
+
         .run(function($rootScope, $kinvey) {
             $rootScope.$kinvey = $kinvey;
         })
@@ -22,13 +22,6 @@
                 vm.user = {};
                 vm.registrationErrors = [];
 
-                vm.fillUser = function() {
-                    vm.user.firstName = 'Levi';
-                    vm.user.lastName = 'Thomason';
-                    vm.user.email = 'me@levithomason.com';
-                    vm.signup();
-                };
-
                 vm.signup = function() {
                     $kinvey.User.signup({
                         firstName: vm.user.firstName,
@@ -38,7 +31,7 @@
                     })
                         .then(function(activeUser) {
                             console.debug(activeUser);
-                                vm.registrationErrors = [];
+                            vm.registrationErrors = [];
                         }, function(error) {
                             if (error.name === 'UserAlreadyExists') {
                                 vm.registrationErrors.push('That email is already registered.');
@@ -69,11 +62,18 @@
             appSecret: ENV.TSC_KINVEY_APP_SECRET
         })
             .then(function(activeUser) {
-                console.debug('Kinvey init success');
+                console.debug('Kinvey init success. User:', activeUser);
+
+                $kinvey.ping().then(function(response) {
+                    console.log('Kinvey Ping Success. Kinvey Service is alive, version: ' + response.version + ', response: ' + response.kinvey);
+                }, function(error) {
+                    console.log('Kinvey Ping Failed. Response: ' + error.description);
+                });
+
                 angular.bootstrap(document.documentElement, ['App']);
+
             }, function(err) {
-                console.error('Kinvey init error');
-                console.error(err);
+                console.error('Kinvey init error', err);
             });
     }]);
 

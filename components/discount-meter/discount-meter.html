@@ -2,34 +2,28 @@
     <div class="label-container">
         <div class="label-top">
             <!--<div class="label-date">{{ _startDate | date:'MMM d' }}</div>-->
-            <div class="label-value">{{ _fullDiscount }}%</div>
+            <!--<div class="label-value">{{ _fullDiscount }}%</div>-->
         </div>
         <div class="label-bottom">
             <!--<div class="label-date">{{ _endDate | date:'MMM d' }}</div>-->
-            <div class="label-value">0%</div>
+            <!--<div class="label-value">0%</div>-->
         </div>
     </div>
     <div class="meter-container">
-        <div class="meter">
-            <div class="meter-marker" ng-style="{top: _markerTop}"></div>
-        </div>
+        <div class="meter" ng-style="{top: _meterTop}"></div>
     </div>
     <div class="readout-container">
-        <div class="readout" ng-style="{top: _markerTop}">
+        <div class="readout" ng-style="{top: _meterTop}">
             <div class="readout-icon">
                 <i class="fa fa-long-arrow-left"></i>
             </div>
             <div class="readout-rate">
-                <!--{{ discounts.remaining }}-->
-                <span class="whole">{{ discountWholeNumbers }}</span><span class="decimal"><span ng-show="discountDecimalNumbers">.</span>{{ discountDecimalNumbers }}%</span>
+                {{ discounts.remaining }}
             </div>
             <div class="readout-label">
-                Savings
+                Discounts
                 <div class="readout-label">
-                    Right
-                    <div class="readout-label">
-                        Now
-                    </div>
+                    Remaining
                 </div>
             </div>
         </div>
