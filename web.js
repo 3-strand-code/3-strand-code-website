@@ -61,3 +61,8 @@ app.use('/kinvey/:endpoint/', function(req, res) {
 app.all('/*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
+
+// Keep Alive
+setInterval(function() {
+    request.get("http://three-strand-code.herokuapp.com/keep-alive");
+}, 300000);
