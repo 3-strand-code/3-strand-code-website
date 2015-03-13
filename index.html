@@ -26,113 +26,21 @@
 
 <body ng-controller="Controller as ctrl" ng-cloak>
 
+<nav class="header">
+    <div class="logo">
+        <img src="assets/img/logo-black.png" alt="3 Strand Code" class="img-responsive"/>
+    </div>
+</nav>
+
 <div class="jumbotron">
     <div class="container">
         <h1>3 Strand Code</h1>
 
         <p class="lead">
-            We make web developers.
+            Become a web developer in 3 months.
         </p>
     </div>
     <div class="picture"></div>
-
-
-    <div class="container">
-        <p>
-            3 Months<br/>
-            Spokane/CDA<br/>
-            Professional Mentors<br/>
-            Learn everything you need<br/>
-        </p>
-
-        <div class="logged-in" ng-show="$kinvey.getActiveUser()">
-            <h2>
-                Hello, {{ $kinvey.getActiveUser().firstName }}.
-            </h2>
-
-            <div class="my-info">
-                {{ $kinvey.getActiveUser().firstName }} {{ $kinvey.getActiveUser().lastName }}
-                <br/>
-                {{ $kinvey.getActiveUser().email }}
-            </div>
-            <br/>
-
-            <p>
-                You're registered!
-                <br/>
-                Watch your email for updates.
-            </p>
-            <br/>
-            <button class="tsc-btn tsc-btn-white" ng-click="$kinvey.User.logout()">
-                Sign Out
-            </button>
-        </div>
-
-        <div class="notice">
-        </div>
-
-        <div class="registration" ng-hide="$kinvey.getActiveUser()">
-            <div class="row">
-                <div class="col-sm-6">
-                    <discount-meter></discount-meter>
-                </div>
-
-                <br class="visible-xs"/>
-                <br class="visible-xs"/>
-                <br class="visible-xs"/>
-
-                <div class="col-sm-6">
-                    <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
-                        <h3 class="page-header"> Spokane / CDA Registration</h3>
-
-                        <p class="help-block">
-                            Reserve your discount.
-                        </p>
-
-                        <div class="row">
-
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.email" name="email" type="email" placeholder="Email" required="required"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit"
-                                class="tsc-btn tsc-btn-white"
-                                ng-disabled="!ctrl.registrationForm.$valid">
-                            Register
-                        </button>
-
-                        <br/>
-                        <br/>
-
-                        <p>
-                            <span ng-repeat="error in ctrl.registrationErrors">
-                                {{ error }}
-                            </span>
-                        </p>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="container">
@@ -184,6 +92,102 @@
 
 <div id="registerForm" class="register">
     <div class="container">
+
+        <div class="logged-in" ng-show="$kinvey.getActiveUser()">
+            <h2>
+                Hello, {{ $kinvey.getActiveUser().firstName }}.
+            </h2>
+
+            <div class="my-info">
+                {{ $kinvey.getActiveUser().firstName }} {{ $kinvey.getActiveUser().lastName }}
+                <br/>
+                {{ $kinvey.getActiveUser().email }}
+            </div>
+            <br/>
+
+            <p>
+                You're registered!
+                <br/>
+                Watch your email for updates.
+            </p>
+            <br/>
+            <button class="tsc-btn tsc-btn-white" ng-click="$kinvey.User.logout()">
+                Sign Out
+            </button>
+        </div>
+
+        <div class="registration" ng-hide="$kinvey.getActiveUser()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <discount-meter></discount-meter>
+                </div>
+
+                <br class="visible-xs"/>
+                <br class="visible-xs"/>
+                <br class="visible-xs"/>
+
+                <div class="col-sm-6">
+                    <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
+                        <h3 class="page-header"> Spokane / CDA Registration</h3>
+
+                        <p class="help-block">
+                            Reserve your discount.
+                        </p>
+
+                        <div class="row">
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="ctrl.user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="ctrl.user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <input class="form-control" ng-model="ctrl.user.email" name="email" type="email" placeholder="Email" required="required"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="tsc-btn tsc-btn-white"
+                                ng-disabled="!ctrl.registrationForm.$valid">
+                            Register
+                        </button>
+                        <form action="/charge" method="POST">
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_oyz4oCh4Zj6rHqBK1SSUG8Qy"
+                                    data-image="/assets/img/icon-blue-300x300.png"
+                                    data-name="3 Strand Code"
+                                    data-description="Summer Registration"
+                                    data-amount="24900">
+                            </script>
+                        </form>
+
+
+                        <br/>
+                        <br/>
+
+                        <p>
+                            <span ng-repeat="error in ctrl.registrationErrors">
+                                {{ error }}
+                            </span>
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

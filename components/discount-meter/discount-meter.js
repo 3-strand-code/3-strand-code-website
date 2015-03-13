@@ -17,7 +17,7 @@
                         scope._meterTop = '100%';
 
                         scope.discounts = {
-                            total: 1,
+                            total: 25,
                             remaining: 0,
                         };
 

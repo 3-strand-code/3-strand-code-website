@@ -41,15 +41,38 @@ app.use(logfmt.requestLogger());
 // static serve
 app.use('/', express.static(__dirname + '/'));
 
+//
+// Payment
+//
+app.use('/charge', function(req, res) {
+    // Set your secret key: remember to change this to your live secret key in production
+    // See your keys here https://dashboard.stripe.com/account
+    var stripe = require("stripe")("sk_test_0poqhPe77Ozg5bizoeEsMtX8");
+    var stripeToken = request.body.stripeToken;
 
-// custom kinvey endpoints
+    var charge = stripe.charges.create({
+        amount: 24900,
+        currency: "usd",
+        source: stripeToken,
+        description: "payinguser@example.com"
+    }, function(err, charge) {
+        if (err && err.type === 'StripeCardError') {
+            // The card has been declined
+        }
+    });
+});
+
+
+//
+// Custom kinvey endpoints
+// 
 app.use('/kinvey/:endpoint/', function(req, res) {
     var url = 'https://baas.kinvey.com/rpc/' + encodeURIComponent(kinveyAppKey) + '/custom/' + req.params.endpoint;
     var headers = {
         'Authorization': 'Basic ' + new Buffer(kinveyAppKey + ':' + kinveyMasterSecret).toString('base64'),
         'Content-Type': 'application/json'
     };
-    
+
     var form = {};
 
     request.post({url: url, headers: headers, form: form}, function(error, response, body) {
@@ -62,7 +85,15 @@ app.all('/*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+//
 // Keep Alive
+// 
 setInterval(function() {
     request.get("http://three-strand-code.herokuapp.com/keep-alive");
 }, 300000);
+
+
+//
+// Stripe Token
+//
+

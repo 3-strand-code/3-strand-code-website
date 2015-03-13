@@ -6477,8 +6477,12 @@ button.close {
   }
 }
 .discount-widget {
-  height: 300px;
+  height: 250px;
   color: #ffffff;
+}
+.discount-widget .discount-header {
+  font-weight: 400;
+  font-size: 1.5em;
 }
 .discount-widget .label-container,
 .discount-widget .meter-container,
@@ -6491,30 +6495,34 @@ button.close {
   width: 43%;
   top: 0;
   bottom: 0;
-  line-height: 2;
+  line-height: 1;
   text-align: center;
-  text-transform: uppercase;
   font-weight: 300;
+  font-size: 1.5em;
 }
 .discount-widget .label-container .label-top,
 .discount-widget .label-container .label-bottom {
   position: absolute;
+  padding: 5% 0;
   right: 0;
   left: 0;
+}
+.discount-widget .label-container .label-top .label-text,
+.discount-widget .label-container .label-bottom .label-text {
+  font-weight: 100;
+  opacity: 0.75;
 }
 .discount-widget .label-container .label-top {
   top: 0;
   color: #FFF;
-  font-size: 3em;
 }
 .discount-widget .label-container .label-bottom {
   color: rgba(255, 153, 0, 0.75);
   bottom: 0;
-  font-size: 2em;
 }
 .discount-widget .label-container .label-bottom:after {
   content: "";
-  display: block;
+  display: none;
   position: absolute;
   width: 3em;
   height: 1px;
@@ -6541,7 +6549,6 @@ button.close {
   width: 100%;
   top: 0;
   bottom: 0;
-  line-height: 2em;
   background-image: -webkit-linear-gradient(270deg, #8bcf69 20%, rgba(230, 212, 80, 0.2) 80%, rgba(230, 212, 80, 0) 100%);
   background-image: linear-gradient(180deg, #8bcf69 20%, rgba(230, 212, 80, 0.2) 80%, rgba(230, 212, 80, 0) 100%);
   overflow: hidden;
@@ -6581,9 +6588,16 @@ button.close {
 .discount-widget .readout-container .readout .readout-label > .readout-label {
   opacity: 0.5;
 }
+.header {
+  padding: 10%;
+}
+.header .logo {
+  width: 10%;
+  min-width: 80px;
+  max-width: 150px;
+}
 .jumbotron {
   position: relative;
-  padding: 10% 0;
   overflow: hidden;
   text-align: center;
   background-image: -webkit-linear-gradient(290deg, #365063, #366349);
