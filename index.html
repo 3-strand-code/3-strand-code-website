@@ -163,16 +163,6 @@
                                 ng-disabled="!ctrl.registrationForm.$valid">
                             Register
                         </button>
-                        <form action="/charge" method="POST">
-                            <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="pk_test_oyz4oCh4Zj6rHqBK1SSUG8Qy"
-                                    data-image="/assets/img/icon-blue-300x300.png"
-                                    data-name="3 Strand Code"
-                                    data-description="Summer Registration"
-                                    data-amount="24900">
-                            </script>
-                        </form>
 
 
                         <br/>
@@ -183,6 +173,16 @@
                                 {{ error }}
                             </span>
                         </p>
+                    </form>
+                    <form action="/charge" method="POST">
+                        <script
+                                src="http://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_oyz4oCh4Zj6rHqBK1SSUG8Qy"
+                                data-image="/assets/img/icon-blue-300x300.png"
+                                data-name="3 Strand Code"
+                                data-description="Registration"
+                                data-amount="24900">
+                        </script>
                     </form>
 
                 </div>

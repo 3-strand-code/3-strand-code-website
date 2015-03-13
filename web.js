@@ -1,3 +1,4 @@
+var bodyParser = require('body-parser');
 var express = require('express');
 var livereload = require('express-livereload');
 var logfmt = require('logfmt');
@@ -33,6 +34,10 @@ var server = app.listen(port, function() {
     console.log('Listening on ' + port);
 });
 
+// handle req body
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
 //
 // logging
 app.use(logfmt.requestLogger());
@@ -48,7 +53,8 @@ app.use('/charge', function(req, res) {
     // Set your secret key: remember to change this to your live secret key in production
     // See your keys here https://dashboard.stripe.com/account
     var stripe = require("stripe")("sk_test_0poqhPe77Ozg5bizoeEsMtX8");
-    var stripeToken = request.body.stripeToken;
+    console.log(req.body);
+    var stripeToken = req.body.stripeToken;
 
     var charge = stripe.charges.create({
         amount: 24900,
