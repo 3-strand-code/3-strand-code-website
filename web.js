@@ -3,7 +3,7 @@ var express = require('express');
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
-var livereload = require('express-livereload');
+var livereload = require('livereload');
 var logfmt = require('logfmt');
 var pkg = require('./package.json');
 var request = require('request');
@@ -32,11 +32,10 @@ function onServerStart(port, https) {
 }
 
 function ensureSecure(req, res, next) {
-    console.log('https://' + req.headers.host + ':' + httpsPort + req.url);
     if (req.secure) {
         return next();
     }
-    res.redirect('https://' + req.headers.host + ':' + httpsPort + req.url);
+    res.redirect('https://' + req.get('Host').split(':')[0] + ':' + httpsPort + req.url);
 }
 
 /////////////////////////////////////////////////////////////
@@ -52,10 +51,19 @@ https.createServer(sslOptions, app).listen(httpsPort, onServerStart(httpsPort, t
 //
 // Livereload
 
-livereload(app, {
-    watchDir: SERVER_ROOT,
+var lrServer = livereload.createServer({
+    exts: [
+        'html',
+        'css',
+        'js',
+        'png',
+        'gif',
+        'jpg',
+        'jpeg',
+    ],
     https: sslOptions,
 });
+lrServer.watch(SERVER_ROOT);
 
 
 /////////////////////////////////////////////////////////////
