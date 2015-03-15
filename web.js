@@ -15,6 +15,10 @@ var KINVEY_APP_KEY = process.env.TSC_KINVEY_APP_KEY;
 var KINVEY_APP_SECRET = process.env.TSC_KINVEY_APP_SECRET;
 var KINVEY_MASTER_SECRET = process.env.TSC_KINVEY_MASTER_SECRET;
 
+if (!KINVEY_APP_KEY) { throw 'KINVEY_APP_KEY not set.' }
+if (!KINVEY_APP_SECRET) { throw 'KINVEY_APP_SECRET not set.' }
+if (!KINVEY_MASTER_SECRET) { throw 'KINVEY_MASTER_SECRET not set.' }
+
 ////
 
 var app = express();
@@ -51,7 +55,7 @@ https.createServer(sslOptions, app).listen(httpsPort, onServerStart(httpsPort, t
 //
 // Livereload
 
-var lrServer = livereload.createServer({
+var lrOptions = {
     exts: [
         'html',
         'css',
@@ -61,8 +65,17 @@ var lrServer = livereload.createServer({
         'jpg',
         'jpeg',
     ],
+    exclusions: [
+        '.git/',
+        '.idea/',
+        'bower_components',
+        'node_modules/',
+    ],
+    applyJSLive: false,
+    applyCSSLive: true,
     https: sslOptions,
-});
+};
+var lrServer = livereload.createServer(lrOptions);
 lrServer.watch(SERVER_ROOT);
 
 
