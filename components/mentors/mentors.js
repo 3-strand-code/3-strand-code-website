@@ -17,14 +17,14 @@
                         scope.triggerEle = angular.element('.jumbotron h1');
                         scope.breakPoint = scope.triggerEle.outerHeight() - scope.navbar.outerHeight();
 
-                        scope.updateOpaque = function() {
+                        function handleScroll(e) {
                             scope.isOpaque = scope.doc.scrollTop() < scope.breakPoint;
+                            console.log(scope.isOpaque);
+                            
                             scope.navbar.toggleClass('transparent', scope.isOpaque)
-                        };
+                        }
 
-                        angular.element(document).on('scroll', function() {
-                            scope.updateOpaque();
-                        });
+                        angular.element(document).on('scroll', handleScroll)
                     }
                 };
             }]);
