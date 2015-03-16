@@ -1,0 +1,127 @@
+.discount-widget {
+  @tsc-meter-width: 14%;
+  @tsc-meter-width-gap: (100% - @tsc-meter-width);
+  height: 250px;
+  color: #ffffff;
+  
+  .discount-header {
+    font-weight: 400;
+    font-size: 1.5em;
+  }
+
+  .label-container,
+  .meter-container,
+  .readout-container {
+    position: relative;
+    float: left;
+    height: 100%;
+  }
+
+  .label-container {
+    width: floor(@tsc-meter-width-gap / 2);
+    top: 0;
+    bottom: 0;
+    line-height: 1;
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.5em;
+
+    .label-top,
+    .label-bottom {
+      position: absolute;
+      padding: 5% 0;
+      right: 0;
+      left: 0;
+      .label-value {
+      }
+      .label-text {
+        font-weight: 100;
+        opacity: 0.75;
+      }
+    }
+
+    .label-top {
+      top: 0;
+      color: #FFF;
+    }
+
+    .label-bottom {
+      color: fade(#f90, 75);
+      bottom: 0;
+      &:after {
+        content: "";
+        display: none;
+        position: absolute;
+        width: 3em;
+        height: 1px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:auto;
+        transform: rotate(-20deg);
+        background: fade(#f90, 75);
+      }
+    }
+  }
+
+  .meter-container {
+    width: @tsc-meter-width;
+    background: linear-gradient(180deg, fade(white, 20), fade(white, 0) 50%);
+    box-shadow: inset 0 5px 5px fade(black, 10);
+
+    .meter {
+      transition: top 1s;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+              180deg,
+              #8bcf69 20%,
+              fade(#e6d450, 20) 80%,
+              fade(#e6d450, 0) 100%
+      );
+      overflow: hidden;
+    }
+  }
+
+  .readout-container {
+    width: floor(@tsc-meter-width-gap / 2);
+
+    .readout {
+      transition: top 1s;
+      position: absolute;
+      top: 0;
+      margin-top: -0.5em;
+      margin-left: 1em;
+      font-size: @font-size-h3;
+      text-align: left;
+      line-height: 1;
+      vertical-align: top;
+      white-space: nowrap;
+
+      .readout-icon {
+        position: absolute;
+        right: 100%;
+        margin-right: 0.5em;
+      }
+
+      .readout-rate {
+        margin-bottom: 0.25em;
+        font-weight: 400;
+        border-bottom: 1px dotted fade(#fff, 50);
+      }
+
+      .readout-label {
+        font-size: 0.825em;
+        font-weight: 300;
+        text-transform: uppercase;
+        opacity: 0.9;
+        & > .readout-label {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
