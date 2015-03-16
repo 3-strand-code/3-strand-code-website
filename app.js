@@ -10,6 +10,7 @@
         'App.discount',
         'App.navbar',
         'App.mentors',
+        'App.whatYouGet',
 
     ])
 
