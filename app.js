@@ -8,6 +8,8 @@
         // ours
         'App.env',
         'App.discount',
+        'App.navbar',
+        'App.mentors',
 
     ])
 

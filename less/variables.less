@@ -8,6 +8,8 @@
 @tsc-jumbo-primary: @tsc-brand-primary;
 @tsc-jumbo-accent: @tsc-brand-accent;
 
+@tsc-transition-timing-function: cubic-bezier(0.4, 0.9, 0.5, 1);
+@tsc-transition-duration: 0.3s;
 
 ////////////////////////////
 // Bootstrap Variables
@@ -31,5 +33,10 @@
 @font-size-h6: ceil((@headings-font-size-base * 0.85));
 
 // nav 
+@navbar-default-border: fade(black, 10);
 @navbar-default-bg: white;
+
 @navbar-default-link-color: @brand-primary;
+@navbar-default-link-hover-bg: transparent;
+@navbar-default-link-active-bg: transparent;
+@navbar-default-link-active-color: @brand-primary;

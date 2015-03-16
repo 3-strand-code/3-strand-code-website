@@ -22,9 +22,14 @@
 
   .nav.navbar-nav {
     li {
+      border-bottom: 2px solid transparent;
       font-weight: 300;
+      &:hover:not(.active) {
+        border-bottom-color: fade(@brand-primary, 50);
+      }
       &.active {
         font-weight: 400;
+        border-bottom-color: @brand-primary;
       }
       & > a {
 

@@ -17,6 +17,7 @@
     "bootstrap": "~3.3.2",
     "fontawesome": "~4.3.0",
     "angular": "1.2.28",
-    "kinvey-angular": "~1.0.0"
+    "kinvey-angular": "~1.0.0",
+    "jquery": "~2.1.3"
   }
 }

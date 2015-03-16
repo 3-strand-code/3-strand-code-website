@@ -1,30 +1,39 @@
 (function() {
     'use strict';
 
-    angular.module('App.navbar', [])
+    angular.module('App.mentors', [])
 
-        .directive('navbar', [
+        .directive('mentors', [
             '$interval', '$filter', '$kinvey', '$http',
             function($interval, $filter, $kinvey, $http) {
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: 'components/navbar/navbar.html',
+                    templateUrl: 'components/mentors/mentors.html',
                     scope: {},
                     link: function(scope, elem, attrs) {
-                        scope.doc = angular.element(document);
-                        scope.navbar = angular.element('.navbar');
-                        scope.triggerEle = angular.element('.jumbotron h1');
-                        scope.breakPoint = scope.triggerEle.outerHeight() - scope.navbar.outerHeight();
+                        scope.mentorList = angular.element('.mentors .mentor');
 
-                        function handleScroll(e) {
-                            scope.isOpaque = scope.doc.scrollTop() < scope.breakPoint;
-                            console.log(scope.isOpaque);
+                        scope.setHeights = function() {
+                            // only resize if mentor widths have changed
+                            if (scope.mentorWidth === scope.mentorList.first().width()) {
+                                return;
+                            }
+
+                            scope.mentorWidth = scope.mentorList.first().width();
                             
-                            scope.navbar.toggleClass('transparent', scope.isOpaque)
-                        }
+                            angular.forEach(scope.mentorList, function(item) {
+                                var picture = angular.element(item);
 
-                        angular.element(document).on('scroll', handleScroll)
+                                picture.height(scope.mentorWidth);
+                            });
+                        };
+
+                        angular.element(window).on('resize', function() {
+                            scope.setHeights();
+                        });
+
+                        scope.setHeights();
                     }
                 };
             }]);
