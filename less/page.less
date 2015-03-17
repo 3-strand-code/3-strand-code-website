@@ -1,7 +1,12 @@
+// BODY
+body {
+  padding-top: 52px;
+}
+
 // HEADER
 .header {
   padding: 10%;
-  
+
   .logo {
     width: 10%;
     min-width: 80px;
@@ -10,19 +15,21 @@
 }
 
 section {
-  margin: 4em 0 8em 0;
+  margin: 4em 0;
+  // room for scrollTo
+  padding-top: 3em;
 }
 
 // JUMBOTRON
 .jumbotron {
   position: relative;
-  padding-top: 120px;
+  padding: 60px 0;
   overflow: hidden;
   text-align: center;
   background-image: linear-gradient(160deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   background-size: cover;
   color: white;
-  
+
   .picture {
     position: absolute;
     margin: 0;
@@ -49,7 +56,7 @@ section {
         font-size: 48px;
       }
     }
-    
+
     p {
       margin: 15px 0 55px 0;
     }
@@ -61,7 +68,7 @@ section {
   border-left: 2px solid fade(#fff, 10);
   padding-left: 10%;
   color: #fff;
-  
+
   .help-block {
     color: fade(#fff, 70);
   }
@@ -73,7 +80,7 @@ section {
   .register-header {
     text-transform: uppercase;
   }
-  
+
   .form-control {
     transition: background 0.2s;
     background: fade(#fff, 20);

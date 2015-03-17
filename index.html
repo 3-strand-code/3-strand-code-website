@@ -21,8 +21,9 @@
 
     <script src="components/env/env.js"></script>
     <script src="components/discount-meter/discount-meter.js"></script>
-    <script src="components/navbar/navbar.js"></script>
     <script src="components/mentors/mentors.js"></script>
+    <script src="components/navbar/navbar.js"></script>
+    <script src="components/our-process/our-process.js"></script>
     <script src="components/what-you-get/what-you-get.js"></script>
 
     <script src="app.js"></script>
@@ -43,7 +44,7 @@
             Earn a U of I certificate & written recommendation.
         </p>
 
-        <a href="" class="tsc-btn tsc-btn-white">
+        <a href="#register" class="tsc-btn tsc-btn-white">
             CDA Register Now
         </a>
     </div>
@@ -97,16 +98,14 @@
     </div>
 </div>
 
-<section id="our-process" class="our-process">
-    <h1 class="page-header">Our Process</h1>
-</section>
+<our-process></our-process>
 
 <mentors></mentors>
 
 <what-you-get></what-you-get>
 
 
-<div id="registerForm" class="register">
+<div id="register" class="register">
     <div class="container">
 
         <div class="logged-in" ng-show="$kinvey.getActiveUser()">
@@ -144,7 +143,7 @@
 
                 <div class="col-sm-6">
                     <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
-                        <h3 class="page-header"> Spokane / CDA Registration</h3>
+                        <h3>CDA Registration</h3>
 
                         <p class="help-block">
                             Reserve your discount.

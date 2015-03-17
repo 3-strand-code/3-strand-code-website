@@ -8,10 +8,10 @@
         // ours
         'App.env',
         'App.discount',
-        'App.navbar',
         'App.mentors',
+        'App.navbar',
+        'App.ourProcess',
         'App.whatYouGet',
-
     ])
 
         .run(function($rootScope, $kinvey) {
