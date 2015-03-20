@@ -4345,7 +4345,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   border-color: rgba(0, 0, 0, 0.1);
 }
 .navbar-default .navbar-brand {
@@ -6538,9 +6538,6 @@ i:before,
   line-height: inherit;
   vertical-align: inherit;
 }
-body {
-  padding-top: 52px;
-}
 .header {
   padding: 10%;
 }
@@ -6555,7 +6552,7 @@ section {
 }
 .jumbotron {
   position: relative;
-  padding: 60px 0;
+  padding: 100px 0 60px 0;
   overflow: hidden;
   text-align: center;
   background-image: -webkit-linear-gradient(290deg, #365063, #366349);

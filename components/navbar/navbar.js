@@ -15,11 +15,21 @@
                         scope.doc = angular.element(document);
                         scope.navbar = angular.element('.navbar');
                         scope.triggerEle = angular.element('.jumbotron h1');
-                        scope.breakPoint = scope.triggerEle.outerHeight() - scope.navbar.outerHeight();
+                        scope.breakPoint = scope.triggerEle.outerHeight() + (scope.navbar.outerHeight() / 2);
 
                         scope.updateOpaque = function() {
                             scope.isOpaque = scope.doc.scrollTop() < scope.breakPoint;
-                            scope.navbar.toggleClass('transparent', scope.isOpaque)
+                            scope.navbar.toggleClass('transparent', scope.isOpaque);
+                        };
+
+                        scope.navClicked = function(event) {
+                            var clickedElement = angular.element(event.target);
+                            var activeElement = angular.element('.active');
+                            
+                            console.log(event);
+
+                            activeElement.removeClass('active');
+                            clickedElement.addClass('active');
                         };
 
                         angular.element(document).on('scroll', function() {

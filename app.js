@@ -4,7 +4,7 @@
     angular.module('App', [
         // vendors
         'kinvey',
-
+        
         // ours
         'App.env',
         'App.discount',
@@ -53,7 +53,6 @@
         'ng',
         'kinvey',
         'App.env',
-        //'App.auth',
     ]);
 
     // We're outside of an angular module here, explicitly invoke ng-annotate
