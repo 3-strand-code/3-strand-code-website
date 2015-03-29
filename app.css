@@ -6910,6 +6910,15 @@ footer {
 .navbar .navbar-brand .tsc-text {
   float: left;
 }
+.stack {
+  text-align: center;
+  overflow: hidden;
+}
+.stack .component {
+  float: left;
+  background: lightblue;
+  border: 1px solid black;
+}
 .what-you-get .lead,
 .what-you-get .heading {
   text-align: center;

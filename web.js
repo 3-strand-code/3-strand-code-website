@@ -28,8 +28,8 @@ var app = express();
 var PORT = process.env.PORT || 8000;
 
 var sslOptions = {
+    cert: fs.readFileSync('fixtures/dev-cert.pem'),
     key: fs.readFileSync('fixtures/dev-key.pem'),
-    cert: fs.readFileSync('fixtures/dev-cert.pem')
 };
 
 // Livereload
@@ -46,7 +46,7 @@ var lrOptions = {
     exclusions: [
         '.git/',
         '.idea/',
-        'bower_components',
+        'bower_components/',
         'node_modules/',
     ],
     applyJSLive: false,
@@ -71,7 +71,9 @@ if (inProduction) {
     https.createServer(sslOptions, app).listen(PORT, function() {
         console.log('Server listening at https://localhost:' + PORT);
     });
-    livereload.createServer(lrOptions).watch(SERVER_ROOT);
+
+    server = livereload.createServer(lrOptions);
+    server.watch(SERVER_ROOT);
 }
 
 
