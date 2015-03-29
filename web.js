@@ -25,8 +25,7 @@ if (!KINVEY_MASTER_SECRET)  throw 'KINVEY_MASTER_SECRET not set.';
 
 var app = express();
 
-var httpPort = process.env.PORT || 8000;
-var httpsPort = process.env.PORT ? 443 : 8001;
+var PORT = process.env.PORT || 8000;
 
 var sslOptions = {
     key: fs.readFileSync('fixtures/dev-key.pem'),
@@ -55,39 +54,23 @@ var lrOptions = {
     https: sslOptions,
 };
 
-function onServerStart(port, https) {
-    console.log(https ? 'https' : 'http', 'listening on', port);
-}
-
-function ensureSecure(req, res, next) {
-    if (req.secure) {
-        return next();
-    }
-
-    var redirectTo;
-    var host = req.get('Host').split(':')[0];
-    var port = req.get('Host').split(':')[1];
-
-    redirectTo = 'https://' + host + (port ? ':' + httpsPort : '') + req.url;
-
-    console.log(redirectTo);
-
-    res.redirect(redirectTo);
+function keepAlive() {
+    setInterval(function() {
+        request.get("https://three-strand-code.herokuapp.com/");
+    }, 300000);
 }
 
 
 /////////////////////////////////////////////////////////////
-// SETUP APP
+// SERVER
 
-// HTTP
-http.createServer(app).listen(httpPort, onServerStart(httpPort));
-
-// Local Dev
-if (!inProduction) {
-    // https
-    https.createServer(sslOptions, app).listen(httpsPort, onServerStart(httpsPort, true));
-
-    // livereload
+if (inProduction) {
+    http.createServer(app).listen(PORT);
+    keepAlive();
+} else {
+    https.createServer(sslOptions, app).listen(PORT, function() {
+        console.log('Server listening at https://localhost:' + PORT);
+    });
     livereload.createServer(lrOptions).watch(SERVER_ROOT);
 }
 
@@ -107,11 +90,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-
-//
-// Force HTTPS
-app.all('*', ensureSecure);
 
 
 //
@@ -160,11 +138,3 @@ app.use('/kinvey/:endpoint/', function(req, res) {
 app.all('/*', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
-
-
-/////////////////////////////////////////////////////////////
-// Keep Alive
-
-setInterval(function() {
-    request.get("http://three-strand-code.herokuapp.com/");
-}, 300000);
