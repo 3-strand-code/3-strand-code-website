@@ -6915,8 +6915,8 @@ footer {
   overflow: hidden;
 }
 .stack .component {
-  -webkit-transition-property: opacity, -webkit-filter, opacity, filter;
-          transition-property: opacity, filter;
+  -webkit-transition-property: opacity, -webkit-filter, -webkit-transform, opacity, filter, -webkit-transform;
+          transition-property: opacity, filter, transform;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0.9, 0.5, 1);
@@ -6928,11 +6928,16 @@ footer {
   background-position: center;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  -webkit-transform: scale3d(0.95, 0.95, 1);
+          transform: scale3d(0.95, 0.95, 1);
   opacity: 0.5;
+  cursor: pointer;
 }
 .stack .component:hover {
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
   opacity: 1;
 }
 .stack .component.angular {
