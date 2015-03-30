@@ -136,7 +136,6 @@
      */
     gulp.task('default', [
         'less',
-        'serve',
         'watch',
     ]);
 
