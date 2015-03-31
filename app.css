@@ -6910,9 +6910,22 @@ footer {
 .navbar .navbar-brand .tsc-text {
   float: left;
 }
+.week {
+  margin-bottom: 1em;
+}
+.week .week-item {
+  margin-bottom: 0.25em;
+}
 .stack {
   text-align: center;
   overflow: hidden;
+}
+.stack a:hover .component {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+  opacity: 1;
 }
 .stack .component {
   -webkit-transition-property: opacity, -webkit-filter, -webkit-transform, opacity, filter, -webkit-transform;
@@ -6931,14 +6944,6 @@ footer {
   -webkit-transform: scale3d(0.95, 0.95, 1);
           transform: scale3d(0.95, 0.95, 1);
   opacity: 0.5;
-  cursor: pointer;
-}
-.stack .component:hover {
-  -webkit-filter: grayscale(0%);
-          filter: grayscale(0%);
-  -webkit-transform: scale3d(1, 1, 1);
-          transform: scale3d(1, 1, 1);
-  opacity: 1;
 }
 .stack .component.angular {
   background-image: url("//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png");

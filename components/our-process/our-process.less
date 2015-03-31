@@ -1,6 +1,23 @@
+.week {
+  margin-bottom: 1em;
+  .week-item {
+    margin-bottom: 0.25em;
+  }
+}
+
 .stack {
   text-align: center;
   overflow: hidden;
+  a {
+    &:hover {
+      .component {
+        filter: grayscale(0%);
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+      }
+    }
+  }
+
   .component {
     .tsc-transition(opacity, filter, transform;);
     margin: 40px 20%;
@@ -9,14 +26,8 @@
     background-repeat: no-repeat;
     background-position: center;
     filter: grayscale(100%);
-    transform: scale3d(0.95,0.95,1);
+    transform: scale3d(0.95, 0.95, 1);
     opacity: 0.5;
-    cursor: pointer;
-    &:hover {
-      filter: grayscale(0%);
-      transform: scale3d(1,1,1);
-      opacity: 1;
-    }
     &.angular {
       background-image: url("//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png");
     }
