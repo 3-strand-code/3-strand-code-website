@@ -942,22 +942,10 @@ th {
 .glyphicon-bitcoin:before {
   content: "\e227";
 }
-.glyphicon-btc:before {
-  content: "\e227";
-}
-.glyphicon-xbt:before {
-  content: "\e227";
-}
 .glyphicon-yen:before {
   content: "\00a5";
 }
-.glyphicon-jpy:before {
-  content: "\00a5";
-}
 .glyphicon-ruble:before {
-  content: "\20bd";
-}
-.glyphicon-rub:before {
   content: "\20bd";
 }
 .glyphicon-scale:before {
@@ -1150,9 +1138,6 @@ hr {
   margin: 0;
   overflow: visible;
   clip: auto;
-}
-[role="button"] {
-  cursor: pointer;
 }
 h1,
 h2,
@@ -2550,12 +2535,9 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
+  cursor: not-allowed;
   background-color: #eeeeee;
   opacity: 1;
-}
-.form-control[disabled],
-fieldset[disabled] .form-control {
-  cursor: not-allowed;
 }
 textarea.form-control {
   height: auto;
@@ -2623,7 +2605,6 @@ input[type="search"] {
 }
 .radio-inline,
 .checkbox-inline {
-  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -2660,7 +2641,6 @@ fieldset[disabled] .checkbox label {
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
-  min-height: 38px;
 }
 .form-control-static.input-lg,
 .form-control-static.input-sm {
@@ -2702,7 +2682,6 @@ select[multiple].form-group-sm .form-control {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  min-height: 36px;
 }
 .input-lg {
   height: 49px;
@@ -2739,7 +2718,6 @@ select[multiple].form-group-lg .form-control {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  min-height: 42px;
 }
 .has-feedback {
   position: relative;
@@ -3348,9 +3326,11 @@ input[type="button"].btn-block {
 }
 .collapse {
   display: none;
+  visibility: hidden;
 }
 .collapse.in {
   display: block;
+  visibility: visible;
 }
 tr.collapse.in {
   display: table-row;
@@ -3375,7 +3355,7 @@ tbody.collapse.in {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px dashed;
+  border-top: 4px solid;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
@@ -4011,9 +3991,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .tab-content > .tab-pane {
   display: none;
+  visibility: hidden;
 }
 .tab-content > .active {
   display: block;
+  visibility: visible;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4055,6 +4037,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-collapse.collapse {
     display: block !important;
+    visibility: visible !important;
     height: auto !important;
     padding-bottom: 0;
     overflow: visible !important;
@@ -4779,8 +4762,7 @@ a.label:focus {
   position: relative;
   top: -1px;
 }
-.btn-xs .badge,
-.btn-group-xs > .btn .badge {
+.btn-xs .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -5592,10 +5574,10 @@ a.list-group-item-danger.active:focus {
   width: 100%;
   border: 0;
 }
-.embed-responsive-16by9 {
+.embed-responsive.embed-responsive-16by9 {
   padding-bottom: 56.25%;
 }
-.embed-responsive-4by3 {
+.embed-responsive.embed-responsive-4by3 {
   padding-bottom: 75%;
 }
 .well {
@@ -5655,7 +5637,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1040;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5691,12 +5673,10 @@ button.close {
   outline: 0;
 }
 .modal-backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  z-index: 1040;
   background-color: #000000;
 }
 .modal-backdrop.fade {
@@ -5766,6 +5746,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
+  visibility: visible;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: normal;
@@ -6280,6 +6261,7 @@ button.close {
 }
 .hidden {
   display: none !important;
+  visibility: hidden !important;
 }
 .affix {
   position: fixed;
@@ -6852,44 +6834,61 @@ footer {
     width: 25%;
   }
 }
-.navbar {
+.tsc-navbar {
   -webkit-transition-property: background, border-color;
           transition-property: background, border-color;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
   border-bottom: none;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1030;
 }
-.navbar.transparent {
+.tsc-navbar.transparent {
   background: transparent;
   box-shadow: none;
 }
-.navbar.transparent .navbar-brand .img-dark {
+.tsc-navbar.transparent .tsc-navbar-brand .img-dark {
   opacity: 0;
 }
-.navbar.transparent .navbar-brand .img-light {
+.tsc-navbar.transparent .tsc-navbar-brand .img-light {
   opacity: 1;
 }
-.navbar.transparent .nav.navbar-nav li > a {
+.tsc-navbar.transparent .tsc-navbar-nav li > a {
   color: rgba(255, 255, 255, 0.7);
 }
-.navbar .nav.navbar-nav li {
+.tsc-navbar .tsc-navbar-nav {
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.tsc-navbar .tsc-navbar-nav li {
+  display: inline-block;
   border-bottom: 2px solid transparent;
   font-weight: 300;
 }
-.navbar .nav.navbar-nav li:hover:not(.active) {
+.tsc-navbar .tsc-navbar-nav li:hover:not(.active) {
   border-bottom-color: rgba(54, 80, 99, 0.5);
 }
-.navbar .nav.navbar-nav li.active {
+.tsc-navbar .tsc-navbar-nav li.active {
   font-weight: 400;
   border-bottom-color: #365063;
 }
-.navbar .navbar-brand {
+.tsc-navbar .tsc-navbar-nav li > a {
+  color: #365063;
+}
+.tsc-navbar .tsc-navbar-brand {
+  display: inline-block;
+  width: 200px;
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  width: 200px;
 }
-.navbar .navbar-brand img {
+.tsc-navbar .tsc-navbar-brand img {
   -webkit-transition-property: opacity;
           transition-property: opacity;
   -webkit-transition-duration: 0.2s;
@@ -6901,13 +6900,13 @@ footer {
   max-width: 100%;
   max-height: 100%;
 }
-.navbar .navbar-brand img.img-dark {
+.tsc-navbar .tsc-navbar-brand img.img-dark {
   opacity: 1;
 }
-.navbar .navbar-brand img.img-light {
+.tsc-navbar .tsc-navbar-brand img.img-light {
   opacity: 0;
 }
-.navbar .navbar-brand .tsc-text {
+.tsc-navbar .tsc-navbar-brand .tsc-text {
   float: left;
 }
 .week {

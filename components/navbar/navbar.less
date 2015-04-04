@@ -1,13 +1,18 @@
-.navbar {
+.tsc-navbar {
   transition-property: background, border-color;
   transition-duration: 0.2s;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
   border-bottom: none;
   box-shadow: inset 0 -1px 0 fade(black, 10);
+  z-index: @zindex-navbar-fixed;
 
   &.transparent {
     background: transparent;
     box-shadow: none;
-    .navbar-brand {
+    .tsc-navbar-brand {
       .img-dark {
         opacity: 0;
       }
@@ -16,15 +21,20 @@
       }
     }
 
-    .nav.navbar-nav {
+    .tsc-navbar-nav {
       li > a {
         color: fade(white, 70);
       }
     }
   }
 
-  .nav.navbar-nav {
+  .tsc-navbar-nav {
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     li {
+      display: inline-block;
       border-bottom: 2px solid transparent;
       font-weight: 300;
       &:hover:not(.active) {
@@ -35,15 +45,17 @@
         border-bottom-color: @brand-primary;
       }
       & > a {
-
+        color: @tsc-brand-primary;
       }
     }
   }
 
-  .navbar-brand {
+  .tsc-navbar-brand {
+    display: inline-block;
+    width: 200px;
+    height: 100%;
     font-family: @headings-font-family;
     overflow: hidden;
-    width: 200px;
     img {
       transition-property: opacity;
       transition-duration: 0.2s;
@@ -63,7 +75,6 @@
 
     .tsc-text {
       float: left;
-      //      padding: 4px;
     }
   }
 }
