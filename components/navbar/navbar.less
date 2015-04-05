@@ -29,12 +29,13 @@
   }
 
   .tsc-navbar-nav {
-    display: inline-block;
+    float: left;
     height: 100%;
     margin: 0;
     padding: 0;
     li {
-      display: inline-block;
+      float: left;
+      list-style: none;
       border-bottom: 2px solid transparent;
       font-weight: 300;
       &:hover:not(.active) {
@@ -51,7 +52,7 @@
   }
 
   .tsc-navbar-brand {
-    display: inline-block;
+    float: left;
     width: 200px;
     height: 100%;
     font-family: @headings-font-family;
@@ -60,7 +61,7 @@
       transition-property: opacity;
       transition-duration: 0.2s;
       position: absolute;
-      padding: 14px 15px;
+//      padding: 14px 15px;
       top: 0;
       left: 0;
       max-width: 100%;
