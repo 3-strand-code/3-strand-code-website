@@ -34,6 +34,8 @@
 
 <navbar></navbar>
 
+<div id="top" class="tsc-scroll-anchor"></div>
+
 <div class="jumbotron">
     <div class="container">
         <h1>
@@ -104,9 +106,11 @@
 
 <what-you-get></what-you-get>
 
+<div id="register" class="tsc-scroll-anchor"></div>
 
-<div id="register" class="register">
+<section class="register">
     <div class="container">
+        <h1 class="page-header">Register</h1>
 
         <div class="logged-in" ng-show="$kinvey.getActiveUser()">
             <h2>
@@ -143,10 +147,8 @@
 
                 <div class="col-sm-6">
                     <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
-                        <h3>CDA Registration</h3>
-
                         <p class="help-block">
-                            Reserve your discount.
+                            Coeur d'Alene, ID Area
                         </p>
 
                         <div class="row">
@@ -208,7 +210,7 @@
         </div>
     </div>
     <div class="picture"></div>
-</div>
+</section>
 
 <div class="container">
     <div class="row">

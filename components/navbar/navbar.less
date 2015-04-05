@@ -1,81 +1,89 @@
+///////////////////////////////////////////////
+// Container
+
 .tsc-navbar {
-  transition-property: background, border-color;
+  transition-property: background, box-shadow;
   transition-duration: 0.2s;
   position: fixed;
   width: 100%;
-  height: 60px;
-  overflow: hidden;
-  border-bottom: none;
-  box-shadow: inset 0 -1px 0 fade(black, 10);
+  background: @body-bg;
+  box-shadow: inset 0 -2px fade(@tsc-brand-primary, 10);
   z-index: @zindex-navbar-fixed;
 
-  &.transparent {
+  &.tsc-navbar-transparent {
     background: transparent;
     box-shadow: none;
     .tsc-navbar-brand {
-      .img-dark {
-        opacity: 0;
+      .tsc-img-dark {
+        display: none;
       }
-      .img-light {
-        opacity: 1;
+      .tsc-img-light {
+        display: block;
       }
     }
 
     .tsc-navbar-nav {
-      li > a {
-        color: fade(white, 70);
+      li {
+        &.active {
+          box-shadow: none;
+        }
+        & > a {
+          color: #fff;
+        }
       }
     }
   }
 
+  ///////////////////////////////////////////////
+  // Brand
+
+  .tsc-navbar-brand {
+    float: left;
+    height: @tsc-navbar-height;
+    line-height: @tsc-navbar-height;
+    padding: (@tsc-navbar-height / 2 - 10px) @tsc-navbar-item-padding;
+    padding-left: 0;
+    margin-top: -2px; // account for vertically off center logo text
+    img {
+      height: 20px;
+      &.tsc-img-dark {
+        display: block;
+      }
+      &.tsc-img-light {
+        display: none;
+      }
+    }
+  }
+
+  ///////////////////////////////////////////////
+  // Nav Menu
+
   .tsc-navbar-nav {
     float: left;
-    height: 100%;
     margin: 0;
     padding: 0;
     li {
       float: left;
       list-style: none;
-      border-bottom: 2px solid transparent;
-      font-weight: 300;
-      &:hover:not(.active) {
-        border-bottom-color: fade(@brand-primary, 50);
+      box-shadow: none;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+        a {
+          text-decoration: none;
+        }
       }
       &.active {
-        font-weight: 400;
-        border-bottom-color: @brand-primary;
+        opacity: 1;
+        box-shadow: inset 0 -2px 0 @brand-primary;
       }
       & > a {
+        display: block;
         color: @tsc-brand-primary;
+        height: @tsc-navbar-height;
+        line-height: @tsc-navbar-height;
+        padding: 0 @tsc-navbar-item-padding;
       }
-    }
-  }
-
-  .tsc-navbar-brand {
-    float: left;
-    width: 200px;
-    height: 100%;
-    font-family: @headings-font-family;
-    overflow: hidden;
-    img {
-      transition-property: opacity;
-      transition-duration: 0.2s;
-      position: absolute;
-//      padding: 14px 15px;
-      top: 0;
-      left: 0;
-      max-width: 100%;
-      max-height: 100%;
-      &.img-dark {
-        opacity: 1;
-      }
-      &.img-light {
-        opacity: 0;
-      }
-    }
-
-    .tsc-text {
-      float: left;
     }
   }
 }

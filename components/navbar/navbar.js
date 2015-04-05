@@ -13,20 +13,24 @@
                     scope: {},
                     link: function(scope, elem, attrs) {
                         scope.doc = angular.element(document);
-                        scope.navbar = angular.element('.navbar');
+                        scope.navbar = angular.element('.tsc-navbar');
                         scope.triggerEle = angular.element('.jumbotron h1');
-                        scope.breakPoint = scope.triggerEle.outerHeight() + (scope.navbar.outerHeight() / 2);
+                        scope.breakPoint = scope.triggerEle.offset().top - scope.navbar.outerHeight();
 
                         scope.updateOpaque = function() {
                             scope.isOpaque = scope.doc.scrollTop() < scope.breakPoint;
-                            scope.navbar.toggleClass('transparent', scope.isOpaque);
+                            scope.navbar.toggleClass('tsc-navbar-transparent', scope.isOpaque);
                         };
 
-                        scope.navClicked = function(event) {
-                            var clickedElement = angular.element(event.target);
-                            var activeElement = angular.element('.active');
+                        scope.brandClicked = function() {
+                            var navItems = angular.element('.tsc-navbar li');
                             
-                            console.log(event);
+                            navItems.removeClass('active');
+                        };
+                        
+                        scope.navClicked = function(event) {
+                            var clickedElement = angular.element(event.target).parent();
+                            var activeElement = angular.element('.active');
 
                             activeElement.removeClass('active');
                             clickedElement.addClass('active');

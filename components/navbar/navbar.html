@@ -1,28 +1,34 @@
-<nav class="tsc-navbar transparent" role="navigation">
-    <a class="tsc-navbar-brand" href="/">
-        <img src="/assets/img/logo-blue-horizontal.png" alt="3 Strand Code" class="img-dark"/>
-        <img src="/assets/img/logo-white-horizontal.png" alt="3 Strand Code" class="img-light"/>
-    </a>
-    <ul class="tsc-navbar-nav">
-        <li ng-click="navClicked($event)">
-            <a href="#our-process">
-                Our Process
-            </a>
-        </li>
-        <li ng-click="navClicked($event)">
-            <a href="#what-you-get">
-                What you get
-            </a>
-        </li>
-        <li ng-click="navClicked($event)">
-            <a href="#mentors">
-                The Mentors
-            </a>
-        </li>
-        <li ng-click="navClicked($event)">
-            <a href="#register">
-                Register
-            </a>
-        </li>
-    </ul>
+<nav class="tsc-navbar tsc-navbar-transparent" role="navigation">
+    <div class="container">
+        <a class="tsc-navbar-brand" href="#top" ng-click="brandClicked()">
+            <img src="/assets/img/logo-blue-horizontal.png" alt="3 Strand Code" class="tsc-img-dark hidden-xs"/>
+            <img src="/assets/img/logo-white-horizontal.png" alt="3 Strand Code" class="tsc-img-light hidden-xs"/>
+            <img src="/assets/img/icon-blue.png" alt="3 Strand Code"
+                 class="tsc-logo tsc-img-dark hidden-sm hidden-md hidden-lg"/>
+            <img src="/assets/img/icon-white.png" alt="3 Strand Code"
+                 class="tsc-logo tsc-img-light hidden-sm hidden-md hidden-lg"/>
+        </a>
+        <ul class="tsc-navbar-nav">
+            <li ng-click="navClicked($event)">
+                <a href="#our-process">
+                    Process
+                </a>
+            </li>
+            <li ng-click="navClicked($event)">
+                <a href="#what-you-get">
+                    What you get
+                </a>
+            </li>
+            <li ng-click="navClicked($event)">
+                <a href="#mentors">
+                    Mentors
+                </a>
+            </li>
+            <li ng-click="navClicked($event)">
+                <a href="#register">
+                    Register
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>

@@ -9,12 +9,6 @@
   }
 }
 
-section {
-  margin: 4em 0;
-  // room for scrollTo
-  padding-top: 3em;
-}
-
 // JUMBOTRON
 .jumbotron {
   position: relative;
@@ -57,43 +51,6 @@ section {
   }
 }
 
-.registration-form {
-  text-align: left;
-  border-left: 2px solid fade(#fff, 10);
-  padding-left: 10%;
-  color: #fff;
-
-  .help-block {
-    color: fade(#fff, 70);
-  }
-  .radio {
-    & label {
-      font-weight: 100;
-    }
-  }
-  .register-header {
-    text-transform: uppercase;
-  }
-
-  .form-control {
-    transition: background 0.2s;
-    background: fade(#fff, 20);
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    color: inherit;
-    &:active,
-    &:focus {
-      background: fade(#fff, 30);
-      box-shadow: none;
-    }
-  }
-
-  ::placeholder {
-    color: fade(#fff, 50);
-    font-weight: 100;
-  }
-}
 
 // REGISTERED
 .logged-in {
@@ -123,10 +80,55 @@ section {
 
 .register {
   position: relative;
-  padding: 60px 0;
   background-image: linear-gradient(-20deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   text-align: center;
-  z-index: 1;
+    color: white;
+
+  .container {
+    position: relative;
+    z-index: 1;
+    
+    .registration {
+
+      .registration-form {
+        text-align: left;
+        border-left: 2px solid fade(#fff, 10);
+        padding-left: 10%;
+        color: #fff;
+
+        .help-block {
+          color: fade(#fff, 70);
+        }
+        .radio {
+          & label {
+            font-weight: 100;
+          }
+        }
+        .register-header {
+          text-transform: uppercase;
+        }
+
+        .form-control {
+          transition: background 0.2s;
+          background: fade(#fff, 20);
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          color: inherit;
+          &:active,
+          &:focus {
+            background: fade(#fff, 30);
+            box-shadow: none;
+          }
+        }
+
+        ::placeholder {
+          color: fade(#fff, 50);
+          font-weight: 100;
+        }
+      }
+    }
+  }
 
   .picture {
     position: absolute;

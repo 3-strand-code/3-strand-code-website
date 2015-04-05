@@ -6528,10 +6528,6 @@ i:before,
   min-width: 80px;
   max-width: 150px;
 }
-section {
-  margin: 4em 0;
-  padding-top: 3em;
-}
 .jumbotron {
   position: relative;
   padding: 300px 0 400px 0;
@@ -6573,51 +6569,6 @@ section {
 .jumbotron .container p {
   margin: 15px 0 55px 0;
 }
-.registration-form {
-  text-align: left;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  padding-left: 10%;
-  color: #fff;
-}
-.registration-form .help-block {
-  color: rgba(255, 255, 255, 0.7);
-}
-.registration-form .radio label {
-  font-weight: 100;
-}
-.registration-form .register-header {
-  text-transform: uppercase;
-}
-.registration-form .form-control {
-  -webkit-transition: background 0.2s;
-          transition: background 0.2s;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  color: inherit;
-}
-.registration-form .form-control:active,
-.registration-form .form-control:focus {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: none;
-}
-.registration-form ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 100;
-}
-.registration-form ::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 100;
-}
-.registration-form :-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 100;
-}
-.registration-form ::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 100;
-}
 .logged-in .my-info {
   opacity: 0.5;
 }
@@ -6636,11 +6587,59 @@ section {
 }
 .register {
   position: relative;
-  padding: 60px 0;
   background-image: -webkit-linear-gradient(110deg, #365063, #366349);
   background-image: linear-gradient(-20deg, #365063, #366349);
   text-align: center;
+  color: white;
+}
+.register .container {
+  position: relative;
   z-index: 1;
+}
+.register .container .registration .registration-form {
+  text-align: left;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  padding-left: 10%;
+  color: #fff;
+}
+.register .container .registration .registration-form .help-block {
+  color: rgba(255, 255, 255, 0.7);
+}
+.register .container .registration .registration-form .radio label {
+  font-weight: 100;
+}
+.register .container .registration .registration-form .register-header {
+  text-transform: uppercase;
+}
+.register .container .registration .registration-form .form-control {
+  -webkit-transition: background 0.2s;
+          transition: background 0.2s;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+}
+.register .container .registration .registration-form .form-control:active,
+.register .container .registration .registration-form .form-control:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+}
+.register .container .registration .registration-form ::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+}
+.register .container .registration .registration-form ::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+}
+.register .container .registration .registration-form :-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+}
+.register .container .registration .registration-form ::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
 }
 .register .picture {
   position: absolute;
@@ -6664,6 +6663,12 @@ footer {
 .page-header {
   text-transform: uppercase;
   text-align: center;
+  border-bottom: none;
+  margin: 1em 0;
+}
+.tsc-scroll-anchor {
+  position: relative;
+  bottom: 60px;
 }
 .discount-widget {
   height: 250px;
@@ -6848,79 +6853,76 @@ footer {
   }
 }
 .tsc-navbar {
-  -webkit-transition-property: background, border-color;
-          transition-property: background, border-color;
+  -webkit-transition-property: background, box-shadow;
+          transition-property: background, box-shadow;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   position: fixed;
   width: 100%;
-  height: 60px;
-  overflow: hidden;
-  border-bottom: none;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: inset 0 -2px rgba(54, 80, 99, 0.1);
   z-index: 1030;
 }
-.tsc-navbar.transparent {
+.tsc-navbar.tsc-navbar-transparent {
   background: transparent;
   box-shadow: none;
 }
-.tsc-navbar.transparent .tsc-navbar-brand .img-dark {
-  opacity: 0;
+.tsc-navbar.tsc-navbar-transparent .tsc-navbar-brand .tsc-img-dark {
+  display: none;
 }
-.tsc-navbar.transparent .tsc-navbar-brand .img-light {
-  opacity: 1;
+.tsc-navbar.tsc-navbar-transparent .tsc-navbar-brand .tsc-img-light {
+  display: block;
 }
-.tsc-navbar.transparent .tsc-navbar-nav li > a {
-  color: rgba(255, 255, 255, 0.7);
+.tsc-navbar.tsc-navbar-transparent .tsc-navbar-nav li.active {
+  box-shadow: none;
+}
+.tsc-navbar.tsc-navbar-transparent .tsc-navbar-nav li > a {
+  color: #fff;
+}
+.tsc-navbar .tsc-navbar-brand {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  padding: 20px 15px;
+  padding-left: 0;
+  margin-top: -2px;
+}
+.tsc-navbar .tsc-navbar-brand img {
+  height: 20px;
+}
+.tsc-navbar .tsc-navbar-brand img.tsc-img-dark {
+  display: block;
+}
+.tsc-navbar .tsc-navbar-brand img.tsc-img-light {
+  display: none;
 }
 .tsc-navbar .tsc-navbar-nav {
   float: left;
-  height: 100%;
   margin: 0;
   padding: 0;
 }
 .tsc-navbar .tsc-navbar-nav li {
   float: left;
   list-style: none;
-  border-bottom: 2px solid transparent;
-  font-weight: 300;
+  box-shadow: none;
+  opacity: 0.5;
 }
-.tsc-navbar .tsc-navbar-nav li:hover:not(.active) {
-  border-bottom-color: rgba(54, 80, 99, 0.5);
-}
-.tsc-navbar .tsc-navbar-nav li.active {
-  font-weight: 400;
-  border-bottom-color: #365063;
-}
-.tsc-navbar .tsc-navbar-nav li > a {
-  color: #365063;
-}
-.tsc-navbar .tsc-navbar-brand {
-  float: left;
-  width: 200px;
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
-}
-.tsc-navbar .tsc-navbar-brand img {
-  -webkit-transition-property: opacity;
-          transition-property: opacity;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-.tsc-navbar .tsc-navbar-brand img.img-dark {
+.tsc-navbar .tsc-navbar-nav li:hover {
   opacity: 1;
 }
-.tsc-navbar .tsc-navbar-brand img.img-light {
-  opacity: 0;
+.tsc-navbar .tsc-navbar-nav li:hover a {
+  text-decoration: none;
 }
-.tsc-navbar .tsc-navbar-brand .tsc-text {
-  float: left;
+.tsc-navbar .tsc-navbar-nav li.active {
+  opacity: 1;
+  box-shadow: inset 0 -2px 0 #365063;
+}
+.tsc-navbar .tsc-navbar-nav li > a {
+  display: block;
+  color: #365063;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 15px;
 }
 .week {
   margin-bottom: 1em;
