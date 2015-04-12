@@ -10,8 +10,8 @@
         'App.discount',
         'App.mentors',
         'App.navbar',
-        'App.ourProcess',
-        'App.whatYouGet',
+        'App.process',
+        'App.faq',
     ])
 
         .run(function($rootScope, $kinvey) {

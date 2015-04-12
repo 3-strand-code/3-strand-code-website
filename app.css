@@ -7002,27 +7002,27 @@ footer {
   width: 100%;
   height: 100%;
 }
-.what-you-get .lead,
-.what-you-get .heading {
+.faq .lead,
+.faq .heading {
   text-align: center;
 }
-.what-you-get .row {
+.faq .row {
   margin: 2em 0;
 }
-.what-you-get .row .icon {
+.faq .row .icon {
   text-align: center;
   color: #CCC;
   font-size: 5em;
   line-height: 1;
 }
-.what-you-get .lead,
-.what-you-get .heading {
+.faq .lead,
+.faq .heading {
   text-align: center;
 }
-.what-you-get .row {
+.faq .row {
   margin: 2em 0;
 }
-.what-you-get .row .icon {
+.faq .row .icon {
   text-align: center;
   color: #CCC;
   font-size: 5em;

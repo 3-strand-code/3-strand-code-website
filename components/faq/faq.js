@@ -1,15 +1,15 @@
 (function() {
     'use strict';
 
-    angular.module('App.whatYouGet', [])
+    angular.module('App.faq', [])
 
-        .directive('whatYouGet', [
+        .directive('faq', [
             '$interval', '$filter', '$kinvey', '$http',
             function($interval, $filter, $kinvey, $http) {
                 return {
                     restrict: 'E',
                     replace: true,
-                    templateUrl: 'components/what-you-get/what-you-get.html',
+                    templateUrl: 'components/faq/faq.html',
                     scope: {},
                     link: function(scope, elem, attrs) {
 

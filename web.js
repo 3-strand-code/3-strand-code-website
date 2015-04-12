@@ -51,7 +51,7 @@ var lrOptions = {
     ],
     applyJSLive: false,
     applyCSSLive: true,
-    https: sslOptions,
+    https: sslOptions
 };
 
 function keepAlive() {
@@ -70,10 +70,8 @@ if (inProduction) {
 } else {
     https.createServer(sslOptions, app).listen(PORT, function() {
         console.log('Server listening at https://localhost:' + PORT);
+        livereload.createServer(lrOptions).watch(SERVER_ROOT);
     });
-
-    server = livereload.createServer(lrOptions);
-    server.watch(SERVER_ROOT);
 }
 
 
