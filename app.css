@@ -6924,6 +6924,15 @@ footer {
   line-height: 60px;
   padding: 0 15px;
 }
+@media (max-width: 767px) {
+  .tsc-navbar .tsc-navbar-brand {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .tsc-navbar .tsc-navbar-nav li > a {
+    padding: 0 7px;
+  }
+}
 .week {
   margin-bottom: 1em;
 }
