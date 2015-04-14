@@ -3,6 +3,19 @@
 
 This is the landing page for 3 Strand Code.
 
+## Install and run
+
+1. `git clone git@github.com:3-strand-code/3-strand-code-website.git`
+1. `cd 3-strand-code-website`
+1. `npm install`
+1. Set keys
+    1. `export TSC_KINVEY_APP_KEY="appkey";`
+    1. `export TSC_KINVEY_APP_SECRET="appsecret";`
+    1. `export TSC_KINVEY_MASTER_SECRET="mastersecret";`
+1. `node web.js`
+1. `gulp`
+1. open `https://localhost:8000` in browser
+
 ## Development
 
 1. Create a `feature/*` branch.
@@ -10,8 +23,8 @@ This is the landing page for 3 Strand Code.
 1. Start gulp: `gulp`
 1. Hack commit/push
 1. When done:
-  1. Open a PR
-  1. Deliver the Pivotal story 
+    1. Open a PR
+    1. Deliver the Pivotal story
 
 ## Deploy
 
