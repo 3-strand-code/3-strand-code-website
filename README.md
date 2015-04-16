@@ -8,7 +8,7 @@ This is the landing page for 3 Strand Code.
 1. `git clone git@github.com:3-strand-code/3-strand-code-website.git`
 1. `cd 3-strand-code-website`
 1. `npm install`
-1. Set keys
+1. Set keys (keys available from heroku env)
     1. `export TSC_KINVEY_APP_KEY="appkey";`
     1. `export TSC_KINVEY_APP_SECRET="appsecret";`
     1. `export TSC_KINVEY_MASTER_SECRET="mastersecret";`
