@@ -7029,19 +7029,6 @@ footer {
   width: 100%;
   height: 100%;
 }
-.faq .lead,
-.faq .heading {
-  text-align: center;
-}
-.faq .row {
-  margin: 2em 0;
-}
-.faq .row .icon {
-  text-align: center;
-  color: #CCC;
-  font-size: 5em;
-  line-height: 1;
-}
 .faq .heading {
   text-align: center;
 }
