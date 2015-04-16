@@ -6567,6 +6567,14 @@ i:before,
   background-size: cover;
   background-position: center;
 }
+.jumbotron .now-offering {
+  text-align: left;
+  font-weight: 300;
+}
+.jumbotron .now-offering .item {
+  font-size: 1.5em;
+  padding: 1em 0;
+}
 .jumbotron .container {
   position: relative;
   z-index: 1;
