@@ -6998,37 +6998,37 @@ footer {
   background-image: url("//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png");
 }
 .stack .component.node {
-  background-image: url("//nodejs.org/images/logos/nodejs.png");
+  background-image: url("../assets/img/nodejs-logo.png");
 }
 .stack .component.express {
-  background-image: url("//cldup.com/wpGXm1cWwB.png");
+  background-image: url("../assets/img/express-logo.png");
 }
 .stack .component.heroku {
-  background-image: url("//upload.wikimedia.org/wikipedia/en/a/a9/Heroku_logo.png");
+  background-image: url("../assets/img/heroku-logo.png");
 }
 .stack .component.gulp {
-  background-image: url("//raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png");
+  background-image: url("../assets/img/gulp-logo.png");
 }
 .stack .component.less {
-  background-image: url("//moduscreate.com/wp-content/uploads/2012/01/less-css-logo.png");
+  background-image: url("../assets/img/less-logo.png");
 }
 .stack .component.bootstrap {
   background-image: url("../assets/img/boostrap-logo.png");
 }
 .stack .component.npm {
-  background-image: url("//www.npmjs.com/static/images/npm-logo.svg");
+  background-image: url("../assets/img/npm-logo.svg");
 }
 .stack .component.bower {
-  background-image: url("//i.cloudup.com/Ka0R3QvWRs.png");
+  background-image: url("../assets/img/bower-logo.png");
 }
 .stack .component.pivotal {
-  background-image: url("http://www.pivotaltracker.com/wp-content/uploads/2014/05/Tracker_Half_Stacked_Large-636x237.png");
+  background-image: url("../assets/img/pivotal-tracker-logo.png");
 }
 .stack .component.git {
-  background-image: url("//git-scm.com/images/logos/downloads/Git-Logo-1788C.png");
+  background-image: url("../assets/img/git-logo.png");
 }
 .stack .component.github {
-  background-image: url("//assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png");
+  background-image: url("../assets/img/github-logo.png");
 }
 .stack .component .name {
   display: none;
