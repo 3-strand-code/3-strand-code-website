@@ -87,9 +87,6 @@ app.use(logfmt.requestLogger());
 //
 // Parse Req Body
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 
 //
@@ -120,15 +117,17 @@ app.use('/charge', function(req, res) {
 //
 // Custom kinvey endpoints
 app.use('/kinvey/:endpoint/', function(req, res) {
+    var authHeader = 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64');
+    console.log(authHeader);
     var url = 'https://baas.kinvey.com/rpc/' + encodeURIComponent(KINVEY_APP_KEY) + '/custom/' + req.params.endpoint;
     var headers = {
-        'Authorization': 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64'),
+        'Authorization': authHeader,
         'Content-Type': 'application/json'
     };
     var form = {};
 
     request.post({url: url, headers: headers, form: form}, function(error, response, body) {
-        res.send(error || body);
+        error ? res.status(400).send(error) : res.status(200).send(body);
     });
 });
 
