@@ -14,8 +14,10 @@
         'App.faq',
     ])
 
-        .run(function($rootScope, $kinvey) {
+        .run(function($rootScope, $kinvey, ENV) {
             $rootScope.$kinvey = $kinvey;
+
+            Stripe.setPublishableKey(ENV.TSC_STRIPE_TEST_PUBLISHABLE_KEY);
         })
 
         .controller('Controller', [
@@ -46,7 +48,6 @@
             }]);
 
     ////////////////////////////////////////////////////////
-    //
     // bootstrap angular AFTER initializing kinvey
     //
     var $injector = angular.injector([

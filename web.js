@@ -87,9 +87,6 @@ app.use(logfmt.requestLogger());
 //
 // Parse Req Body
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 
 //
@@ -128,7 +125,7 @@ app.use('/kinvey/:endpoint/', function(req, res) {
     var form = {};
 
     request.post({url: url, headers: headers, form: form}, function(error, response, body) {
-        res.send(error || body);
+        error ? res.status(400).send(error) : res.status(200).send(body);
     });
 });
 
