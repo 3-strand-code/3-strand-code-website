@@ -117,11 +117,9 @@ app.use('/charge', function(req, res) {
 //
 // Custom kinvey endpoints
 app.use('/kinvey/:endpoint/', function(req, res) {
-    var authHeader = 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64');
-    console.log(authHeader);
     var url = 'https://baas.kinvey.com/rpc/' + encodeURIComponent(KINVEY_APP_KEY) + '/custom/' + req.params.endpoint;
     var headers = {
-        'Authorization': authHeader,
+        'Authorization': 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64'),
         'Content-Type': 'application/json'
     };
     var form = {};

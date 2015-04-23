@@ -19,8 +19,10 @@
     gulp.task('generate-env-module', function () {
         var ngConstant = require('gulp-ng-constant');
 
-        if (!process.env.TSC_KINVEY_APP_KEY)    throw 'Environment variable TSC_KINVEY_APP_KEY is not set.';
-        if (!process.env.TSC_KINVEY_APP_SECRET) throw 'Environment variable TSC_KINVEY_APP_SECRET is not set.';
+        if (!process.env.TSC_KINVEY_APP_KEY)                throw 'Environment variable TSC_KINVEY_APP_KEY is not set.';
+        if (!process.env.TSC_KINVEY_APP_SECRET)             throw 'Environment variable TSC_KINVEY_APP_SECRET is not set.';
+        if (!process.env.TSC_STRIPE_LIVE_PUBLISHABLE_KEY)   throw 'Environment variable TSC_STRIPE_LIVE_PUBLISHABLE_KEY is not set.';
+        if (!process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY)   throw 'Environment variable TSC_STRIPE_TEST_PUBLISHABLE_KEY is not set.';
 
         // This task builds the angular ENV constant
         // Constants defined here extend the constants in env.json
@@ -48,7 +50,9 @@
                 template: template,
                 constants: {
                     TSC_KINVEY_APP_KEY: process.env.TSC_KINVEY_APP_KEY,
-                    TSC_KINVEY_APP_SECRET: process.env.TSC_KINVEY_APP_SECRET
+                    TSC_KINVEY_APP_SECRET: process.env.TSC_KINVEY_APP_SECRET,
+                    TSC_STRIPE_LIVE_PUBLISHABLE_KEY: process.env.TSC_STRIPE_LIVE_PUBLISHABLE_KEY,
+                    TSC_STRIPE_TEST_PUBLISHABLE_KEY: process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY,
                 }
             }))
             .pipe(gulp.dest(paths.components + 'env'));
@@ -107,7 +111,7 @@
      * Default
      */
     gulp.task('default', [
-        'less',
+        'build',
         'watch',
     ]);
 

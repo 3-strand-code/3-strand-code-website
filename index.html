@@ -15,6 +15,8 @@
 
     <script src="//localhost:35729/livereload.js"></script>
 
+    <script type="text/javascript" src="//js.stripe.com/v2/"></script>
+
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/kinvey-angular/kinvey-angular.js"></script>
@@ -54,7 +56,7 @@
         <br/>
         <br/>
         <br/>
-        
+
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <h3>Now Offering:</h3>
@@ -169,37 +171,39 @@
                 <br class="visible-xs"/>
 
                 <div class="col-sm-6">
-                    <form action="" method="POST" id="payment-form">
+                    <form class="registration-form" name="ctrl.registrationForm" method="POST" id="payment-form">
                         <span class="payment-errors"></span>
 
-                        <div class="form-row">
-                            <label>
-                                <span>Card Number</span>
-                                <input type="text" size="20" data-stripe="number"/>
-                            </label>
+                        <div class="form-group">
+                            <input class="form-control" type="text" size="20" data-stripe="number" placeholder="Card Number"/>
                         </div>
 
-                        <div class="form-row">
-                            <label>
-                                <span>CVC</span>
-                                <input type="text" size="4" data-stripe="cvc"/>
-                            </label>
+                        <!-- Card info -->
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" size="2" data-stripe="exp-month" placeholder="MM"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" size="4" data-stripe="exp-year" placeholder="YYYY"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" size="4" data-stripe="cvc" placeholder="CCV"/>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-row">
-                            <label>
-                                <span>Expiration (MM/YYYY)</span>
-                                <input type="text" size="2" data-stripe="exp-month"/>
-                            </label>
-                            <span> / </span>
-                            <input type="text" size="4" data-stripe="exp-year"/>
-                        </div>
-
-                        <button type="submit">Submit Payment</button>
+                        <button type="submit" class="tsc-btn tsc-btn-white">Submit Payment</button>
                     </form>
-                    
+
                     <hr/>
-                    
+
                     <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
                         <p class="help-block">
                             Coeur d'Alene, ID Area
