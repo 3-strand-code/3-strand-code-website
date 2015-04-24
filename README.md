@@ -8,10 +8,16 @@ This is the landing page for 3 Strand Code.
 1. `git clone git@github.com:3-strand-code/3-strand-code-website.git`
 1. `cd 3-strand-code-website`
 1. `npm install`
-1. Set keys (keys available from heroku env)
+1. Set keys (keys available from `heroku config --app three-strand-code`
+)
     1. `export TSC_KINVEY_APP_KEY="appkey";`
     1. `export TSC_KINVEY_APP_SECRET="appsecret";`
     1. `export TSC_KINVEY_MASTER_SECRET="mastersecret";`
+    1. `export TSC_STRIPE_LIVE_PUBLISHABLE_KEY="key";`
+    1. `export TSC_STRIPE_LIVE_SECRET_KEY="key";`
+    1. `export TSC_STRIPE_TEST_PUBLISHABLE_KEY="key";`
+    1. `export TSC_STRIPE_TEST_SECRET_KEY="key";`
+
 1. `node web.js`
 1. `gulp`
 1. open `https://localhost:8000` in browser
