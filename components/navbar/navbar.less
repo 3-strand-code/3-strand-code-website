@@ -35,6 +35,13 @@
         }
       }
     }
+
+    .tsc-register-btn {
+      & > a {
+        background: transparent;
+        color: @tsc-brand-attention;
+      }
+    }
   }
 
   ///////////////////////////////////////////////
@@ -87,6 +94,34 @@
         line-height: @tsc-navbar-height;
         padding: 0 @tsc-navbar-item-padding;
       }
+    }
+  }
+
+  ///////////////////////////////////////////////
+  // Nav Menu
+
+  .tsc-register-btn {
+    position: absolute;
+    right: 0;
+    &:hover {
+      transform: scale3d(1, 1, 1);
+    }
+    & > a {
+      .tsc-transition(opacity;);
+      transition-duration: 0.1s;
+      text-shadow: 0 1px fade(#000, 20);
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+      display: block;
+      height: @tsc-navbar-height;
+      line-height: @tsc-navbar-height;
+      padding: 0 @tsc-navbar-item-padding;
+      right: 0;
+      opacity: 0.9;
+      background: @tsc-brand-attention;
+      color: #FFFFFF;
     }
   }
 
