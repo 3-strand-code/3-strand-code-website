@@ -6530,7 +6530,7 @@ i:before,
 }
 .jumbotron {
   position: relative;
-  padding: 300px 0 400px 0;
+  padding: 200px 0;
   overflow: hidden;
   text-align: center;
   background-image: -webkit-linear-gradient(290deg, #365063, #366349);
