@@ -112,29 +112,39 @@ section {
           margin-top: 1em;
           font-weight: 300;
         }
-        
+
         .form-control {
-          transition: background 0.2s;
+          transition: background 0.2s, box-shadow 0.2s;
+          color: inherit;
           background: fade(#fff, 20);
           border: none;
           border-radius: 0;
-          box-shadow: none;
-          color: inherit;
+          box-shadow: inset 1px 0 0 @tsc-brand-attention;
           &:active,
           &:focus {
             background: fade(#fff, 30);
             box-shadow: none;
+          }
+          &.is-valid {
+            box-shadow: inset 2px 0 0 0 greenyellow;
           }
         }
 
         ::placeholder {
           color: fade(#fff, 50);
           font-weight: 100;
+          font-family: @font-family-base;
         }
 
         .help-block {
           font-weight: 100;
           color: fade(#fff, 70);
+        }
+
+        .card-info {
+          & input {
+            font-family: @font-family-monospace;
+          }
         }
       }
     }

@@ -97,7 +97,19 @@ app.use('/', express.static(__dirname + '/'));
 //
 // Payments
 app.use('/charge', function(req, res) {
-    // Set your secret key: remember to change this to your live secret key in production
+    var stripe = require("stripe")("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+    var stripeToken = request.body.stripeToken;
+    var charge = stripe.charges.create({
+        amount: 1000, // amount in cents, again
+        currency: "usd",
+        source: stripeToken,
+        description: req.body.firstName + ' ' + req.body.lastName
+    }, function(err, charge) {
+        if (err && err.type === 'StripeCardError') {
+            req.status(400).send(err);
+        }
+    });
+        // Set your secret key: remember to change this to your live secret key in production
     // See your keys here https://dashboard.stripe.com/account
     var stripe = require("stripe")("sk_test_0poqhPe77Ozg5bizoeEsMtX8");
     var stripeToken = req.body.stripeToken;

@@ -6623,38 +6623,48 @@ section {
   font-weight: 300;
 }
 .register .container .registration .application-form .form-control {
-  -webkit-transition: background 0.2s;
-          transition: background 0.2s;
+  -webkit-transition: background 0.2s, box-shadow 0.2s;
+          transition: background 0.2s, box-shadow 0.2s;
+  color: inherit;
   background: rgba(255, 255, 255, 0.2);
   border: none;
   border-radius: 0;
-  box-shadow: none;
-  color: inherit;
+  box-shadow: inset 1px 0 0 #e66c2e;
 }
 .register .container .registration .application-form .form-control:active,
 .register .container .registration .application-form .form-control:focus {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: none;
 }
+.register .container .registration .application-form .form-control.is-valid {
+  box-shadow: inset 2px 0 0 0 greenyellow;
+}
 .register .container .registration .application-form ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
+  font-family: 'Lato', sans-serif;
 }
 .register .container .registration .application-form ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
+  font-family: 'Lato', sans-serif;
 }
 .register .container .registration .application-form :-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
+  font-family: 'Lato', sans-serif;
 }
 .register .container .registration .application-form ::placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
+  font-family: 'Lato', sans-serif;
 }
 .register .container .registration .application-form .help-block {
   font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
+}
+.register .container .registration .application-form .card-info input {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .register .picture {
   position: absolute;
@@ -6686,8 +6696,8 @@ footer {
   bottom: 50px;
 }
 .discount-widget {
-  height: 250px;
   color: #ffffff;
+  overflow: hidden;
 }
 .discount-widget .discount-header {
   font-weight: 100;
@@ -6699,7 +6709,7 @@ footer {
 .discount-widget .right-container {
   position: relative;
   float: left;
-  height: 100%;
+  height: 250px;
 }
 .discount-widget .left-container {
   width: 43%;
@@ -7037,12 +7047,13 @@ footer {
 .faq .row .icon {
   text-align: center;
   color: #CCC;
-  font-size: 3em;
+  font-size: 39px;
   line-height: 1;
 }
 .faq .row .heading {
   text-align: center;
-  font-size: 1em;
+  font-size: 19px;
+  margin: 1em 0 0.5em 0;
 }
 .faq p,
 .faq li {
@@ -7061,6 +7072,6 @@ footer {
 }
 .faq .answer {
   margin-left: 20px;
-  padding: 10px 0 10px 20px;
+  padding: 10px 0 0 20px;
   border-left: 2px solid rgba(54, 99, 73, 0.1);
 }
