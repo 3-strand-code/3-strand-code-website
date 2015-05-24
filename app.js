@@ -25,7 +25,31 @@
             function($scope, $kinvey) {
                 var vm = this;
                 vm.user = {};
-                vm.registrationErrors = [];
+                vm.applicationErrors = [];
+                
+                vm.submitPayment = function() {
+                    var $form = jQuery('#application-form');
+                    console.log($form);
+
+                    Stripe.card.createToken($form, function(status, response) {
+                        console.log(status, response);
+
+                        // Per Stripe Docs:
+                        //
+                        // if (response.error) {
+                        //     // Show the errors on the form
+                        //     $form.find('.payment-errors').text(response.error.message);
+                        //     $form.find('button').prop('disabled', false);
+                        // } else {
+                        //     // response contains id and card, which contains additional card details
+                        //     var token = response.id;
+                        //     // Insert the token into the form so it gets submitted to the server
+                        //     $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                        //     // and submit
+                        //     $form.get(0).submit();
+                        // }
+                    });
+                };
 
                 vm.signup = function() {
                     $kinvey.User.signup({
@@ -36,15 +60,14 @@
                     })
                         .then(function(activeUser) {
                             console.debug(activeUser);
-                            vm.registrationErrors = [];
+                            vm.applicationErrors = [];
                         }, function(error) {
                             if (error.name === 'UserAlreadyExists') {
-                                vm.registrationErrors.push('That email is already registered.');
+                                vm.applicationErrors.push('That email is already registered.');
                             }
                             console.error(error);
                         });
                 };
-
             }]);
 
     ////////////////////////////////////////////////////////

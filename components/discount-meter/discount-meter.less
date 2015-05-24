@@ -5,66 +5,23 @@
   color: #ffffff;
   
   .discount-header {
-    font-weight: 400;
-    font-size: 1.5em;
+    font-weight: 100;
+    font-size: @font-size-h1;
+    margin-bottom: 0.5em;
   }
 
-  .label-container,
+  .left-container,
   .meter-container,
-  .readout-container {
+  .right-container {
     position: relative;
     float: left;
     height: 100%;
   }
 
-  .label-container {
+  .left-container {
     width: floor(@tsc-meter-width-gap / 2);
     top: 0;
     bottom: 0;
-    line-height: 1;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.5em;
-
-    .label-top,
-    .label-bottom {
-      position: absolute;
-      padding: 5% 0;
-      right: 0;
-      left: 0;
-      .label-value {
-      }
-      .label-text {
-        font-weight: 100;
-        opacity: 0.75;
-        text-transform: uppercase;
-        font-size: 0.825em;
-      }
-    }
-
-    .label-top {
-      top: 0;
-      color: #FFF;
-    }
-
-    .label-bottom {
-      color: fade(#ffd351, 75);
-      bottom: 0;
-      &:after {
-        content: "";
-        display: none;
-        position: absolute;
-        width: 3em;
-        height: 1px;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin:auto;
-        transform: rotate(-20deg);
-        background: fade(#f90, 75);
-      }
-    }
   }
 
   .meter-container {
@@ -88,7 +45,7 @@
     }
   }
 
-  .readout-container {
+  .right-container {
     width: floor(@tsc-meter-width-gap / 2);
 
     .readout {
@@ -109,10 +66,10 @@
         margin-right: 0.5em;
       }
 
-      .readout-rate {
+      .readout-value {
         margin-bottom: 0.25em;
-        font-weight: 400;
         border-bottom: 1px dotted fade(#fff, 50);
+        line-height: 1.2;
       }
 
       .readout-label {
@@ -125,5 +82,12 @@
         }
       }
     }
+  }
+
+  .discount-footer {
+    text-align: center;
+    color: fade(#ffd351, 75);
+    font-weight: 100;
+    font-size: @font-size-h2;
   }
 }

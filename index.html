@@ -15,7 +15,7 @@
 
     <script src="//localhost:35729/livereload.js"></script>
 
-    <script type="text/javascript" src="//js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
@@ -41,108 +41,78 @@
 <div class="jumbotron">
     <div class="container">
         <h1>
-            Build your own web app
-            with top local pros.
+            Build your own web app with top local pros.
+            <span class="sub-heading">Awarding University of Idaho certificates and more.</span>
         </h1>
 
-        <p>
-            Accelerate your skills from 0-60 in full-stack web development.
-        </p>
-
         <a href="#register" class="tsc-btn tsc-btn-white">
-            CDA Register Now
+            Register
         </a>
-
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <h3>Now Offering:</h3>
-                <hr/>
-
-                <div class="now-offering">
-                    <div class="item">
-                        <i class="fa fa-check"></i>&nbsp;&nbsp;
-                        IC:Learn & University of Idaho Certificates 
-                    </div>
-                    <div class="item">
-                        <i class="fa fa-check"></i>&nbsp;&nbsp;
-                        Written recommendations
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="picture"></div>
 </div>
 
 <div id="process" class="tsc-scroll-anchor"></div>
 
-<div class="container">
-    <div class="bullets">
-        <div class="row text-center">
-            <div class="col-sm-4">
-                <div class="icon">
-                    <i class="fa fa-lightbulb-o"></i>
+<section>
+    <div class="container">
+        <div class="bullets">
+            <div class="row text-center">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+                    <div class="icon">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <h3>
+                        Project Pitches
+                    </h3>
+
+                    <p>
+                        Pitch your own idea or join up with someone else's.
+                        You'll spend the course helping bring it to life with peers and top mentors.
+                        It's a sure fire path to learning fast and having a blast.
+                    </p>
+                    <br class="visible-xs"/>
+                    <br class="visible-xs"/>
                 </div>
-                <h3>
-                    Project Pitches
-                </h3>
+                <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+                    <div class="icon">
+                        <i class="fa fa-flash"></i>
+                    </div>
+                    <h3>
+                        Agile SCRUM
+                    </h3>
 
-                <p>
-                    Pitch your own idea or join up with someone else's.
-                    You'll spend the course helping bring it to life with peers and top mentors.
-                    It's a sure fire path to learning fast and having a blast.
-                </p>
-            </div>
-            <div class="col-sm-4">
-                <div class="icon">
-                    <i class="fa fa-flash"></i>
+                    <p>
+                        3 Strand Code will put you through the Agile ropes executing your own ideas.
+                        You'll be prepared to kick off your own projects, or help bring best practices to established.
+                    </p>
+                    <br class="visible-xs"/>
+                    <br class="visible-xs"/>
                 </div>
-                <h3>
-                    Agile Process
-                </h3>
 
-                <p>
-                    3 Strand Code will put you through the Agile ropes executing your own ideas.
-                    You'll be prepared to kick off your own projects, or help bring best practices to established.
-                </p>
-            </div>
+                <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+                    <div class="icon">
+                        <i class="fa fa-comments-o"></i>
+                    </div>
+                    <h3>
+                        Collaboration
+                    </h3>
 
-            <div class="col-sm-4">
-                <div class="icon">
-                    <i class="fa fa-comments-o"></i>
+                    <p>
+                        Our mentors and leaders will work with you hands on and face-to-face.
+                        You'll also work with a group of peers throughout the course.
+                        The relationships and network you gain here will last forever.
+                    </p>
                 </div>
-                <h3>
-                    Collaboration
-                </h3>
-
-                <p>
-                    Our mentors and leaders will work with you hands on and face-to-face.
-                    You'll also work with a group of peers throughout the course.
-                    The relationships and network you gain here will last forever.
-                </p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!--<process></process>-->
-
-<mentors></mentors>
-
-<div id="register" class="tsc-scroll-anchor"></div>
 
 <section class="register">
-    <div class="container">
-        <h1 class="page-header">Register</h1>
 
+    <div class="container">
         <div class="logged-in" ng-show="$kinvey.getActiveUser()">
             <h2>
                 Hello, {{ $kinvey.getActiveUser().firstName }}.
@@ -166,9 +136,13 @@
             </button>
         </div>
 
+        <div id="pricing" class="tsc-scroll-anchor"></div>
+        
         <div class="registration" ng-hide="$kinvey.getActiveUser()">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-lg-offset-2">
+                    <h1 class="page-header">Pricing</h1>
+
                     <discount-meter></discount-meter>
                 </div>
 
@@ -176,15 +150,22 @@
                 <br class="visible-xs"/>
                 <br class="visible-xs"/>
 
-                <div class="col-sm-6">
-                    <form class="registration-form" name="ctrl.registrationForm" method="POST" id="payment-form">
-                        <span class="payment-errors"></span>
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <div id="register" class="tsc-scroll-anchor"></div>
+                    <h1 class="page-header">Register</h1>
+
+                    <form class="application-form" name="ctrl.applicationForm" method="POST" id="application-form" ng-submit="ctrl.submitPayment()">
+                        <div class="text-danger">
+                            <span ng-repeat="err in ctrl.applicationErrors">{{ err }}</span>
+                        </div>
+
+                        <!-- Card info -->
+                        <label>Payment</label>
 
                         <div class="form-group">
                             <input class="form-control" type="text" size="20" data-stripe="number" placeholder="Card Number"/>
                         </div>
 
-                        <!-- Card info -->
                         <div class="row">
                             <div class="col-xs-4">
                                 <div class="form-group">
@@ -205,29 +186,19 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="tsc-btn tsc-btn-white">Submit Payment</button>
-                    </form>
-
-                    <hr/>
-
-                    <form class="registration-form" name="ctrl.registrationForm" ng-submit="ctrl.signup()">
-                        <p class="help-block">
-                            Coeur d'Alene, ID Area
-                        </p>
+                        <!-- Personal Info -->
+                        <label>Attendee</label>
 
                         <div class="row">
-
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.firstName" name="firstName"
-                                           type="text" placeholder="First name" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.firstName" name="firstName" type="text" placeholder="First name" required="required"/>
                                 </div>
                             </div>
 
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.lastName" name="lastName"
-                                           type="text" placeholder="Last name" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.lastName" name="lastName" type="text" placeholder="Last name" required="required"/>
                                 </div>
 
                             </div>
@@ -236,39 +207,19 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <input class="form-control" ng-model="ctrl.user.email" name="email" type="email"
-                                           placeholder="Email" required="required"/>
+                                    <input class="form-control" ng-model="ctrl.user.email" name="email" type="email" placeholder="Email" required="required"/>
                                 </div>
+                                <p class="help-block">
+                                    <i class="fa fa-question-circle"></i>
+                                    Not the cardholder.
+                                </p>
                             </div>
                         </div>
 
-                        <button type="submit"
-                                class="tsc-btn tsc-btn-white"
-                                ng-disabled="!ctrl.registrationForm.$valid">
-                            Register
-                        </button>
-
-
-                        <br/>
                         <br/>
 
-                        <p>
-                            <span ng-repeat="error in ctrl.registrationErrors">
-                                {{ error }}
-                            </span>
-                        </p>
+                        <button type="submit" class="tsc-btn tsc-btn-white">Register</button>
                     </form>
-                    <form action="/charge" method="POST">
-                        <script
-                                src="//checkout.stripe.com/checkout.js" class="stripe-button"
-                                data-key="pk_test_oyz4oCh4Zj6rHqBK1SSUG8Qy"
-                                data-image="/assets/img/icon-blue-300x300.png"
-                                data-name="3 Strand Code"
-                                data-description="Registration"
-                                data-amount="24900">
-                        </script>
-                    </form>
-
                 </div>
             </div>
         </div>
@@ -276,149 +227,9 @@
     <div class="picture"></div>
 </section>
 
+<mentors></mentors>
+
 <faq></faq>
-
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<div class="col-lg-8 col-lg-offset-2">-->
-            <!--<h2>-->
-                <!--About Front End Web Development-->
-            <!--</h2>-->
-
-            <!--<p>-->
-                <!--In loose terms, front end web development encompasses “building the part of the web people see and use.”-->
-                <!--Front end development often includes elements of user interface design (UI) and user experience design-->
-                <!--(UX), though these are separate areas of expertise.-->
-                <!--Front end developers are usually responsible for taking UX and UI deliverables and creating real working-->
-                <!--interfaces.-->
-            <!--</p>-->
-
-            <!--<p>-->
-                <!--The web used to be home to only websites. While the desktop hard drive was home to applications.-->
-                <!--In todays modern web, a web address may load a simple website or a full featured application without-->
-                <!--installing additional software.-->
-                <!--The user’s data and profile are all saved in “the cloud” and accessible on all their web enabled-->
-                <!--devices.-->
-                <!--A skilled front end web developer can build both websites and web applications.-->
-            <!--</p>-->
-
-            <!--<p>-->
-                <!--Responsive design allows web app interfaces to adapt to mobile screen sizes.-->
-                <!--However, it should be noted that web apps are not native mobile apps.-->
-                <!--Native mobile apps are downloaded, typically, from an app store or market.-->
-                <!--Mobile app developers create native apps.-->
-                <!--Front end web developers make responsive web apps that run in a mobile device’s web browser.-->
-            <!--</p>-->
-
-            <!--<h2>Recommended Background</h2>-->
-
-            <!--<p>-->
-                <!--This course is intended for those with strong interest and some level of skills.-->
-                <!--Basic knowledge of HTML, CSS, and JavaScript is suggested.-->
-                <!--<br/>-->
-                <!--No previous coding experience is required, however, those familiar with HTML, CSS or JavaScript will-->
-                <!--benefit most.-->
-            <!--</p>-->
-
-            <!--<h2>Required Materials</h2>-->
-            <!--<ul>-->
-                <!--<li>A computer with an Internet connection.</li>-->
-                <!--<li>A copy of the courseware.</li>-->
-                <!--<li>Insatiable curiosity.</li>-->
-            <!--</ul>-->
-
-
-            <!--<h2>What you’ll learn</h2>-->
-
-            <!--<p>-->
-                <!--This course will give you the knowledge and skills necessary to enter the job market as a web-->
-                <!--developer. Expect to be able to build a custom website from scratch and get it online. A more thorough-->
-                <!--syllabus is on the way. We’ll cover topics such as:-->
-            <!--</p>-->
-
-            <!--<div class="row">-->
-                <!--<div class="col-sm-4">-->
-                    <!--<ul>-->
-                        <!--<li>Environment & Terminal</li>-->
-                        <!--<li>Git & GitHub</li>-->
-                        <!--<li>Editors & IDEs</li>-->
-                        <!--<li>Package Managers</li>-->
-                        <!--<li>HTML5 & CSS3</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-
-                <!--<div class="col-sm-4">-->
-                    <!--<ul>-->
-                        <!--<li>Preprocessors</li>-->
-                        <!--<li>Front end Frameworks</li>-->
-                        <!--<li>Intro to JavaScript & jQuery</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-
-                <!--<div class="col-sm-4">-->
-                    <!--<ul>-->
-                        <!--<li>Builds & Deployment</li>-->
-                        <!--<li>Hosting & Maintenance</li>-->
-                        <!--<li>Google Analytics</li>-->
-                        <!--<li>Backends As A Service</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-
-            <!--</div>-->
-
-
-            <!--<h2>Is this course for me?</h2>-->
-
-            <!--<p>-->
-                <!--A few questions for you.-->
-                <!--Do you love solving problems?-->
-                <!--Are you constantly learning new things?-->
-                <!--Others say you’re detailed oriented and meticulous?-->
-                <!--Are you fascinated by the capabilities of web technologies and wish you could turn your ideas into-->
-                <!--reality?-->
-                <!--Yes?-->
-                <!--Read on.-->
-            <!--</p>-->
-
-            <!--<p>-->
-                <!--If you’re driven when challenged and prone to press on when others tend to give up, you might have the-->
-                <!--aptitude of a developer.-->
-                <!--Not taking this course could mean missing an opportunity to live the life you were perfectly designed-->
-                <!--for.-->
-            <!--</p>-->
-
-            <!--<p>-->
-                <!--Front-end web developers have a blast.-->
-                <!--We love solving problems and making cool things that make users really happy.-->
-                <!--We also get paid quite well to do this.-->
-                <!--A skilled front-end developer salary is 64% higher than the average nationwide salary according-->
-                <!--toindeed.com.-->
-                <!--While a senior frontend developer earns 77% more.-->
-                <!--That comes to $95k - $102k annual salary respectively.-->
-            <!--</p>-->
-
-            <!--<h2>About the Founder</h2>-->
-
-            <!--<p>-->
-                <!--Levi Thomason is a second generation software developer.-->
-                <!--Having started scripting at an early age, he is now the Lead Front End Developer at Gravity Jack in-->
-                <!--Liberty Lake, WA.-->
-                <!--His passion is in front end development though he has experience with the full stack.-->
-                <!--In the local community, Levi is founder of the CDA Web App Workshop, driving peer-to-peer up-skilling.-->
-                <!--In the web development community at large, he contributes to open source projects like-->
-                <!--<a href="http://lesscss.org" target="_blank">LESS</a>-->
-                <!--and-->
-                <!--<a href="https://github.com/bgrins/TinyColor" target="_blank">TinyColor</a>-->
-                <!--(the engine behind the Chrome Dev Tools color picker).-->
-            <!--</p>-->
-
-            <!--<p>You can get in touch with him here:</p>-->
-
-            <!--<div>Levi Thomason</div>-->
-            <!--<div>me@levithomason.com</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
 <footer>
     <div class="container">&copy; 2015 3 Strand Code</div>

@@ -6520,6 +6520,9 @@ i:before,
   line-height: inherit;
   vertical-align: inherit;
 }
+section {
+  padding: 2em 0 5em 0;
+}
 .header {
   padding: 10%;
 }
@@ -6530,7 +6533,7 @@ i:before,
 }
 .jumbotron {
   position: relative;
-  padding: 200px 0;
+  padding: 100px 0;
   overflow: hidden;
   text-align: center;
   background-image: -webkit-linear-gradient(290deg, #365063, #366349);
@@ -6549,33 +6552,40 @@ i:before,
   background-size: cover;
   background-position: center;
 }
-.jumbotron .now-offering {
-  text-align: left;
-  font-weight: 300;
+.jumbotron h1 {
+  text-transform: none;
+  font-size: 28px;
 }
-.jumbotron .now-offering .item {
-  font-size: 1.5em;
-  padding: 1em 0;
+@media (min-width: 480px) {
+  .jumbotron h1 {
+    font-size: 28px;
+  }
+}
+@media (min-width: 768px) {
+  .jumbotron h1 {
+    font-size: 32px;
+  }
+}
+@media (min-width: 992px) {
+  .jumbotron h1 {
+    font-size: 42px;
+  }
+}
+@media (min-width: 1200px) {
+  .jumbotron h1 {
+    font-size: 48px;
+  }
+}
+.jumbotron h1 .sub-heading {
+  display: block;
+  font-size: 87%;
+  margin: 15px 0 55px 0;
+  font-weight: 100;
+  font-family: 'Lato', sans-serif;
 }
 .jumbotron .container {
   position: relative;
   z-index: 1;
-}
-.jumbotron .container h1 {
-  text-transform: none;
-}
-@media (min-width: 768px) {
-  .jumbotron .container h1 {
-    font-size: 36px;
-  }
-}
-@media (min-width: 992px) {
-  .jumbotron .container h1 {
-    font-size: 48px;
-  }
-}
-.jumbotron .container p {
-  margin: 15px 0 55px 0;
 }
 .logged-in .my-info {
   opacity: 0.5;
@@ -6604,22 +6614,15 @@ i:before,
   position: relative;
   z-index: 1;
 }
-.register .container .registration .registration-form {
+.register .container .registration .application-form {
   text-align: left;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  padding-left: 10%;
   color: #fff;
 }
-.register .container .registration .registration-form .help-block {
-  color: rgba(255, 255, 255, 0.7);
+.register .container .registration .application-form label {
+  margin-top: 1em;
+  font-weight: 300;
 }
-.register .container .registration .registration-form .radio label {
-  font-weight: 100;
-}
-.register .container .registration .registration-form .register-header {
-  text-transform: uppercase;
-}
-.register .container .registration .registration-form .form-control {
+.register .container .registration .application-form .form-control {
   -webkit-transition: background 0.2s;
           transition: background 0.2s;
   background: rgba(255, 255, 255, 0.2);
@@ -6628,26 +6631,30 @@ i:before,
   box-shadow: none;
   color: inherit;
 }
-.register .container .registration .registration-form .form-control:active,
-.register .container .registration .registration-form .form-control:focus {
+.register .container .registration .application-form .form-control:active,
+.register .container .registration .application-form .form-control:focus {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: none;
 }
-.register .container .registration .registration-form ::-webkit-input-placeholder {
+.register .container .registration .application-form ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
 }
-.register .container .registration .registration-form ::-moz-placeholder {
+.register .container .registration .application-form ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
 }
-.register .container .registration .registration-form :-ms-input-placeholder {
+.register .container .registration .application-form :-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
 }
-.register .container .registration .registration-form ::placeholder {
+.register .container .registration .application-form ::placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 100;
+}
+.register .container .registration .application-form .help-block {
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.7);
 }
 .register .picture {
   position: absolute;
@@ -6683,62 +6690,21 @@ footer {
   color: #ffffff;
 }
 .discount-widget .discount-header {
-  font-weight: 400;
-  font-size: 1.5em;
+  font-weight: 100;
+  font-size: 39px;
+  margin-bottom: 0.5em;
 }
-.discount-widget .label-container,
+.discount-widget .left-container,
 .discount-widget .meter-container,
-.discount-widget .readout-container {
+.discount-widget .right-container {
   position: relative;
   float: left;
   height: 100%;
 }
-.discount-widget .label-container {
+.discount-widget .left-container {
   width: 43%;
   top: 0;
   bottom: 0;
-  line-height: 1;
-  text-align: center;
-  font-weight: 300;
-  font-size: 1.5em;
-}
-.discount-widget .label-container .label-top,
-.discount-widget .label-container .label-bottom {
-  position: absolute;
-  padding: 5% 0;
-  right: 0;
-  left: 0;
-}
-.discount-widget .label-container .label-top .label-text,
-.discount-widget .label-container .label-bottom .label-text {
-  font-weight: 100;
-  opacity: 0.75;
-  text-transform: uppercase;
-  font-size: 0.825em;
-}
-.discount-widget .label-container .label-top {
-  top: 0;
-  color: #FFF;
-}
-.discount-widget .label-container .label-bottom {
-  color: rgba(255, 211, 81, 0.75);
-  bottom: 0;
-}
-.discount-widget .label-container .label-bottom:after {
-  content: "";
-  display: none;
-  position: absolute;
-  width: 3em;
-  height: 1px;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -webkit-transform: rotate(-20deg);
-      -ms-transform: rotate(-20deg);
-          transform: rotate(-20deg);
-  background: rgba(255, 153, 0, 0.75);
 }
 .discount-widget .meter-container {
   width: 14%;
@@ -6757,10 +6723,10 @@ footer {
   background-image: linear-gradient(180deg, #8bcf69 20%, rgba(230, 212, 80, 0.2) 80%, rgba(230, 212, 80, 0) 100%);
   overflow: hidden;
 }
-.discount-widget .readout-container {
+.discount-widget .right-container {
   width: 43%;
 }
-.discount-widget .readout-container .readout {
+.discount-widget .right-container .readout {
   -webkit-transition: top 1s;
           transition: top 1s;
   position: absolute;
@@ -6773,24 +6739,30 @@ footer {
   vertical-align: top;
   white-space: nowrap;
 }
-.discount-widget .readout-container .readout .readout-icon {
+.discount-widget .right-container .readout .readout-icon {
   position: absolute;
   right: 100%;
   margin-right: 0.5em;
 }
-.discount-widget .readout-container .readout .readout-rate {
+.discount-widget .right-container .readout .readout-value {
   margin-bottom: 0.25em;
-  font-weight: 400;
   border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
 }
-.discount-widget .readout-container .readout .readout-label {
+.discount-widget .right-container .readout .readout-label {
   font-size: 0.825em;
   font-weight: 300;
   text-transform: uppercase;
   opacity: 0.9;
 }
-.discount-widget .readout-container .readout .readout-label > .readout-label {
+.discount-widget .right-container .readout .readout-label > .readout-label {
   opacity: 0.5;
+}
+.discount-widget .discount-footer {
+  text-align: center;
+  color: rgba(255, 211, 81, 0.75);
+  font-weight: 100;
+  font-size: 32px;
 }
 .mentors .mentor {
   position: relative;
@@ -6815,6 +6787,10 @@ footer {
 }
 .mentors .mentor.michael-williams {
   background-image: url("https://media.licdn.com/media/p/6/005/07f/066/3422fbb.jpg");
+}
+.mentors .mentor.jason-rutherford {
+  background-image: url("https://scontent-sea1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/10256810_741375812550065_5414045698136394313_n.jpg?oh=d22782b5c343502d71c0d161753f379b&oe=55C27213");
+  background-position: center;
 }
 .mentors .mentor .info {
   position: absolute;
@@ -6938,6 +6914,7 @@ footer {
 }
 .tsc-navbar .tsc-register-btn {
   position: absolute;
+  text-transform: uppercase;
   right: 0;
 }
 .tsc-navbar .tsc-register-btn:hover {

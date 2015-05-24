@@ -1,37 +1,19 @@
 <div class="discount-widget">
-    <!--<div class="discount-header">-->
-        <!--50% Off-->
-    <!--</div>-->
+    <div class="discount-header">${{ discounts.remaining ? '249' : '499' }}</div>
 
-    <div class="label-container">
-        <div class="label-top">
-            <span class="label-value">$249</span>
-            <span class="label-text">Sale</span>
-        </div>
-        <div class="label-bottom">
-            <span class="label-value">$499</span>
-            <span class="label-text">Reg</span>
-        </div>
-    </div>
+    <div class="left-container"></div>
 
     <div class="meter-container">
         <div class="meter" ng-style="{top: _meterTop}"></div>
     </div>
 
-    <div class="readout-container">
+    <div class="right-container">
         <div class="readout" ng-style="{top: _meterTop}">
-            <div class="readout-icon">
-                <i class="fa fa-long-arrow-left"></i>
-            </div>
-            <div class="readout-rate">
-                {{ discounts.remaining }}
-            </div>
-            <div class="readout-label">
-                Discounts
-                <div class="readout-label">
-                    Remaining
-                </div>
-            </div>
+            <div class="readout-icon"><i class="fa fa-long-arrow-left"></i></div>
+            <div class="readout-value">{{ discounts.remaining }}</div>
+            <div class="readout-label">Left</div>
         </div>
     </div>
+
+    <div class="discount-footer">$499</div>
 </div>
