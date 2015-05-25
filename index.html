@@ -181,10 +181,10 @@
             <div class="row">
                 <!-- Logged In & Paid -->
                 <div class="logged-in" ng-show="$kinvey.getActiveUser().payments.length > 0">
-                    <h2>Hello, {{ $kinvey.getActiveUser().firstName }}.</h2>
+                    <h2>Hello, {{ $kinvey.getActiveUser().first_name }}.</h2>
 
                     <div class="my-info">
-                        {{ $kinvey.getActiveUser().firstName }} {{ $kinvey.getActiveUser().lastName }}
+                        {{ $kinvey.getActiveUser().first_name }} {{ $kinvey.getActiveUser().last_name }}
                         <br/>
                         {{ $kinvey.getActiveUser().email }}
                     </div>
@@ -215,10 +215,10 @@
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <input class="form-control"
-                                               ng-class="{'is-valid': applicationForm.firstName.$valid, 'is-dirty': applicationForm.firstName.$dirty && applicationForm.firstName.hasBlurred}"
-                                               ng-blur="applicationForm.firstName.hasBlurred = applicationForm.firstName.$dirty"
-                                               ng-model="user.firstName"
-                                               name="firstName"
+                                               ng-class="{'is-valid': applicationForm.first_name.$valid, 'is-dirty': applicationForm.first_name.$dirty && applicationForm.first_name.hasBlurred}"
+                                               ng-blur="applicationForm.first_name.hasBlurred = applicationForm.first_name.$dirty"
+                                               ng-model="user.first_name"
+                                               name="first_name"
                                                type="text"
                                                placeholder="First name"
                                                required="required"/>
@@ -228,10 +228,10 @@
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <input class="form-control"
-                                               ng-class="{'is-valid': applicationForm.lastName.$valid, 'is-dirty': applicationForm.lastName.$dirty && applicationForm.lastName.hasBlurred}"
-                                               ng-blur="applicationForm.lastName.hasBlurred = applicationForm.lastName.$dirty"
-                                               ng-model="user.lastName"
-                                               name="lastName"
+                                               ng-class="{'is-valid': applicationForm.last_name.$valid, 'is-dirty': applicationForm.last_name.$dirty && applicationForm.last_name.hasBlurred}"
+                                               ng-blur="applicationForm.last_name.hasBlurred = applicationForm.last_name.$dirty"
+                                               ng-model="user.last_name"
+                                               name="last_name"
                                                type="text"
                                                placeholder="Last name"
                                                required="required"/>

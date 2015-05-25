@@ -113,7 +113,7 @@
                     expYear: $scope.applicationForm.expYear,
                     cvc: $scope.applicationForm.cvc,
                     amount: $scope.pricing.priceInCents.current,
-                    description: user.firstName + ' ' + user.lastName + ' - ' + user.email
+                    description: user.first_name + ' ' + user.last_name + ' - ' + user.email
                   })
                     .success(function(charge) {
                       user.payments.push({date: new Date().toUTCString(), payment: charge});
@@ -143,8 +143,8 @@
 
         $scope.signup = function() {
           return $kinvey.User.signup({
-            firstName: $scope.user.firstName,
-            lastName: $scope.user.lastName,
+            first_name: $scope.user.first_name,
+            last_name: $scope.user.last_name,
             email: $scope.user.email,
             username: $scope.user.email,
             payments: [],
