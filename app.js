@@ -14,22 +14,26 @@
     'App.faq',
   ])
 
+    .config(function($locationProvider) {
+      $locationProvider.hashPrefix('#').html5Mode(true);
+    })
+
     .run(function($rootScope, $kinvey, ENV) {
       $rootScope.$kinvey = $kinvey;
-
       Stripe.setPublishableKey(ENV.TSC_STRIPE_TEST_PUBLISHABLE_KEY);
     })
 
-    .controller('Controller', ['$scope', '$kinvey', '$http', '$interval',
-      function($scope, $kinvey, $http, $interval) {
+    .controller('Controller', ['$scope', '$kinvey', '$http', '$interval', '$q',
+      function($scope, $kinvey, $http, $interval, $q) {
         $scope.init = function() {
-          $scope.user = {};
+          $scope.user = $kinvey.getActiveUser();
           $scope.applicationErrors = [];
+          $scope.isProcessingPayment = false;
           $scope.card = {
-            number: '',
-            expMonth: '',
-            expYear: '',
-            cvc: ''
+            // number: '4242 4242 4242 4242',
+            // expMonth: '12',
+            // expYear: 2015,
+            // cvc: '232'
           };
 
           $scope.getPricing();
@@ -76,43 +80,81 @@
         });
 
         $scope.submitPayment = function() {
-          var $form = jQuery('#application-form');
-          console.log($form);
+          var user = $kinvey.getActiveUser();
+          $scope.isProcessingPayment = true;
+          $scope.applicationErrors = [];
 
-          Stripe.card.createToken($form, function(status, response) {
-            console.log(status, response);
+          // return promise with activeUser or signup
+          (function() {
+            var deferred = $q.defer();
+            deferred.resolve(user);
 
-            // Per Stripe Docs:
+            return user ? deferred.promise : $scope.signup();
+          }())
 
-            if (response.error) {
-              // Show the errors on the form
-              $scope.applicationErrors.push(response.error.message);
-            } else {
-              // response contains id and card, which contains additional card details
-              var token = response.id;
-              // Insert the token into the form so it gets submitted to the server
-              $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-              // and submit
-              $form.get(0).submit();
-            }
-          });
+            // charge
+            .then(function(activeUser) {
+              var $form = jQuery('#application-form');
+              var user = $kinvey.getActiveUser();
+              console.log($form);
+
+              Stripe.card.createToken($form, function(status, response) {
+                console.log(status, response);
+
+                if (response.error) {
+                  $scope.applicationErrors.push(response.error.message);
+                  user.paymentErrors.push({date: new Date().toUTCString(), message: response.error.message});
+                  $scope.isProcessingPayment = false;
+                  $kinvey.User.update(user);
+                } else {
+                  $http.post('/charge/', {
+                    stripeToken: response.id, // response contains id and card, which contains additional card details
+                    expMonth: $scope.applicationForm.expMonth,
+                    expYear: $scope.applicationForm.expYear,
+                    cvc: $scope.applicationForm.cvc,
+                    amount: $scope.pricing.priceInCents.current
+                  })
+                    .success(function(charge) {
+                      user.payments.push({date: new Date().toUTCString(), payment: charge});
+                      $scope.isProcessingPayment = false;
+                      $kinvey.User.update(user);
+                    })
+                    .error(function(err) {
+                      user.paymentErrors.push({date: new Date().toUTCString(), message: err});
+                      $kinvey.User.update(user);
+                      $scope.isProcessingPayment = false;
+                      $scope.applicationErrors.push(err);
+                    });
+                }
+              });
+            }, function(error) {
+              if (error.name === 'UserAlreadyExists') {
+                $scope.applicationErrors.push('That email is already registered.');
+                $scope.isProcessingPayment = false;
+              }
+              return error;
+            })
+
+            .catch(function(err) {
+              console.error(err);
+            })
         };
 
         $scope.signup = function() {
-          $kinvey.User.signup({
+          return $kinvey.User.signup({
             firstName: $scope.user.firstName,
             lastName: $scope.user.lastName,
             email: $scope.user.email,
             username: $scope.user.email,
-          })
-            .then(function(activeUser) {
-              console.debug(activeUser);
-              $scope.applicationErrors = [];
-            }, function(error) {
-              if (error.name === 'UserAlreadyExists') {
-                $scope.applicationErrors.push('That email is already registered.');
-              }
-              console.error(error);
+            payments: [],
+            paymentErrors: []
+          });
+        };
+
+        $scope.logout = function() {
+          $kinvey.User.logout()
+            .finally(function() {
+              window.location.reload();
             });
         };
 

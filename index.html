@@ -45,7 +45,7 @@
             <span class="sub-heading">Awarding University of Idaho certificates and more.</span>
         </h1>
 
-        <a href="#register" class="tsc-btn tsc-btn-white">
+        <a href="/#register" class="tsc-btn tsc-btn-white">
             Register
         </a>
     </div>
@@ -115,10 +115,10 @@
 
         <div id="pricing" class="tsc-scroll-anchor"></div>
         <section>
-            <h1 class="page-header">Pricing</h1>
+            <h1 class="page-header" ng-hide="$kinvey.getActiveUser().payments.length > 0">Pricing</h1>
 
             <!-- Pricing -->
-            <div class="pricing">
+            <div class="pricing" ng-hide="$kinvey.getActiveUser().payments.length > 0">
                 <div class="row">
                     <div class="col-sm-12">
                         <p class="description" ng-show="pricing.discounts.left">
@@ -140,8 +140,8 @@
                 </div>
             </div>
 
-            <hr/>
-            <br/>
+            <hr ng-hide="$kinvey.getActiveUser().payments.length > 0"/>
+            <br ng-hide="$kinvey.getActiveUser().payments.length > 0"/>
 
             <!-- Seats -->
             <div class="seats">
@@ -179,8 +179,8 @@
 
         <section>
             <div class="row">
-                <!-- Logged In (Already Registered) -->
-                <div class="logged-in" ng-show="$kinvey.getActiveUser()">
+                <!-- Logged In & Paid -->
+                <div class="logged-in" ng-show="$kinvey.getActiveUser().payments.length > 0">
                     <h2>Hello, {{ $kinvey.getActiveUser().firstName }}.</h2>
 
                     <div class="my-info">
@@ -196,13 +196,13 @@
                         Watch your email for updates.
                     </p>
                     <br/>
-                    <button class="tsc-btn tsc-btn-white" ng-click="$kinvey.User.logout()">
+                    <button class="tsc-btn tsc-btn-white" ng-click="logout()">
                         Sign Out
                     </button>
                 </div>
 
-                <!-- Logged Out (New Registration) -->
-                <div class="registration" ng-hide="$kinvey.getActiveUser()">
+                <!-- Logged Out or Not Paid -->
+                <div class="registration" ng-hide="$kinvey.getActiveUser().payments.length > 0">
                     <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
                         <br class="visible-xs"/>
                         <br class="visible-xs"/>
@@ -210,10 +210,6 @@
                         <h1 class="page-header">Register</h1>
 
                         <form class="application-form" name="applicationForm" method="POST" id="application-form" ng-submit="submitPayment()">
-                            <div class="text-danger">
-                                <span ng-repeat="err in applicationErrors">{{ err }}</span>
-                            </div>
-
                             <!-- Personal Info -->
                             <label>Attendee</label>
 
@@ -331,18 +327,20 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Added After registration-->
-                                <input type="hidden" name="stripeToken"/>
                             </div>
 
                             <br/>
 
+                            <div class="alert alert-danger" ng-show="applicationErrors.length > 0">
+                                <div ng-repeat="err in applicationErrors">{{ err }}</div>
+                            </div>
+
                             <div class="text-center">
                                 <button type="submit"
-                                        class="tsc-btn tsc-btn-white"
-                                        ng-disabled="applicationForm.$invalid">
-                                    Register @ {{ pricing.priceInCents.current / 100 | currency}}
+                                        class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block"
+                                        ng-disabled="applicationForm.$invalid || isProcessingPayment">
+                                    <span ng-hide="isProcessingPayment">Register @ {{ pricing.priceInCents.current / 100 | currency}}</span>
+                                    <span ng-show="isProcessingPayment"><i class="fa fa-pulse fa-spinner"></i></span>
                                 </button>
                             </div>
                         </form>
@@ -358,7 +356,7 @@
 
 <faq></faq>
 
-<a href="#contact" id="contact-widget">
+<a href="/#contact" id="contact-widget">
     <i class="fa fa-comments-o"></i>
 </a>
 <footer>

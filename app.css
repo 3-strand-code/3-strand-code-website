@@ -6688,14 +6688,14 @@ i:before,
   font-weight: 100;
 }
 .pricing-registration .container .pricing .regular {
-  display: inline-block;
+  display: block;
   margin-bottom: 1em;
 }
 .pricing-registration .container .pricing .regular.slash {
+  font-weight: 300;
   position: relative;
-  margin-right: 0.5em;
-  font-size: 0.825em;
-  font-weight: 100;
+  margin-bottom: 0;
+  font-size: 0.75em;
   color: #e66c2e;
 }
 .pricing-registration .container .pricing .regular.slash:after {
@@ -6715,7 +6715,7 @@ i:before,
   border-radius: 100%;
 }
 .pricing-registration .container .pricing .current {
-  display: inline-block;
+  display: block;
   margin-bottom: 1em;
   font-weight: 300;
 }
@@ -6814,13 +6814,13 @@ i:before,
 #contact-widget {
   position: fixed;
   margin: 20px;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   right: 0;
   bottom: 0;
   text-align: center;
-  font-size: 26px;
+  font-size: 19px;
   color: #FFF;
   background: rgba(229, 108, 46, 0.9);
   border-radius: 100%;

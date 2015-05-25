@@ -16,6 +16,8 @@ var SERVER_ROOT = PROJECT_ROOT;
 var KINVEY_APP_KEY = process.env.TSC_KINVEY_APP_KEY;
 var KINVEY_APP_SECRET = process.env.TSC_KINVEY_APP_SECRET;
 var KINVEY_MASTER_SECRET = process.env.TSC_KINVEY_MASTER_SECRET;
+var STRIPE_SECRET = process.env.TSC_STRIPE_TEST_SECRET_KEY;
+var STRIPE_PUBLISHABLE_KEY = process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY;
 
 if (!KINVEY_APP_KEY)        throw 'KINVEY_APP_KEY not set.';
 if (!KINVEY_APP_SECRET)     throw 'KINVEY_APP_SECRET not set.';
@@ -97,30 +99,19 @@ app.use('/', express.static(__dirname + '/'));
 //
 // Payments
 app.use('/charge', function(req, res) {
-    var stripe = require("stripe")("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
-    var stripeToken = request.body.stripeToken;
+    var stripe = require("stripe")(STRIPE_SECRET);
+    var stripeToken = req.body.stripeToken;
+    //res.send(req.body);
     var charge = stripe.charges.create({
-        amount: 1000, // amount in cents, again
+        amount: req.body.amount,
         currency: "usd",
         source: stripeToken,
         description: req.body.firstName + ' ' + req.body.lastName
     }, function(err, charge) {
         if (err && err.type === 'StripeCardError') {
-            req.status(400).send(err);
-        }
-    });
-        // Set your secret key: remember to change this to your live secret key in production
-    // See your keys here https://dashboard.stripe.com/account
-    var stripe = require("stripe")("sk_test_0poqhPe77Ozg5bizoeEsMtX8");
-    var stripeToken = req.body.stripeToken;
-    var charge = stripe.charges.create({
-        amount: 24900,
-        currency: "usd",
-        source: stripeToken,
-        description: "payinguser@example.com"
-    }, function(err, charge) {
-        if (err && err.type === 'StripeCardError') {
-            // The card has been declined
+            res.status(400).send(err);
+        } else {
+            res.status(200).send(charge);
         }
     });
 });
@@ -143,8 +134,6 @@ app.use('/kinvey/:endpoint/', function(req, res) {
         } else {
             res.status(response.statusCode).send(body);
         }
-
-            
     });
 });
 
