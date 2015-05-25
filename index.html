@@ -154,7 +154,7 @@
                         <div class="seat seat-filled" ng-repeat="seat in pricing.seats.taken track by $index">
                             <div class="fa-stack">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-user fa-stack-1x text-primary"></i>
+                                <i class="fa fa-check fa-stack-1x text-primary"></i>
                             </div>
                             <div class="seat-label">
                                 {{ seat }}
@@ -332,23 +332,19 @@
                                     </div>
                                 </div>
 
-                                <div class="help-block">
-                                    <i class="fa fa-question-circle"></i>
-                                    CVC number is found on the back of your card.
-                                </div>
-
                                 <!-- Added After registration-->
                                 <input type="hidden" name="stripeToken"/>
                             </div>
 
                             <br/>
 
-                            <button type="submit"
-                                    class="tsc-btn tsc-btn-white"
-                                    ng-disabled="applicationForm.$invalid">
-                                Register @ {{ pricing.priceInCents.current / 100 | currency}}
-                            </button>
-
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="tsc-btn tsc-btn-white"
+                                        ng-disabled="applicationForm.$invalid">
+                                    Register @ {{ pricing.priceInCents.current / 100 | currency}}
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

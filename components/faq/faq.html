@@ -92,7 +92,8 @@
                         </div>
 
                         <p>
-                            3 Strand Code is an <a href="http://www.innovatecda.com/" target="_blank">IC:Learn</a> program.
+                            3 Strand Code is an
+                            <a href="http://www.innovatecda.com/" target="_blank">IC:Learn</a> program.
                             We award verified certificates from the
                             <a href="http://www.uidaho.edu/cda" target="_blank">University of Idaho, CDA</a>
                             .
@@ -283,7 +284,7 @@
             <div class="answer">
                 <p>
                     We'll spend the majority of our time hands on.
-                    At each class we'll also review progress made, outline next steps, and have Q&A. 
+                    At each class we'll also review progress made, outline next steps, and have Q&A.
                 </p>
             </div>
 
@@ -344,14 +345,78 @@
             <div id="contact" class="tsc-scroll-anchor"></div>
 
             <div class="text-center">
-                <h1 class="text-muted">
-                    Let's chat
-                    <i class="fa fa-comments-o"></i>
+
+                <form ng-submit="sendEmail()" name="emailForm" ng-hide="isSending || emailResponse || emailError">
+                    <h1 class="text-muted">
+                        Let's Chat
+                        <i class="fa fa-comments-o"></i>
+                    </h1>
+
+                    <div class="form-group">
+                        <textarea class="form-control input-lg"
+                                  name="body"
+                                  ng-class="{'is-valid': emailForm.body.$valid, 'is-dirty': emailForm.body.$dirty && emailForm.body.hasBlurred}"
+                                  ng-blur="emailForm.body.hasBlurred = emailForm.body.$dirty"
+                                  rows="5"
+                                  ng-model="email.body"
+                                  required="required"
+                                  placeholder="What's up?">
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control input-lg"
+                               name="from"
+                               type="email"
+                               ng-class="{'is-valid': emailForm.from.$valid, 'is-dirty': emailForm.from.$dirty && emailForm.from.hasBlurred}"
+                               ng-blur="emailForm.from.hasBlurred = emailForm.from.$dirty"
+                               ng-model="email.from"
+                               required="required"
+                               placeholder="you@email.com"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="tsc-btn tsc-btn-lg tsc-btn-block" ng-disabled="emailForm.$invalid">Send</button>
+                    </div>
+                </form>
+
+                <h1 ng-show="isSending">
+                    <i class="fa fa-pulse fa-spinner"></i>
                 </h1>
 
-                <h3>
-                    <a href="mailto:hello@3strandcode.com">hello@3strandcode.com</a>
-                </h3>
+                <div ng-show="emailResponse">
+                    <h1 class="text-muted">
+                        Thanks <i class="fa fa-heart-o"></i>
+                    </h1>
+                    <br/>
+
+                    <p class="lead">
+                        A <b>founder</b> will respond in less than <b>24hrs</b>.
+                    </p>
+
+                    <p class="lead">Because we love you.</p>
+                </div>
+
+                <div ng-if="emailError">
+                    <h1 class="text-muted">
+                        It broke <i class="fa fa-frown-o"></i>
+                    </h1>
+                    <br/>
+
+                    <p class="lead">
+                        You can <b>email</b> us at <b>hello@3strandcode.com</b>.
+                        <br/>
+                        &mdash; or &mdash;
+                        <br/>
+                        <b>Text</b> or <b>call</b> the founder, Levi, at <b>{{ levisNumber }}</b>.
+                    </p>
+
+                    <p class="lead"> Because we love you.</p>
+
+                    <div class="well well-sm text-muted text-left">
+                        <small>{{ email.body }}</small>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

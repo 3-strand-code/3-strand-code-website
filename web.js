@@ -134,10 +134,17 @@ app.use('/kinvey/:endpoint/', function(req, res) {
         'Authorization': 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64'),
         'Content-Type': 'application/json'
     };
-    var form = {};
+    var form = req.body || {};
 
     request.post({url: url, headers: headers, form: form}, function(error, response, body) {
-        error ? res.status(400).send(error) : res.status(200).send(body);
+
+        if (error) {
+            res.status(400).send(error)
+        } else {
+            res.status(response.statusCode).send(body);
+        }
+
+            
     });
 });
 

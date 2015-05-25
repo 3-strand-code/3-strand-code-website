@@ -1,0 +1,32 @@
+.form-control {
+  .tsc-transition(color, box-shadow;);
+  color: #555;
+  background: fade(@tsc-brand-accent, 10);
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  resize: vertical;
+  &.is-dirty {
+    box-shadow: inset 2px 0 0 0 @tsc-brand-attention;
+    &:not(:focus):not(.is-valid) {
+      color: @tsc-brand-attention;
+    }
+    &.is-valid {
+      box-shadow: inset 2px 0 0 0 yellowgreen;
+    }
+  }
+  &:focus {
+    box-shadow: inset 2px 0 0 0 fade(#000, 30);
+  }
+}
+
+::placeholder {
+  color: fade(#fff, 50);
+  font-weight: 300;
+  font-family: @font-family-base;
+}
+
+.help-block {
+  font-weight: 100;
+  color: fade(#fff, 70);
+}

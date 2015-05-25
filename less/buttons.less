@@ -1,6 +1,7 @@
 // Button
 
 .tsc-btn {
+  .tsc-transition(background, color;);
   display: inline-block;
   padding: 10px 20px;
   line-height: 1;
@@ -10,8 +11,10 @@
   background: none;
   border: 2px solid;
   &:hover {
-    cursor: pointer;
+    color: #FFF;
+    background: @tsc-brand-primary;
     text-decoration: none;
+    cursor: pointer;
   }
   &.disabled,
   &[disabled] {
@@ -21,9 +24,17 @@
       background: none;
     }
   }
+  
+  &.tsc-btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  &.tsc-btn-lg {
+    font-size: 1.5em;
+  }
 
   &.tsc-btn-white {
-    transition: background 0.1s, color 0.1s;
     border-color: #fff;
     color: #fff;
     &:hover{
