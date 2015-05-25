@@ -20,83 +20,104 @@
       Stripe.setPublishableKey(ENV.TSC_STRIPE_TEST_PUBLISHABLE_KEY);
     })
 
-    .controller('Controller', ['$scope', '$kinvey', '$timeout', function($scope, $kinvey, $timeout) {
-      $scope.user = {};
-      $scope.applicationErrors = [];
-      $scope.card = {
-        number: '',
-        expMonth: '',
-        expYear: '',
-        cvc: ''
-      };
+    .controller('Controller', ['$scope', '$kinvey', '$http', '$interval',
+      function($scope, $kinvey, $http, $interval) {
+        $scope.init = function() {
+          $scope.user = {};
+          $scope.applicationErrors = [];
+          $scope.card = {
+            number: '',
+            expMonth: '',
+            expYear: '',
+            cvc: ''
+          };
 
-      $scope.$watch('card.number', function(newVal, oldVal) {
-        console.log(newVal, oldVal);
-        if (
-          newVal === undefined ||             // ignore undefined
-          oldVal === undefined ||             // ignore undefined
-          newVal.length === 0 ||              // ignore empty
-          newVal.length < oldVal.length ||    // ignore backspace
-          newVal[newVal.length - 1] === ' '   // ignore trailing space 
-        ) {
-          return;
-        }
+          $scope.getPricing();
 
-        var reDigits = new RegExp(/\d+/g);
-        var reValidDigits = new RegExp(/^( *\d *){16}$/g);
-        var digits = newVal.match(reDigits);
-        var digitArray = digits ? digits.join('').split('') : null;
-        var isValidDigits = digits ? newVal.match(reValidDigits) : false;
+          $interval(function() {
+            $scope.getPricing();
+          }, 5000);
+        };
 
-        $scope.applicationForm.number.$setValidity('digit-count', isValidDigits);
+        $scope.getPricing = function() {
+          $http.get('/kinvey/pricing/')
+            .success(function(data, status, headers, config) {
+              $scope.pricing = data;
+            })
+            .error(function(data, status, headers, config) {
+              console.error(data);
+            });
+        };
 
-        // add a space every 4 digits
-        if (digitArray.length < 16 && digitArray.length % 4 === 0) {
-          $scope.card.number += ' ';
-        }
-      });
+        $scope.$watch('card.number', function(newVal, oldVal) {
+          var reValidDigits = new RegExp(/^( *\d *){16}$/g);
+          var isValidDigits = newVal.match(reValidDigits) || false;
 
-      $scope.submitPayment = function() {
-        var $form = jQuery('#application-form');
-        console.log($form);
+          $scope.applicationForm.number.$setValidity('digit-count', isValidDigits);
 
-        Stripe.card.createToken($form, function(status, response) {
-          console.log(status, response);
+          if (
+            newVal === undefined ||             // ignore undefined
+            oldVal === undefined ||             // ignore undefined
+            newVal.length === 0 ||              // ignore empty
+            newVal.length < oldVal.length ||    // ignore backspace
+            newVal[newVal.length - 1] === ' '   // ignore trailing space 
+          ) {
+            return;
+          }
 
-          // Per Stripe Docs:
+          var reDigits = new RegExp(/\d+/g);
+          var digits = newVal.match(reDigits);
+          var digitArray = digits ? digits.join('').split('') : null;
 
-          if (response.error) {
-            // Show the errors on the form
-            $scope.applicationErrors.push(response.error.message);
-          } else {
-            // response contains id and card, which contains additional card details
-            var token = response.id;
-            // Insert the token into the form so it gets submitted to the server
-            $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-            // and submit
-            $form.get(0).submit();
+          // add a space every 4 digits
+          if (digitArray.length < 16 && digitArray.length % 4 === 0) {
+            $scope.card.number += ' ';
           }
         });
-      };
 
-      $scope.signup = function() {
-        $kinvey.User.signup({
-          firstName: $scope.user.firstName,
-          lastName: $scope.user.lastName,
-          email: $scope.user.email,
-          username: $scope.user.email,
-        })
-          .then(function(activeUser) {
-            console.debug(activeUser);
-            $scope.applicationErrors = [];
-          }, function(error) {
-            if (error.name === 'UserAlreadyExists') {
-              $scope.applicationErrors.push('That email is already registered.');
+        $scope.submitPayment = function() {
+          var $form = jQuery('#application-form');
+          console.log($form);
+
+          Stripe.card.createToken($form, function(status, response) {
+            console.log(status, response);
+
+            // Per Stripe Docs:
+
+            if (response.error) {
+              // Show the errors on the form
+              $scope.applicationErrors.push(response.error.message);
+            } else {
+              // response contains id and card, which contains additional card details
+              var token = response.id;
+              // Insert the token into the form so it gets submitted to the server
+              $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+              // and submit
+              $form.get(0).submit();
             }
-            console.error(error);
           });
-      };
-    }]);
+        };
+
+        $scope.signup = function() {
+          $kinvey.User.signup({
+            firstName: $scope.user.firstName,
+            lastName: $scope.user.lastName,
+            email: $scope.user.email,
+            username: $scope.user.email,
+          })
+            .then(function(activeUser) {
+              console.debug(activeUser);
+              $scope.applicationErrors = [];
+            }, function(error) {
+              if (error.name === 'UserAlreadyExists') {
+                $scope.applicationErrors.push('That email is already registered.');
+              }
+              console.error(error);
+            });
+        };
+
+        $scope.init();
+      }]);
 
   ////////////////////////////////////////////////////////
   // bootstrap angular AFTER initializing kinvey

@@ -2,6 +2,10 @@ section {
   padding: 2em 0 5em 0;
 }
 
+hr {
+  opacity: 0.4;
+}
+
 // HEADER
 .header {
   padding: 10%;
@@ -90,9 +94,9 @@ section {
   }
 }
 
-// REGISTER
+// PRICE & REGISTER
 
-.register {
+.pricing-registration {
   position: relative;
   background-image: linear-gradient(-20deg, @tsc-jumbo-primary, @tsc-jumbo-accent);
   text-align: center;
@@ -100,7 +104,69 @@ section {
 
   .container {
     position: relative;
-    z-index: 1;
+
+    .pricing {
+      font-size: @font-size-h1;
+      font-weight: 100;
+      .regular {
+        display: inline-block;
+        margin: 0.5em 0;
+        &.slash {
+          position: relative;
+          margin-right: 0.5em;
+          font-size: 0.825em;
+          font-weight: 100;
+          color: @tsc-brand-attention;
+          &:after {
+            position: absolute;
+            display: block;
+            content: '';
+            margin: auto;
+            width: 3em;
+            height: 4px;
+            top: 0.7em;
+            right: -1em;
+            left: -1em;
+            transform: rotate(-20deg);
+            background: @tsc-brand-attention;
+            border-radius: 100%;
+          }
+        }
+      }
+      .current {
+        display: inline-block;
+        margin: 0.5em 0;
+        font-weight: 300;
+      }
+      .description {
+        font-size: 0.625em;
+      }
+    }
+
+    .seats {
+      margin-bottom: 1em;
+
+      legend {
+        color: white;
+      }
+      .seats-heading {
+        font-weight: 100;
+        margin: 1em;
+      }
+      .seat {
+        float: left;
+        width: unit(100 / 10, %);
+        height: 60px;
+        &.seat-filled {
+        }
+        &.seat-open {
+          opacity: 0.3;
+        }
+        .seat-label {
+          font-size: 0.825em;
+        }
+      }
+    }
 
     .registration {
 
@@ -114,25 +180,29 @@ section {
         }
 
         .form-control {
-          transition: background 0.2s, box-shadow 0.2s;
+          transition: box-shadow 0.1s;
           color: inherit;
-          background: fade(#fff, 20);
+          background: fade(#000, 20);
+          box-shadow: none;
           border: none;
           border-radius: 0;
-          box-shadow: inset 1px 0 0 @tsc-brand-attention;
           &:active,
           &:focus {
-            background: fade(#fff, 30);
-            box-shadow: none;
+            box-shadow: inset 2px 0 0 0 fade(#fff, 20);
           }
-          &.is-valid {
-            box-shadow: inset 2px 0 0 0 greenyellow;
+          &.is-dirty {
+            box-shadow: inset 2px 0 0 0 @tsc-brand-attention;
+            color: @tsc-brand-attention;
+            &.is-valid {
+              color: white;
+              box-shadow: inset 2px 0 0 0 yellowgreen;
+            }
           }
         }
 
         ::placeholder {
           color: fade(#fff, 50);
-          font-weight: 100;
+          font-weight: 300;
           font-family: @font-family-base;
         }
 
@@ -157,10 +227,11 @@ section {
     left: 0;
     bottom: 0;
     right: 0;
-    opacity: @tsc-jumbo-img-opacity;
+    opacity: @tsc-jumbo-img-opacity * 0.5;
     background-image: url('../assets/img/building-pattern-compressed.jpg');
     background-size: cover;
     background-position: center;
+    pointer-events: none;
   }
 }
 
