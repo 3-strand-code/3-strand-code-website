@@ -6750,18 +6750,18 @@ hr {
 }
 #contact-widget {
   position: fixed;
-  padding: 0 0 4px 4px;
+  margin: 20px;
   width: 60px;
   height: 60px;
   line-height: 60px;
   right: 0;
   bottom: 0;
   text-align: center;
-  font-size: 2em;
-  color: #e66c2e;
-  background: rgba(255, 255, 255, 0.95);
-  border-top-left-radius: 50%;
-  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 26px;
+  color: #FFF;
+  background: rgba(229, 108, 46, 0.9);
+  border-radius: 100%;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 footer {
   padding: 40px 0;
