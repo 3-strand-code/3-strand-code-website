@@ -106,7 +106,7 @@ app.use('/charge', function(req, res) {
         amount: req.body.amount,
         currency: "usd",
         source: stripeToken,
-        description: req.body.firstName + ' ' + req.body.lastName
+        description: req.body.description
     }, function(err, charge) {
         if (err && err.type === 'StripeCardError') {
             res.status(400).send(err);

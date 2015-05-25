@@ -30,10 +30,10 @@
           $scope.applicationErrors = [];
           $scope.isProcessingPayment = false;
           $scope.card = {
-            // number: '4242 4242 4242 4242',
-            // expMonth: '12',
-            // expYear: 2015,
-            // cvc: '232'
+             number: '4242 4242 4242 4242',
+             expMonth: '12',
+             expYear: 2015,
+             cvc: '232'
           };
 
           $scope.getPricing();
@@ -112,7 +112,8 @@
                     expMonth: $scope.applicationForm.expMonth,
                     expYear: $scope.applicationForm.expYear,
                     cvc: $scope.applicationForm.cvc,
-                    amount: $scope.pricing.priceInCents.current
+                    amount: $scope.pricing.priceInCents.current,
+                    description: user.firstName + ' ' + user.lastName + ' - ' + user.email
                   })
                     .success(function(charge) {
                       user.payments.push({date: new Date().toUTCString(), payment: charge});
