@@ -140,16 +140,16 @@
                 </div>
             </div>
 
+            <hr/>
+            <br/>
+
             <!-- Seats -->
             <div class="seats">
                 <div class="row">
-                    <div class="col-xs-6 col-xs-offset-3">
-                        <hr/>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-12">
-                        <p class="seats-heading">{{ pricing.seats.left.length }} seats left</p>
+                        <div class="seats-heading">
+                            <b>{{ pricing.seats.left.length }}</b> seats left
+                        </div>
 
                         <div class="seat seat-filled" ng-repeat="seat in pricing.seats.taken track by $index">
                             <div class="fa-stack">

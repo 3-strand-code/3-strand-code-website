@@ -110,7 +110,7 @@ hr {
       font-weight: 100;
       .regular {
         display: inline-block;
-        margin: 0.5em 0;
+        margin-bottom: 1em;
         &.slash {
           position: relative;
           margin-right: 0.5em;
@@ -123,7 +123,7 @@ hr {
             content: '';
             margin: auto;
             width: 3em;
-            height: 4px;
+            height: 3px;
             top: 0.7em;
             right: -1em;
             left: -1em;
@@ -135,10 +135,11 @@ hr {
       }
       .current {
         display: inline-block;
-        margin: 0.5em 0;
+        margin-bottom: 1em;
         font-weight: 300;
       }
       .description {
+        margin-bottom: 1em;
         font-size: 0.625em;
       }
     }
@@ -152,6 +153,7 @@ hr {
       .seats-heading {
         font-weight: 100;
         margin: 1em;
+        font-size: @font-size-h3;
       }
       .seat {
         float: left;
@@ -161,6 +163,7 @@ hr {
         }
         &.seat-open {
           opacity: 0.3;
+          font-weight: 300;
         }
         .seat-label {
           font-size: 0.825em;

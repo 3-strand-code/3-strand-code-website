@@ -6622,7 +6622,7 @@ hr {
 }
 .pricing-registration .container .pricing .regular {
   display: inline-block;
-  margin: 0.5em 0;
+  margin-bottom: 1em;
 }
 .pricing-registration .container .pricing .regular.slash {
   position: relative;
@@ -6637,7 +6637,7 @@ hr {
   content: '';
   margin: auto;
   width: 3em;
-  height: 4px;
+  height: 3px;
   top: 0.7em;
   right: -1em;
   left: -1em;
@@ -6649,10 +6649,11 @@ hr {
 }
 .pricing-registration .container .pricing .current {
   display: inline-block;
-  margin: 0.5em 0;
+  margin-bottom: 1em;
   font-weight: 300;
 }
 .pricing-registration .container .pricing .description {
+  margin-bottom: 1em;
   font-size: 0.625em;
 }
 .pricing-registration .container .seats {
@@ -6664,6 +6665,7 @@ hr {
 .pricing-registration .container .seats .seats-heading {
   font-weight: 100;
   margin: 1em;
+  font-size: 26px;
 }
 .pricing-registration .container .seats .seat {
   float: left;
@@ -6672,6 +6674,7 @@ hr {
 }
 .pricing-registration .container .seats .seat.seat-open {
   opacity: 0.3;
+  font-weight: 300;
 }
 .pricing-registration .container .seats .seat .seat-label {
   font-size: 0.825em;
