@@ -30,10 +30,10 @@
           $scope.applicationErrors = [];
           $scope.isProcessingPayment = false;
           $scope.card = {
-             number: '4242 4242 4242 4242',
-             expMonth: '12',
-             expYear: 2015,
-             cvc: '232'
+             //number: '4242 4242 4242 4242',
+             //expMonth: '12',
+             //expYear: 2015,
+             //cvc: '232'
           };
 
           $scope.getPricing();
