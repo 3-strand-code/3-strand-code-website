@@ -4,6 +4,8 @@
     var gulp = require('gulp');
     var runSequence = require('run-sequence');
     var plumber = require('gulp-plumber');
+    
+    var inProduction = process.env.NODE_ENV === 'production';
 
     var paths = {
         root: './',
@@ -51,8 +53,7 @@
                 constants: {
                     TSC_KINVEY_APP_KEY: process.env.TSC_KINVEY_APP_KEY,
                     TSC_KINVEY_APP_SECRET: process.env.TSC_KINVEY_APP_SECRET,
-                    TSC_STRIPE_LIVE_PUBLISHABLE_KEY: process.env.TSC_STRIPE_LIVE_PUBLISHABLE_KEY,
-                    TSC_STRIPE_TEST_PUBLISHABLE_KEY: process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY,
+                    TSC_STRIPE_PUBLISHABLE_KEY: inProduction ? process.env.TSC_STRIPE_LIVE_PUBLISHABLE_KEY : process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY,
                 }
             }))
             .pipe(gulp.dest(paths.components + 'env'));

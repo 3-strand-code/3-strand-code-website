@@ -20,7 +20,7 @@
 
     .run(function($rootScope, $kinvey, ENV) {
       $rootScope.$kinvey = $kinvey;
-      Stripe.setPublishableKey(ENV.TSC_STRIPE_TEST_PUBLISHABLE_KEY);
+      Stripe.setPublishableKey(ENV.TSC_STRIPE_PUBLISHABLE_KEY);
     })
 
     .controller('Controller', ['$scope', '$kinvey', '$http', '$interval', '$q',
@@ -54,6 +54,10 @@
         };
 
         $scope.$watch('card.number', function(newVal, oldVal) {
+          if (newVal === undefined || oldVal === undefined) {
+            return;
+          }
+
           var reValidDigits = new RegExp(/^( *\d *){16}$/g);
           var isValidDigits = newVal.match(reValidDigits) || false;
 
@@ -188,7 +192,9 @@
           console.log('Kinvey Ping Failed. Response: ' + error.description);
         });
 
-        angular.bootstrap(document.documentElement, ['App']);
+        angular.element(document).ready(function() {
+          angular.bootstrap(document, ['App']);
+        });
 
       }, function(err) {
         console.error('Kinvey init error', err);
