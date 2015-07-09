@@ -20,7 +20,7 @@ This is the landing page for 3 Strand Code.
 
 1. `node web.js`
 1. `gulp`
-1. open `https://localhost:8000` in browser
+1. open `https://localhost:8000` in browser, **Note https:*
 
 ## Development
 
