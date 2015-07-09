@@ -20,7 +20,7 @@
 
     .run(function($rootScope, $kinvey, ENV) {
       $rootScope.$kinvey = $kinvey;
-      Stripe.setPublishableKey(ENV.TSC_STRIPE_PUBLISHABLE_KEY);
+      Stripe.setPublishableKey(ENV.STRIPE_PUBLISHABLE_KEY);
     })
 
     .controller('Controller', ['$scope', '$kinvey', '$http', '$interval', '$q',
@@ -180,8 +180,8 @@
 
   $injector.invoke(['$kinvey', 'ENV', function initAndBootstrap($kinvey, ENV) {
     $kinvey.init({
-      appKey: ENV.TSC_KINVEY_APP_KEY,
-      appSecret: ENV.TSC_KINVEY_APP_SECRET
+      appKey: ENV.KINVEY_APP_KEY,
+      appSecret: ENV.KINVEY_APP_SECRET
     })
       .then(function(activeUser) {
         console.debug('Kinvey init success. User:', activeUser);
