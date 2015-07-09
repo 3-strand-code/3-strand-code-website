@@ -8,29 +8,10 @@ var logfmt = require('logfmt');
 var pkg = require('./package.json');
 var request = require('request');
 
-var inProduction = process.env.NODE_ENV === 'production';
-
 var PROJECT_ROOT = __dirname;
 var SERVER_ROOT = PROJECT_ROOT;
 
-var KINVEY_APP_KEY = process.env.TSC_KINVEY_APP_KEY;
-var KINVEY_APP_SECRET = process.env.TSC_KINVEY_APP_SECRET;
-var KINVEY_MASTER_SECRET = process.env.TSC_KINVEY_MASTER_SECRET;
-
-var STRIPE_TEST_SECRET = process.env.TSC_STRIPE_TEST_SECRET_KEY;
-var STRIPE_TEST_PUBLISHABLE_KEY = process.env.TSC_STRIPE_TEST_PUBLISHABLE_KEY;
-var STRIPE_LIVE_SECRET = process.env.TSC_STRIPE_LIVE_SECRET_KEY;
-var STRIPE_LIVE_PUBLISHABLE_KEY = process.env.TSC_STRIPE_LIVE_PUBLISHABLE_KEY;
-
-var STRIPE_SECRET = inProduction ? STRIPE_LIVE_SECRET : STRIPE_TEST_SECRET;
-var STRIPE_PUBLISHABLE_KEY = inProduction ? STRIPE_LIVE_PUBLISHABLE_KEY : STRIPE_TEST_PUBLISHABLE_KEY;
-
-if (!STRIPE_SECRET)             throw 'STRIPE_SECRET not set.';
-if (!STRIPE_PUBLISHABLE_KEY)    throw 'STRIPE_PUBLISHABLE_KEY not set.';
-
-if (!KINVEY_APP_KEY)            throw 'KINVEY_APP_KEY not set.';
-if (!KINVEY_APP_SECRET)         throw 'KINVEY_APP_SECRET not set.';
-if (!KINVEY_MASTER_SECRET)      throw 'KINVEY_MASTER_SECRET not set.';
+var ENV = require('./get-env.js');
 
 ////
 
@@ -75,7 +56,7 @@ function keepAlive() {
 /////////////////////////////////////////////////////////////
 // SERVER
 
-if (inProduction) {
+if (ENV.IN_PRODUCTION) {
   http.createServer(app).listen(PORT);
   keepAlive();
 } else {
@@ -108,7 +89,7 @@ app.use('/', express.static(__dirname + '/'));
 //
 // Payments
 app.use('/charge', function(req, res) {
-  var stripe = require("stripe")(STRIPE_SECRET);
+  var stripe = require("stripe")(ENV.STRIPE_SECRET);
   var stripeToken = req.body.stripeToken;
   //res.send(req.body);
   var charge = stripe.charges.create({
@@ -145,9 +126,9 @@ app.use('/charge', function(req, res) {
 //
 // Custom kinvey endpoints
 app.use('/kinvey/:endpoint/', function(req, res) {
-  var url = 'https://baas.kinvey.com/rpc/' + encodeURIComponent(KINVEY_APP_KEY) + '/custom/' + req.params.endpoint;
+  var url = 'https://baas.kinvey.com/rpc/' + encodeURIComponent(ENV.KINVEY_APP_KEY) + '/custom/' + req.params.endpoint;
   var headers = {
-    'Authorization': 'Basic ' + new Buffer(KINVEY_APP_KEY + ':' + KINVEY_MASTER_SECRET).toString('base64'),
+    'Authorization': 'Basic ' + new Buffer(ENV.KINVEY_APP_KEY + ':' + ENV.KINVEY_MASTER_SECRET).toString('base64'),
     'Content-Type': 'application/json'
   };
   var form = req.body || {};

@@ -5,22 +5,24 @@ This is the landing page for 3 Strand Code.
 
 ## Install and run
 
+**Clone**
 1. `git clone git@github.com:3-strand-code/3-strand-code-website.git`
 1. `cd 3-strand-code-website`
-1. `npm install`
-1. Set keys (keys available from `heroku config --app three-strand-code`
-)
-    1. `export TSC_KINVEY_APP_KEY="appkey";`
-    1. `export TSC_KINVEY_APP_SECRET="appsecret";`
-    1. `export TSC_KINVEY_MASTER_SECRET="mastersecret";`
-    1. `export TSC_STRIPE_LIVE_PUBLISHABLE_KEY="key";`
-    1. `export TSC_STRIPE_LIVE_SECRET_KEY="key";`
-    1. `export TSC_STRIPE_TEST_PUBLISHABLE_KEY="key";`
-    1. `export TSC_STRIPE_TEST_SECRET_KEY="key";`
 
-1. `node web.js`
-1. `gulp`
-1. open `https://localhost:8000` in browser
+**Setup Environment Keys**
+1. Request access to the Heroku app.
+1. List keys with `heroku config --app three-strand-code`
+1. Set **staging/test** keys only:
+  1. `export TSC_KINVEY_STAGING_APP_KEY="appkey";`
+  1. `export TSC_KINVEY_STAGING_APP_SECRET="appsecret";`
+  1. `export TSC_KINVEY_STAGING_MASTER_SECRET="mastersecret";`
+  1. `export TSC_STRIPE_TEST_PUBLISHABLE_KEY="key";`
+  1. `export TSC_STRIPE_TEST_SECRET_KEY="key";`
+
+**Start Server/Build**
+1. `npm start` - Install dependencies and start dev server.
+1. `gulp` - Start build and watchers.
+1. [https://localhost:8000](https://localhost:8000) open in browser, **Note https:**.
 
 ## Development
 
@@ -36,6 +38,6 @@ This is the landing page for 3 Strand Code.
 
 1. Request access to the Heroku app.
 1. Add your ssh keys to Heroku.
-1. Install the Heroku toolbelt.
+1. Install the [Heroku toolbelt](https://toolbelt.heroku.com/).
 1. Add the 3 Strand Code app as a git remote.
 1. `git push heroku master`
