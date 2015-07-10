@@ -91,5 +91,6 @@ class HomePageSmokeTests(SimpleTest):
         # Seating chart removed
         assert self.dont_find('#pricing-registration section')
 
+
 if __name__ == '__main__':
     unittest.main()
