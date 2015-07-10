@@ -8,6 +8,7 @@ dependencies:
     - "bower_components"
   pre:
     - pip install -r requirements.txt
+    - npm install -g gulp
     - npm install .
     - gulp build
 
