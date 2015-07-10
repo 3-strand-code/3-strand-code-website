@@ -8,10 +8,7 @@ dependencies:
     - "bower_components"
   pre:
     - pip install -r requirements.txt
-  post:
-    - npm install .
 
 test:
   override:
-    - python manage.py test
-    - py.test tests/functional/
+    - python tests.py
