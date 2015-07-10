@@ -6,23 +6,26 @@ This is the landing page for 3 Strand Code.
 ## Install and run
 
 **Clone**
+
 1. `git clone git@github.com:3-strand-code/3-strand-code-website.git`
 1. `cd 3-strand-code-website`
 
 **Setup Environment Keys**
+
 1. Request access to the Heroku app.
 1. List keys with `heroku config --app three-strand-code`
 1. Set **staging/test** keys only:
-  1. `export TSC_KINVEY_STAGING_APP_KEY="appkey";`
-  1. `export TSC_KINVEY_STAGING_APP_SECRET="appsecret";`
-  1. `export TSC_KINVEY_STAGING_MASTER_SECRET="mastersecret";`
-  1. `export TSC_STRIPE_TEST_PUBLISHABLE_KEY="key";`
-  1. `export TSC_STRIPE_TEST_SECRET_KEY="key";`
+  - `export TSC_KINVEY_STAGING_APP_KEY="appkey";`
+  - `export TSC_KINVEY_STAGING_APP_SECRET="appsecret";`
+  - `export TSC_KINVEY_STAGING_MASTER_SECRET="mastersecret";`
+  - `export TSC_STRIPE_TEST_PUBLISHABLE_KEY="key";`
+  - `export TSC_STRIPE_TEST_SECRET_KEY="key";`
 
 **Start Server/Build**
-1. `npm start` - Install dependencies and start dev server.
-1. `gulp` - Start build and watchers.
-1. [https://localhost:8000](https://localhost:8000) open in browser, **Note https:**.
+
+1. `npm start` - Install dependencies and start dev server.  
+1. `gulp` - Start build and watchers.  
+1. [https://localhost:8000](https://localhost:8000) open in browser, **Note https:**.  
 
 ## Development
 
