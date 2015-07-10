@@ -7,7 +7,7 @@ dependencies:
     - "node_modules"
     - "bower_components"
   pre:
-    - pip install -r requirements.txt
+    - gulp build
 
 test:
   override:
