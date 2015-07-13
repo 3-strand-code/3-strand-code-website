@@ -23,18 +23,19 @@
       Stripe.setPublishableKey(ENV.STRIPE_PUBLISHABLE_KEY);
     })
 
-    .controller('Controller', ['$scope', '$kinvey', '$http', '$interval', '$q',
-      function($scope, $kinvey, $http, $interval, $q) {
+    .controller('Controller', ['$scope', '$kinvey', '$http', '$interval', '$q', '$sce',
+      function($scope, $kinvey, $http, $interval, $q, $sce) {
         $scope.init = function() {
           $scope.user = $kinvey.getActiveUser();
           $scope.applicationErrors = [];
           $scope.isProcessingPayment = false;
           $scope.card = {
-             //number: '4242 4242 4242 4242',
-             //expMonth: '12',
-             //expYear: 2015,
-             //cvc: '232'
+            //number: '4242 4242 4242 4242',
+            //expMonth: '12',
+            //expYear: 2015,
+            //cvc: '232'
           };
+          $scope.livereloadUrl = $sce.trustAsResourceUrl('//localhost:35729/livereload.js');
 
           $scope.getPricing();
 
@@ -68,7 +69,7 @@
             oldVal === undefined ||             // ignore undefined
             newVal.length === 0 ||              // ignore empty
             newVal.length < oldVal.length ||    // ignore backspace
-            newVal[newVal.length - 1] === ' '   // ignore trailing space 
+            newVal[newVal.length - 1] === ' '   // ignore trailing space
           ) {
             return;
           }
@@ -107,12 +108,17 @@
 
                 if (response.error) {
                   $scope.applicationErrors.push(response.error.message);
-                  user.paymentErrors.push({date: new Date().toUTCString(), message: response.error.message});
+                  user.paymentErrors.push({
+                    date: new Date().toUTCString(),
+                    message: response.error.message
+                  });
                   $scope.isProcessingPayment = false;
                   $kinvey.User.update(user);
                 } else {
                   $http.post('/charge/', {
-                    stripeToken: response.id, // response contains id and card, which contains additional card details
+                    stripeToken: response.id, // response contains id and
+                                              // card, which contains
+                                              // additional card details
                     expMonth: $scope.applicationForm.expMonth,
                     expYear: $scope.applicationForm.expYear,
                     cvc: $scope.applicationForm.cvc,
@@ -120,12 +126,18 @@
                     description: user.first_name + ' ' + user.last_name + ' - ' + user.email
                   })
                     .success(function(charge) {
-                      user.payments.push({date: new Date().toUTCString(), payment: charge});
+                      user.payments.push({
+                        date: new Date().toUTCString(),
+                        payment: charge
+                      });
                       $scope.isProcessingPayment = false;
                       $kinvey.User.update(user);
                     })
                     .error(function(err) {
-                      user.paymentErrors.push({date: new Date().toUTCString(), message: err});
+                      user.paymentErrors.push({
+                        date: new Date().toUTCString(),
+                        message: err
+                      });
                       $kinvey.User.update(user);
                       $scope.isProcessingPayment = false;
                       $scope.applicationErrors.push(err);
