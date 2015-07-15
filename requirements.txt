@@ -1,0 +1,3 @@
+selenium==2.46.0
+static==1.1.1
+wsgi-liveserver==0.2
