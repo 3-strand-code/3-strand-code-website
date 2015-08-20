@@ -176,7 +176,8 @@
     <div id="register" class="tsc-scroll-anchor"></div>
 
     <section>
-      <div class="row">
+      <div><h1>Registration Coming Soon!</h1><h3>Sign up on our email list to get priority access.</h3></div>
+      <div class="row" ng-hide="true">
         <!-- Logged In & Paid -->
         <div class="logged-in" ng-show="$kinvey.getActiveUser().payments.length > 0">
           <h2>Hello, {{ $kinvey.getActiveUser().first_name }}.</h2>
