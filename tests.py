@@ -87,7 +87,7 @@ class HomePageSmokeTests(SimpleTest):
 
     def test_home_page_contents(self):
         # Jumbotron message
-        assert self.find_text(".jumbotron h1", "Build your own web app with top local pros.")
+        assert self.find_text(".jumbotron h1", "Learn to code with top local pros.")
         # Seating chart removed
         assert self.dont_find('#pricing-registration section')
 

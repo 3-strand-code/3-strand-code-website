@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <meta name="author" content="Levi Thomason"/>
-  <meta name="description" content="3 Strand Code - Build web apps with pros"/>
-  <meta name="keywords" content="learn to code, web development, code school, code bootcamp, learn to code, 3 strand code, three strand code"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta name="author" content="Levi Thomason" />
+  <meta name="description" content="3 Strand Code - Build web apps with pros" />
+  <meta name="keywords" content="learn to code, web development, code school, code bootcamp, learn to code, 3 strand code, three strand code"
+  />
   <link rel="icon" type="image/png" href="favicon.png">
   <title>3 Strand Code</title>
 
@@ -32,338 +35,322 @@
 
 <body ng-controller="Controller" ng-cloak>
 
-<navbar></navbar>
+  <navbar></navbar>
 
-<div id="top" class="tsc-scroll-anchor"></div>
+  <div id="top" class="tsc-scroll-anchor"></div>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1>
-      Build your own web app with top local pros.
+  <div class="jumbotron">
+    <div class="container">
+      <h1>
+      Learn to code with top local pros.
       <span class="sub-heading">Awarding University of Idaho certificates and more.</span>
     </h1>
 
-    <a href="/#register" class="tsc-btn tsc-btn-white">
-      Register
+      <a href="/#register" class="tsc-btn tsc-btn-white">
+      Subscribe
     </a>
+    </div>
+    <div class="picture"></div>
   </div>
-  <div class="picture"></div>
-</div>
 
-<div id="process" class="tsc-scroll-anchor"></div>
+  <div id="process" class="tsc-scroll-anchor"></div>
 
-<section>
-  <div class="container">
-    <div class="bullets">
-      <div class="row text-center">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
-          <div class="icon">
-            <i class="fa fa-lightbulb-o"></i>
-          </div>
-          <h3>
+  <section>
+    <div class="container">
+      <div class="bullets">
+        <div class="row text-center">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+            <div class="icon">
+              <i class="fa fa-lightbulb-o"></i>
+            </div>
+            <h3>
             Project Pitches
           </h3>
 
-          <p>
-            Pitch your own idea or join up with someone else's.
-            You'll spend the course helping bring it to life with peers and top mentors.
-            It's a sure fire path to learning fast and having a blast.
-          </p>
-          <br class="visible-xs"/>
-          <br class="visible-xs"/>
-        </div>
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
-          <div class="icon">
-            <i class="fa fa-flash"></i>
+            <p>
+              Pitch your own idea or join up with someone else's. You'll spend the course helping bring it to life with peers and top mentors.
+              It's a sure fire path to learning fast and having a blast.
+            </p>
+            <br class="visible-xs" />
+            <br class="visible-xs" />
           </div>
-          <h3>
+          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+            <div class="icon">
+              <i class="fa fa-flash"></i>
+            </div>
+            <h3>
             Agile SCRUM
           </h3>
 
-          <p>
-            3 Strand Code will put you through the Agile ropes executing your own ideas.
-            You'll be prepared to kick off your own projects, or help bring best practices to established.
-          </p>
-          <br class="visible-xs"/>
-          <br class="visible-xs"/>
-        </div>
-
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
-          <div class="icon">
-            <i class="fa fa-comments-o"></i>
+            <p>
+              3 Strand Code will put you through the Agile ropes executing your own ideas. You'll be prepared to kick off your own projects,
+              or help bring best practices to established.
+            </p>
+            <br class="visible-xs" />
+            <br class="visible-xs" />
           </div>
-          <h3>
+
+          <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4">
+            <div class="icon">
+              <i class="fa fa-comments-o"></i>
+            </div>
+            <h3>
             Collaboration
           </h3>
 
-          <p>
-            Our mentors and leaders will work with you hands on and face-to-face.
-            You'll also work with a group of peers throughout the course.
-            The relationships and network you gain here will last forever.
-          </p>
+            <p>
+              Our mentors and leaders will work with you hands on and face-to-face. You'll also work with a group of peers throughout the
+              course. The relationships and network you gain here will last forever.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Pricing and Registration-->
-<div class="pricing-registration">
-  <div class="container">
+  <!-- Pricing and Registration-->
+  <div class="pricing-registration">
+    <div class="container">
 
-    <div id="pricing" class="tsc-scroll-anchor"></div>
-    <section>
-      <h1 class="page-header" ng-hide="$kinvey.getActiveUser().payments.length > 0">Pricing</h1>
+      <div id="pricing" class="tsc-scroll-anchor"></div>
+      <section ng-if="false">
+        <h1 class="page-header" ng-hide="$kinvey.getActiveUser().payments.length > 0">Pricing</h1>
 
-      <!-- Pricing -->
-      <div class="pricing" ng-hide="$kinvey.getActiveUser().payments.length > 0" ng-if="false">
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="description" ng-show="pricing.discounts.left">
-              Next
-              <b>{{ pricing.discounts.left }}</b>
-              to register get
-              <b>{{ pricing.priceInCents.current / pricing.priceInCents.regular * 100 | number:0}}% off</b>
-              .
-            </p>
+        <!-- Pricing -->
+        <div class="pricing" ng-hide="$kinvey.getActiveUser().payments.length > 0">
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="description" ng-show="pricing.discounts.left">
+                Next
+                <b>{{ pricing.discounts.left }}</b> to register get
+                <b>{{ pricing.priceInCents.current / pricing.priceInCents.regular * 100 | number:0}}% off</b> .
+              </p>
 
-            <div class="regular" ng-class="{'slash': pricing.discounts.left}" ng-show="pricing.priceInCents.regular">
-              ${{ pricing.priceInCents.regular / 100 | number}}
-            </div>
-
-            <div class="current" ng-show="pricing.discounts.left && pricing.priceInCents.current">
-              ${{ pricing.priceInCents.current / 100 | number}}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Seats -->
-      <div class="seats" ng-if="false">
-        <hr ng-hide="$kinvey.getActiveUser().payments.length > 0"/>
-        <br ng-hide="$kinvey.getActiveUser().payments.length > 0"/>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="seats-heading">
-              <b>{{ pricing.seats.left.length }}</b> seats left
-            </div>
-
-            <div class="seat seat-filled" ng-repeat="seat in pricing.seats.taken track by $index">
-              <div class="fa-stack">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-check fa-stack-1x text-primary"></i>
+              <div class="regular" ng-class="{'slash': pricing.discounts.left}" ng-show="pricing.priceInCents.regular">
+                ${{ pricing.priceInCents.regular / 100 | number}}
               </div>
-              <div class="seat-label">
-                {{ seat }}
-              </div>
-            </div>
-            <div class="seat seat-open" ng-repeat="seat in pricing.seats.left track by $index">
-              <div class="fa-stack">
-                <!--<i class="fa fa-circle-o fa-stack-2x"></i>-->
-                <i class="fa fa-user fa-stack-1x"></i>
-              </div>
-              <div class="seat-label">
-                open
+
+              <div class="current" ng-show="pricing.discounts.left && pricing.priceInCents.current">
+                ${{ pricing.priceInCents.current / 100 | number}}
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Register -->
-    <div id="register" class="tsc-scroll-anchor"></div>
+        <!-- Seats -->
+        <div class="seats" ng-if="false">
+          <hr ng-hide="$kinvey.getActiveUser().payments.length > 0" />
+          <br ng-hide="$kinvey.getActiveUser().payments.length > 0" />
 
-    <section>
-      <div class="row">
-        <!-- Logged In & Paid -->
-        <div class="logged-in" ng-show="$kinvey.getActiveUser().payments.length > 0">
-          <h2>Hello, {{ $kinvey.getActiveUser().first_name }}.</h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="seats-heading">
+                <b>{{ pricing.seats.left.length }}</b> seats left
+              </div>
 
-          <div class="my-info">
-            {{ $kinvey.getActiveUser().first_name }} {{ $kinvey.getActiveUser().last_name }}
-            <br/>
-            {{ $kinvey.getActiveUser().email }}
+              <div class="seat seat-filled" ng-repeat="seat in pricing.seats.taken track by $index">
+                <div class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-check fa-stack-1x text-primary"></i>
+                </div>
+                <div class="seat-label">
+                  {{ seat }}
+                </div>
+              </div>
+              <div class="seat seat-open" ng-repeat="seat in pricing.seats.left track by $index">
+                <div class="fa-stack">
+                  <!--<i class="fa fa-circle-o fa-stack-2x"></i>-->
+                  <i class="fa fa-user fa-stack-1x"></i>
+                </div>
+                <div class="seat-label">
+                  open
+                </div>
+              </div>
+            </div>
           </div>
-          <br/>
+        </div>
+      </section>
 
-          <p>
-            You're registered!
-            <br/>
-            Watch your email for updates.
+      <!-- Register -->
+      <div id="register" class="tsc-scroll-anchor"></div>
+
+      <section>
+        <div>
+          <h1>Subscribe</h1>
+          <p class="lead">
+            Join our email list for priority access.
           </p>
-          <br/>
-          <button class="tsc-btn tsc-btn-white" ng-click="logout()">
-            Sign Out
-          </button>
         </div>
+        <!-- Begin MailChimp Signup Form -->
 
-        <!-- Logged Out or Not Paid -->
-        <div class="registration" ng-hide="$kinvey.getActiveUser().payments.length > 0">
-          <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-
-            <h1 class="page-header">Register</h1>
-
-            <form class="application-form"
-                  name="applicationForm"
-                  method="POST"
-                  id="application-form"
-                  ng-submit="submitPayment()">
-              <!-- Personal Info -->
-              <label>Attendee</label>
-
-              <div class="row">
-                <div class="col-xs-6">
-                  <div class="form-group">
-                    <input class="form-control"
-                           ng-class="{'is-valid': applicationForm.first_name.$valid, 'is-dirty': applicationForm.first_name.$dirty && applicationForm.first_name.hasBlurred}"
-                           ng-blur="applicationForm.first_name.hasBlurred = applicationForm.first_name.$dirty"
-                           ng-model="user.first_name"
-                           name="first_name"
-                           type="text"
-                           placeholder="First name"
-                           required="required"/>
-                  </div>
-                </div>
-
-                <div class="col-xs-6">
-                  <div class="form-group">
-                    <input class="form-control"
-                           ng-class="{'is-valid': applicationForm.last_name.$valid, 'is-dirty': applicationForm.last_name.$dirty && applicationForm.last_name.hasBlurred}"
-                           ng-blur="applicationForm.last_name.hasBlurred = applicationForm.last_name.$dirty"
-                           ng-model="user.last_name"
-                           name="last_name"
-                           type="text"
-                           placeholder="Last name"
-                           required="required"/>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="row">
+        <div class="registration col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+          <form action="//3strandcode.us11.list-manage.com/subscribe/post?u=c62cb1605953f95b18d25bb7f&amp;id=00cefa76ec" method="post"
+           name="mcEmbeddedSubscribeForm" class="application-form" target="_blank">
+             <div class="row">
                 <div class="col-xs-12">
                   <div class="form-group">
-                    <input class="form-control"
-                           ng-class="{'is-valid': applicationForm.email.$valid, 'is-dirty': applicationForm.email.$dirty && applicationForm.email.hasBlurred}"
-                           ng-blur="applicationForm.email.hasBlurred = applicationForm.email.$dirty"
-                           ng-model="user.email"
-                           name="email"
-                           type="email"
-                           placeholder="Email"
-                           required="required"/>
+                    <input
+                      class="form-control input-lg"
+                      type="email"
+                      name="EMAIL"
+                      id="mce-EMAIL"
+                      placeholder="Email"
+                      ng-model="mceEmail"
+                      required
+                      ng-class="{'is-valid': mcEmbeddedSubscribeForm.$valid, 'is-dirty': mcEmbeddedSubscribeForm.EMAIL.$dirty}"
+                      >
                   </div>
                 </div>
               </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;">
+                <input type="text" name="b_c62cb1605953f95b18d25bb7f_00cefa76ec" tabindex="-1" value="">
+              </div>
+              <div class="text-center">
+                <button type="submit" class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block" ng-disabled="!mcEmbeddedSubscribeForm.$valid">
+                  <span>Subscribe</span>
+                </button>
+              </div>
+              <br><br>
+          </form>
+        </div>
+        <!-- End MailChimp Signup Form -->
 
-              <!-- Card info -->
-              <div class="card-info">
-                <label>Payment</label>
+        <div class="row" ng-hide="true">
+          <!-- Logged In & Paid -->
+          <div class="logged-in" ng-show="$kinvey.getActiveUser().payments.length > 0">
+            <h2>Hello, {{ $kinvey.getActiveUser().first_name }}.</h2>
 
-                <div class="form-group">
-                  <input class="form-control"
-                         ng-class="{'is-valid': applicationForm.number.$valid, 'is-dirty': applicationForm.number.$dirty && applicationForm.number.hasBlurred}"
-                         ng-blur="applicationForm.number.hasBlurred = applicationForm.number.$dirty"
-                         type="text"
-                         name="number"
-                         size="20"
-                         data-stripe="number"
-                         placeholder="Card Number"
-                         ng-model="card.number"
-                         maxlength="19"
-                         required="required"/>
+            <div class="my-info">
+              {{ $kinvey.getActiveUser().first_name }} {{ $kinvey.getActiveUser().last_name }}
+              <br/> {{ $kinvey.getActiveUser().email }}
+            </div>
+            <br/>
+
+            <p>
+              You're registered!
+              <br/> Watch your email for updates.
+            </p>
+            <br/>
+            <button class="tsc-btn tsc-btn-white" ng-click="logout()">
+              Sign Out
+            </button>
+          </div>
+
+          <!-- Logged Out or Not Paid -->
+          <div class="registration" ng-hide="$kinvey.getActiveUser().payments.length > 0">
+            <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+
+              <h1 class="page-header">Register</h1>
+
+              <form class="application-form" name="applicationForm" method="POST" id="application-form" ng-submit="submitPayment()">
+                <!-- Personal Info -->
+                <label>Attendee</label>
+
+                <div class="row">
+                  <div class="col-xs-6">
+                    <div class="form-group">
+                      <input class="form-control" ng-class="{'is-valid': applicationForm.first_name.$valid, 'is-dirty': applicationForm.first_name.$dirty && applicationForm.first_name.hasBlurred}"
+                      ng-blur="applicationForm.first_name.hasBlurred = applicationForm.first_name.$dirty" ng-model="user.first_name"
+                      name="first_name" type="text" placeholder="First name" required="required" />
+                    </div>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <div class="form-group">
+                      <input class="form-control" ng-class="{'is-valid': applicationForm.last_name.$valid, 'is-dirty': applicationForm.last_name.$dirty && applicationForm.last_name.hasBlurred}"
+                      ng-blur="applicationForm.last_name.hasBlurred = applicationForm.last_name.$dirty" ng-model="user.last_name"
+                      name="last_name" type="text" placeholder="Last name" required="required" />
+                    </div>
+
+                  </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-xs-4">
+                  <div class="col-xs-12">
                     <div class="form-group">
-                      <input class="form-control"
-                             ng-class="{'is-valid': applicationForm.expMonth.$valid, 'is-dirty': applicationForm.expMonth.$dirty && applicationForm.expMonth.hasBlurred}"
-                             ng-blur="applicationForm.expMonth.hasBlurred = applicationForm.expMonth.$dirty"
-                             type="text"
-                             name="expMonth"
-                             size="2"
-                             ng-minlength="2"
-                             ng-maxlength="2"
-                             data-stripe="exp-month"
-                             placeholder="MM"
-                             ng-model="card.expMonth"
-                             required="required"/>
-                    </div>
-                  </div>
-
-                  <div class="col-xs-4">
-                    <div class="form-group">
-                      <input class="form-control"
-                             ng-class="{'is-valid': applicationForm.expYear.$valid, 'is-dirty': applicationForm.expYear.$dirty && applicationForm.expYear.hasBlurred}"
-                             ng-blur="applicationForm.expYear.hasBlurred = applicationForm.expYear.$dirty"
-                             type="number"
-                             name="expYear"
-                             size="4"
-                             ng-minlength="4"
-                             ng-maxlength="4"
-                             data-stripe="exp-year"
-                             placeholder="YYYY"
-                             ng-model="card.expYear"
-                             required="required"/>
-                    </div>
-                  </div>
-
-                  <div class="col-xs-4">
-                    <div class="form-group">
-                      <input class="form-control"
-                             ng-class="{'is-valid': applicationForm.cvc.$valid, 'is-dirty': applicationForm.cvc.$dirty && applicationForm.cvc.hasBlurred}"
-                             ng-blur="applicationForm.cvc.hasBlurred = applicationForm.cvc.$dirty"
-                             type="text"
-                             size="4"
-                             name="cvc"
-                             data-stripe="cvc"
-                             placeholder="CVC"
-                             ng-minlength="3"
-                             ng-maxlength="4"
-                             ng-model="card.cvc"
-                             required="required"/>
+                      <input class="form-control" ng-class="{'is-valid': applicationForm.email.$valid, 'is-dirty': applicationForm.email.$dirty && applicationForm.email.hasBlurred}"
+                      ng-blur="applicationForm.email.hasBlurred = applicationForm.email.$dirty" ng-model="user.email" name="email"
+                      type="email" placeholder="Email" required="required" />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <br/>
+                <!-- Card info -->
+                <div class="card-info">
+                  <label>Payment</label>
 
-              <div class="alert alert-danger" ng-show="applicationErrors.length > 0">
-                <div ng-repeat="err in applicationErrors">{{ err }}</div>
-              </div>
+                  <div class="form-group">
+                    <input class="form-control" ng-class="{'is-valid': applicationForm.number.$valid, 'is-dirty': applicationForm.number.$dirty && applicationForm.number.hasBlurred}"
+                    ng-blur="applicationForm.number.hasBlurred = applicationForm.number.$dirty" type="text" name="number"
+                    size="20" data-stripe="number" placeholder="Card Number" ng-model="card.number" maxlength="19" required="required"
+                    />
+                  </div>
 
-              <div class="text-center">
-                <button type="submit"
-                        class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block"
-                        ng-disabled="applicationForm.$invalid || isProcessingPayment">
-                  <span ng-hide="isProcessingPayment">Register @ {{ pricing.priceInCents.current / 100 | currency}}</span>
-                  <span ng-show="isProcessingPayment"><i class="fa fa-pulse fa-spinner"></i></span>
-                </button>
-              </div>
-            </form>
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <input class="form-control" ng-class="{'is-valid': applicationForm.expMonth.$valid, 'is-dirty': applicationForm.expMonth.$dirty && applicationForm.expMonth.hasBlurred}"
+                        ng-blur="applicationForm.expMonth.hasBlurred = applicationForm.expMonth.$dirty" type="text" name="expMonth"
+                        size="2" ng-minlength="2" ng-maxlength="2" data-stripe="exp-month" placeholder="MM" ng-model="card.expMonth"
+                        required="required" />
+                      </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <input class="form-control" ng-class="{'is-valid': applicationForm.expYear.$valid, 'is-dirty': applicationForm.expYear.$dirty && applicationForm.expYear.hasBlurred}"
+                        ng-blur="applicationForm.expYear.hasBlurred = applicationForm.expYear.$dirty" type="number" name="expYear"
+                        size="4" ng-minlength="4" ng-maxlength="4" data-stripe="exp-year" placeholder="YYYY" ng-model="card.expYear"
+                        required="required" />
+                      </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <input class="form-control" ng-class="{'is-valid': applicationForm.cvc.$valid, 'is-dirty': applicationForm.cvc.$dirty && applicationForm.cvc.hasBlurred}"
+                        ng-blur="applicationForm.cvc.hasBlurred = applicationForm.cvc.$dirty" type="text" size="4" name="cvc"
+                        data-stripe="cvc" placeholder="CVC" ng-minlength="3" ng-maxlength="4" ng-model="card.cvc" required="required"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <br/>
+
+                <div class="alert alert-danger" ng-show="applicationErrors.length > 0">
+                  <div ng-repeat="err in applicationErrors">{{ err }}</div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block" ng-disabled="applicationForm.$invalid || isProcessingPayment">
+                    <span ng-hide="isProcessingPayment">Register @ {{ pricing.priceInCents.current / 100 | currency}}</span>
+                    <span ng-show="isProcessingPayment"><i class="fa fa-pulse fa-spinner"></i></span>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+    <div class="picture"></div>
   </div>
-  <div class="picture"></div>
-</div>
 
-<mentors></mentors>
+  <mentors></mentors>
 
-<faq></faq>
+  <faq></faq>
 
-<a href="/#contact" id="contact-widget">
-  <i class="fa fa-comments-o"></i>
-</a>
-<footer>
-  <div class="container">&copy; 2015 3 Strand Code</div>
-</footer>
+  <a href="/#contact" id="contact-widget">
+    <i class="fa fa-comments-o"></i>
+  </a>
+  <footer>
+    <div class="container">&copy; 2015 3 Strand Code</div>
+  </footer>
 
-<script ng-if="!ENV.IN_PRODUCTION" ng-src="{{livereloadUrl}}"></script>
+  <script ng-if="!ENV.IN_PRODUCTION" ng-src="{{livereloadUrl}}"></script>
 
 </body>
+
 </html>
