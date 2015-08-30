@@ -6,6 +6,9 @@
   border: none;
   border-radius: 0;
   resize: vertical;
+  &:focus {
+    box-shadow: inset 2px 0 0 0 fade(#FFF, 30);
+  }
   &.is-dirty {
     box-shadow: inset 2px 0 0 0 @tsc-brand-attention;
     &:not(:focus):not(.is-valid) {
@@ -14,9 +17,6 @@
     &.is-valid {
       box-shadow: inset 2px 0 0 0 yellowgreen;
     }
-  }
-  &:focus {
-    box-shadow: inset 2px 0 0 0 fade(#000, 30);
   }
 }
 

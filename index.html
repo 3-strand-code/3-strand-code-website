@@ -113,7 +113,7 @@
     <div class="container">
 
       <div id="pricing" class="tsc-scroll-anchor"></div>
-      <section>
+      <section ng-if="false">
         <h1 class="page-header" ng-hide="$kinvey.getActiveUser().payments.length > 0">Pricing</h1>
 
         <!-- Pricing -->
@@ -177,17 +177,26 @@
       <section>
         <div>
           <h1>Registration Coming Soon!</h1>
-          <h3>Subscribe to our email list to get priority access.</h3>
+          <p>Subscribe to our email list to get priority access.</p>
         </div>
         <!-- Begin MailChimp Signup Form -->
         <div class="registration col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
           <form action="//3strandcode.us11.list-manage.com/subscribe/post?u=c62cb1605953f95b18d25bb7f&amp;id=00cefa76ec" method="post"
-           name="mc-embedded-subscribe-form" class="application-form" target="_blank">
+           name="mcEmbeddedSubscribeForm" class="application-form" target="_blank">
              <div class="row">
                 <div class="col-xs-12">
                   <div class="form-group">
-                    <input class="form-control" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Email" required>
-                  </div>  
+                    <input
+                      class="form-control"
+                      type="email"
+                      name="EMAIL"
+                      id="mce-EMAIL"
+                      placeholder="Email"
+                      ng-model="mceEmail"
+                      required
+                      ng-class="{'is-valid': mcEmbeddedSubscribeForm.$valid, 'is-dirty': mcEmbeddedSubscribeForm.EMAIL.$dirty}"
+                      >
+                  </div>
                 </div>
               </div>
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -195,10 +204,10 @@
                 <input type="text" name="b_c62cb1605953f95b18d25bb7f_00cefa76ec" tabindex="-1" value="">
               </div>
               <div class="text-center">
-                <button type="submit" class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block">
-                  <span>Subscribe</span> 
+                <button type="submit" class="tsc-btn tsc-btn-white tsc-btn-lg tsc-btn-block" ng-disabled="!mcEmbeddedSubscribeForm.$valid">
+                  <span>Subscribe</span>
                 </button>
-              </div>    
+              </div>
               <br><br>
           </form>
         </div>
